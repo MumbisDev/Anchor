@@ -10,18 +10,30 @@ seed_commands = AppGroup('seed')
 @seed_commands.command('all')
 def seed():
     if environment == 'production':
-        # Add all undo functions here
+        # Create schema if it doesn't exist
+        db.session.execute(f'CREATE SCHEMA IF NOT EXISTS {SCHEMA}')
+        db.session.commit()
+        
+        # Undo all existing data
         undo_daily_entries()
         undo_habits()
         undo_stats()
         undo_users()
+        
+    # Seed in correct order (users first, then related data)
     seed_users()
-    seed_habits()
-    seed_daily_entries()
-    seed_stats()
+    seed_stats()  # Stats depend on users
+    seed_habits()  # Habits depend on users
+    seed_daily_entries()  # Daily entries depend on both users and habits
 
 @seed_commands.command('undo')
 def undo():
+    if environment == "production":
+        # Create schema if it doesn't exist
+        db.session.execute(f'CREATE SCHEMA IF NOT EXISTS {SCHEMA}')
+        db.session.commit()
+    
+    # Remove in reverse order of dependencies
     undo_daily_entries()
     undo_habits()
     undo_stats()
