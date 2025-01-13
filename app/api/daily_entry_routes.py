@@ -30,18 +30,32 @@ def create_entry():
     """
     Create a new daily entry
     """
-    data = request.json
-    entry = DailyEntry(
-        user_id=current_user.id,
-        habit_id=data.get('habit_id'),
-        improvement_note=data.get('improvement_note'),
-        compound_meter_increment=data.get('compound_meter_increment', 1.0),
-        image_url=data.get('image_url')
-    )
-    db.session.add(entry)
-    db.session.commit()
-    return entry.to_dict()
+    try:
+        data = request.json
+        
+        # Validate required fields
+        if not data:
+            return {'errors': {'message': 'No data provided'}}, 400
 
+        # Create the entry
+        entry = DailyEntry(
+            user_id=current_user.id,
+            habit_id=data.get('habit_id'),
+            improvement_note=data.get('improvement_note'),
+            compound_meter_increment=data.get('compound_meter_increment', 1.0),
+            image_url=data.get('image_url')
+        )
+
+        db.session.add(entry)
+        db.session.commit()
+        
+        return entry.to_dict()
+
+    except Exception as e:
+        db.session.rollback()  # Rollback in case of error
+        print(f"Error creating entry: {str(e)}")  # Log the error
+        return {'errors': {'message': str(e)}}, 500
+    
 @daily_entry_routes.route('/<int:id>', methods=['PUT'])
 @login_required
 def update_entry(id):
