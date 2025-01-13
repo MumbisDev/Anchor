@@ -19,7 +19,4 @@ RUN pip install psycopg2
 
 COPY . .
 
-# Make the entrypoint script executable
-RUN chmod +x entrypoint.sh
-
-CMD ["./entrypoint.sh"]
+CMD ["gunicorn", "app:app"]
