@@ -19,6 +19,13 @@ RUN pip install psycopg2
 
 COPY . .
 
-RUN flask db upgrade
-RUN flask seed all
-CMD gunicorn app:app
+# Create a script to run our database setup
+RUN echo '#!/bin/sh\n\
+    psql $DATABASE_URL -c "CREATE SCHEMA IF NOT EXISTS $SCHEMA";\n\
+    flask db upgrade;\n\
+    flask seed all;\n\
+    gunicorn app:app' > /var/www/entrypoint.sh
+
+RUN chmod +x /var/www/entrypoint.sh
+
+CMD ["/var/www/entrypoint.sh"]

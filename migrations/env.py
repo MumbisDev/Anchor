@@ -1,5 +1,7 @@
 from __future__ import with_statement
 
+import os
+
 import logging
 from logging.config import fileConfig
 
@@ -15,6 +17,9 @@ config = context.config
 # This line sets up loggers basically.
 fileConfig(config.config_file_name)
 logger = logging.getLogger('alembic.env')
+
+environment = os.getenv("FLASK_ENV")
+SCHEMA = os.environ.get("SCHEMA")
 
 
 def get_engine():
@@ -94,7 +99,8 @@ def run_migrations_online():
             process_revision_directives=process_revision_directives,
             **current_app.extensions['migrate'].configure_args
         )
-
+        if environment == "production":
+            connection.execute(f"CREATE SCHEMA IF NOT EXISTS {SCHEMA}")    
         with context.begin_transaction():
             context.run_migrations()
 
