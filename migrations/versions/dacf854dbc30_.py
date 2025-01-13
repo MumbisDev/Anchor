@@ -45,7 +45,7 @@ def upgrade():
     sa.Column('icon_url', sa.String(length=255), nullable=True),
     sa.Column('created_at', sa.DateTime(), nullable=True),
     sa.Column('updated_at', sa.DateTime(), nullable=True),
-    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
+    sa.ForeignKeyConstraint(['user_id'], ['anchor_schema.users.id'], ),  # Fixed
     sa.PrimaryKeyConstraint('id'),
     schema='anchor_schema'
     )
@@ -58,7 +58,7 @@ def upgrade():
     sa.Column('level', sa.Integer(), nullable=True),
     sa.Column('created_at', sa.DateTime(), nullable=True),
     sa.Column('updated_at', sa.DateTime(), nullable=True),
-    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
+    sa.ForeignKeyConstraint(['user_id'], ['anchor_schema.users.id'], ),  # Fixed
     sa.PrimaryKeyConstraint('id'),
     schema='anchor_schema'
     )
@@ -71,8 +71,8 @@ def upgrade():
     sa.Column('image_url', sa.String(length=255), nullable=True),
     sa.Column('created_at', sa.DateTime(), nullable=True),
     sa.Column('updated_at', sa.DateTime(), nullable=True),
-    sa.ForeignKeyConstraint(['habit_id'], ['habits.id'], ),
-    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
+    sa.ForeignKeyConstraint(['habit_id'], ['anchor_schema.habits.id'], ),  # Fixed
+    sa.ForeignKeyConstraint(['user_id'], ['anchor_schema.users.id'], ),  # Fixed
     sa.PrimaryKeyConstraint('id'),
     schema='anchor_schema'
     )
