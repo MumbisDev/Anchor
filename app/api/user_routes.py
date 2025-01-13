@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify
 from flask_login import login_required
-from app.models import User
+from app.models import User, Stats
 
 user_routes = Blueprint('users', __name__)
 
@@ -19,7 +19,16 @@ def users():
 @login_required
 def user(id):
     """
-    Query for a user by id and returns that user in a dictionary
+    Query for a user by id and returns that user in a dictionary with their stats
     """
     user = User.query.get(id)
-    return user.to_dict()
+    user_dict = user.to_dict()
+    
+    # Get user's stats
+    stats = Stats.query.filter(Stats.user_id == id).first()
+    if stats:
+        user_dict['stats'] = stats.to_dict()
+    else:
+        user_dict['stats'] = None
+        
+    return user_dict
