@@ -2,6 +2,7 @@ import { useState } from "react";
 import { thunkLogin } from "../../redux/session";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
+import SignupFormModal from "../SignupFormModal";
 import "./LoginForm.css";
 
 function LoginFormModal() {
@@ -28,33 +29,49 @@ function LoginFormModal() {
     }
   };
 
+  const openSignupModal = (e) => {
+    e.preventDefault();
+    setModalContent(<SignupFormModal />);
+  };
+
   return (
-    <>
-      <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Email
+    <div className="login-modal">
+      <h1>Welcome back</h1>
+      <form onSubmit={handleSubmit} className="login-form">
+        <div className="input-group">
+          <label>Email</label>
           <input
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
+            placeholder="john.doe@example.com"
           />
-        </label>
-        {errors.email && <p>{errors.email}</p>}
-        <label>
-          Password
+          {errors.email && <p className="error-message">{errors.email}</p>}
+        </div>
+
+        <div className="input-group">
+          <label>Password</label>
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-        </label>
-        {errors.password && <p>{errors.password}</p>}
-        <button type="submit">Log In</button>
+          {errors.password && <p className="error-message">{errors.password}</p>}
+        </div>
+
+        <button type="submit" className="login-button">
+          Sign In
+        </button>
+
+        <div className="divider">or</div>
+
+        <a href="#" onClick={openSignupModal} className="create-account">
+          Create an account
+        </a>
       </form>
-    </>
+    </div>
   );
 }
 

@@ -1,0 +1,103 @@
+/* SignupForm.css */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+
+.signup-modal {
+    width: 600px;
+    background-color: #2a2a2a;
+    border-radius: 8px;
+    padding: 40px;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.signup-modal h1 {
+    color: #e0e0e0;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group label {
+    color: #949494;
+    font-size: 14px;
+}
+
+.input-group input {
+    height: 50px;
+    background-color: #1a1a1a;
+    border: 1px solid #3a3a3a;
+    border-radius: 4px;
+    padding: 0 20px;
+    color: #e0e0e0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+    width: 520px;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #5f9ea0;
+}
+
+.signup-button {
+    height: 50px;
+    width: 520px;
+    background-color: #5f9ea0;
+    border: none;
+    border-radius: 4px;
+    color: #e0e0e0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.signup-button:hover {
+    background-color: #4f8e90;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: #949494;
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: #3a3a3a;
+}
+
+.login-link {
+    color: #5f9ea0;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.login-link:hover {
+    color: #4f8e90;
+}
+
+.error-message {
+    color: #ff6b6b;
+    font-size: 14px;
+    margin-top: -10px;
+}
