@@ -1,17 +1,15 @@
-// habits.js
-// Action Types
-const LOAD_HABITS = "habits/LOAD_HABITS";
+const LOAD_USER_HABITS = "habits/LOAD_USER_HABITS";
 const ADD_HABIT = "habits/ADD_HABIT";
 const UPDATE_HABIT = "habits/UPDATE_HABIT";
 const REMOVE_HABIT = "habits/REMOVE_HABIT";
 
 // Action Creators
 const loadHabits = (habits) => ({
-  type: LOAD_HABITS,
+  type: LOAD_USER_HABITS,
   payload: habits,
 });
 
-const addHabit = (habit) => ({
+export const addHabit = (habit) => ({
   type: ADD_HABIT,
   payload: habit,
 });
@@ -27,34 +25,43 @@ const removeHabit = (habitId) => ({
 });
 
 // Thunks
-export const thunkLoadHabits = () => async (dispatch) => {
+export const getUserHabits = () => async (dispatch, getState) => {
   try {
-    const response = await fetch("/api/habits/user");
+    const userId = getState().session.user.id;
+    const response = await fetch(`/api/habits/user/${userId}`, {
+      credentials: "include",
+    });
+
     if (response.ok) {
-      const habits = await response.json();
-      dispatch(loadHabits(habits));
-      return habits;
+      const data = await response.json();
+      dispatch(loadHabits(data.habits));
+      return data.habits;
     }
   } catch (error) {
-    return { error: "Failed to load habits" };
+    console.error("Error fetching habits:", error);
   }
 };
 
-export const thunkCreateHabit = (habitData) => async (dispatch) => {
+export const createHabit = (habitData) => async (dispatch, getState) => {
   try {
     const response = await fetch("/api/habits", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(habitData),
+      credentials: "include",
     });
 
     if (response.ok) {
       const newHabit = await response.json();
-      dispatch(addHabit(newHabit));
+      // After creating a habit, fetch all habits again to ensure state is in sync
+      dispatch(getUserHabits());
       return newHabit;
     }
   } catch (error) {
-    return { error: "Failed to create habit" };
+    console.error("Error creating habit:", error);
+    throw error;
   }
 };
 
@@ -62,88 +69,58 @@ export const thunkUpdateHabit = (habitId, habitData) => async (dispatch) => {
   try {
     const response = await fetch(`/api/habits/${habitId}`, {
       method: "PUT",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(habitData),
+      credentials: "include",
     });
 
     if (response.ok) {
       const updatedHabit = await response.json();
-      dispatch(updateHabit(updatedHabit));
+      dispatch(updateHabit(updatedHabit)); // Use the action creator here
       return updatedHabit;
     }
   } catch (error) {
-    return { error: "Failed to update habit" };
+    console.error("Error updating habit:", error);
+    throw error;
   }
 };
 
-export const thunkDeleteHabit = (habitId) => async (dispatch) => {
-  try {
-    const response = await fetch(`/api/habits/${habitId}`, {
-      method: "DELETE",
-    });
-
-    if (response.ok) {
-      dispatch(removeHabit(habitId));
-      return { success: true };
-    }
-  } catch (error) {
-    return { error: "Failed to delete habit" };
-  }
-};
-
-// Selectors
-export const selectAllHabits = (state) => Object.values(state.habits.habits);
-export const selectHabitById = (state, habitId) => state.habits.habits[habitId];
-
-// Initial State
 const initialState = {
-  habits: {},
+  userHabits: [],
   isLoading: false,
   error: null,
 };
-
 // Reducer
 const habitsReducer = (state = initialState, action) => {
   switch (action.type) {
-    case LOAD_HABITS: {
-      const habits = {};
-      action.payload.forEach((habit) => {
-        habits[habit.id] = habit;
-      });
+    case LOAD_USER_HABITS:
       return {
         ...state,
-        habits,
+        userHabits: action.payload || [],
         isLoading: false,
         error: null,
       };
-    }
     case ADD_HABIT:
       return {
         ...state,
-        habits: {
-          ...state.habits,
-          [action.payload.id]: action.payload,
-        },
+        userHabits: [...(state.userHabits || []), action.payload],
       };
     case UPDATE_HABIT:
       return {
         ...state,
-        habits: {
-          ...state.habits,
-          [action.payload.id]: {
-            ...state.habits[action.payload.id],
-            ...action.payload,
-          },
-        },
+        userHabits: state.userHabits.map((habit) =>
+          habit.id === action.payload.id ? action.payload : habit
+        ),
       };
-    case REMOVE_HABIT: {
-      const newHabits = { ...state.habits };
-      delete newHabits[action.payload];
+    case REMOVE_HABIT:
       return {
         ...state,
-        habits: newHabits,
+        userHabits: state.userHabits.filter(
+          (habit) => habit.id !== action.payload
+        ),
       };
-    }
     default:
       return state;
   }

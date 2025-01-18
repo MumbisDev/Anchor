@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import { Provider as ReduxProvider } from "react-redux";
 import { RouterProvider } from "react-router-dom";
@@ -10,18 +10,30 @@ import "./index.css";
 
 const store = configureStore();
 
-if (import.meta.env.MODE !== "production") {
-  window.store = store;
-  window.sessionActions = sessionActions;
+function Root() {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    store.dispatch(sessionActions.thunkAuthenticate())
+      .then(() => setIsLoaded(true));
+  }, []);
+
+  return (
+    <>
+      {isLoaded && (
+        <ReduxProvider store={store}>
+          <ModalProvider>
+            <RouterProvider router={router} />
+            <Modal />
+          </ModalProvider>
+        </ReduxProvider>
+      )}
+    </>
+  );
 }
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <ReduxProvider store={store}>
-      <ModalProvider>
-        <RouterProvider router={router} />
-        <Modal />
-      </ModalProvider>
-    </ReduxProvider>
+    <Root />
   </React.StrictMode>
 );

@@ -8,6 +8,7 @@ def seed_habits():
             name='Daily Exercise',
             description='30 minutes of exercise daily',
             target_frequency=7,
+            active_days='1111111',  # Active all days
             icon_url='https://example.com/exercise-icon.png'
         ),
         Habit(
@@ -15,6 +16,7 @@ def seed_habits():
             name='Reading',
             description='Read for 20 minutes',
             target_frequency=5,
+            active_days='1111100',  # Active Monday-Friday
             icon_url='https://example.com/reading-icon.png'
         ),
         Habit(
@@ -22,6 +24,7 @@ def seed_habits():
             name='Meditation',
             description='10 minutes meditation',
             target_frequency=7,
+            active_days='1111111',  # Active all days
             icon_url='https://example.com/meditation-icon.png'
         )
     ]

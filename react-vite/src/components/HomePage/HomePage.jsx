@@ -1,68 +1,101 @@
-import React from 'react';
-import Navigation from '../Navigation';
-import ProfileButton from '../Navigation/ProfileButton';
+import React, { useEffect, useState, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUserHabits } from '../../redux/habits';
+import { useModal } from '../../context/Modal';
+import CreateHabitModal from '../CreateHabitModal';
+import HabitMenu from '../HabitMenu';
 import './HomePage.css';
+import EditHabitModal from '../EditHabitModal';
 
 const HomePage = () => {
+    const dispatch = useDispatch();
+    const { setModalContent } = useModal();
+    const habits = useSelector(state => state.habits.userHabits);
+    const isLoading = useSelector(state => state.habits.isLoading);
+    const [activeMenu, setActiveMenu] = useState(null);
+    const [menuPosition, setMenuPosition] = useState({ top: 0, left: 0 });
+
+    useEffect(() => {
+        dispatch(getUserHabits());
+    }, [dispatch]);
+
+    const openCreateHabitModal = () => {
+        setModalContent(<CreateHabitModal />);
+    };
+
+    const toggleMenu = (habitId, e) => {
+        e.stopPropagation();
+        if (activeMenu === habitId) {
+            setActiveMenu(null);
+        } else {
+            const rect = e.currentTarget.getBoundingClientRect();
+            setMenuPosition({
+                top: rect.top,
+                left: rect.right + 20 // 20px offset from the habit item
+            });
+            setActiveMenu(habitId);
+        }
+    };
+
+    const handleEdit = (habit) => {
+        setModalContent(<EditHabitModal habit={habit} />);
+        setActiveMenu(null);
+    };
+
+    const handleDelete = (habit) => {
+        console.log('Delete habit:', habit);
+        setActiveMenu(null);
+    };
+
+    useEffect(() => {
+        const handleClickOutside = () => setActiveMenu(null);
+        document.addEventListener('click', handleClickOutside);
+        return () => document.removeEventListener('click', handleClickOutside);
+    }, []);
+
+    if (isLoading) return <div>Loading...</div>;
+
     return (
         <div className="home-container">
-            {/* Header */}
-            <header className="header">
-                <h1>Anchor</h1>
-                <ProfileButton />
-            </header>
-
-            {/* Navigation */}
-            <Navigation />
-
-            {/* Main Content */}
             <main className="main-content">
-                {/* Level Progress */}
-                <div className="progress-container">
-                    <div className="progress-bar">
-                        <div className="progress-fill" style={{ width: '35%' }}>
-                            <span className="progress-text">Level 12 - 1250/2000 XP</span>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Compound Rate */}
-                <div className="progress-container">
-                    <div className="progress-bar">
-                        <div className="progress-fill" style={{ width: '25%' }}>
-                            <span className="progress-text">Compound Rate: 25%</span>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Habits List */}
+                {/* Progress bars remain the same */}
+                
                 <div className="habits-container">
                     <div className="habits-header">
                         <h2>Active Habits</h2>
-                        <button className="add-habit-btn">
+                        <button className="add-habit-btn" onClick={openCreateHabitModal}>
                             <span>+</span>
                         </button>
                     </div>
                     
                     <div className="habits-list">
-                        <div className="habit-item">
-                            <span className="habit-name">Daily Meditation</span>
-                            <span className="habit-count">×15</span>
-                            <button className="habit-menu">...</button>
-                        </div>
-                        
-                        <div className="habit-item">
-                            <span className="habit-name">Coding Practice</span>
-                            <span className="habit-count">×8</span>
-                            <button className="habit-menu">...</button>
-                        </div>
-                        
-                        <div className="habit-item">
-                            <span className="habit-name">Reading</span>
-                            <span className="habit-count">×5</span>
-                            <button className="habit-menu">...</button>
-                        </div>
-                    </div>
+    {Array.isArray(habits) && habits.length > 0 ? (
+        habits.map(habit => (
+            <div key={habit.id} className="habit-item-container">
+                <div className="habit-item">
+                    <span className="habit-name">{habit.name}</span>
+                    <span className="habit-count">×{habit.streak}</span>
+                    <button 
+                        className="habit-menu-button"
+                        onClick={(e) => toggleMenu(habit.id, e)}
+                    >
+                        •••
+                    </button>
+                </div>
+                {activeMenu === habit.id && (
+                    <HabitMenu 
+                        onEdit={() => handleEdit(habit)}
+                        onDelete={() => handleDelete(habit)}
+                    />
+                )}
+            </div>
+        ))
+    ) : (
+        <div className="no-habits-message">
+            No habits created yet. Click the + button to add one!
+        </div>
+    )}
+</div>
                 </div>
             </main>
         </div>

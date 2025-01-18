@@ -17,6 +17,7 @@ class Habit(db.Model):
     streak = db.Column(db.Integer, default=0)
     level = db.Column(db.Integer, default=1)
     icon_url = db.Column(db.String(255))
+    active_days = db.Column(db.String(7), nullable=False, default='0000000')  # Added this line
     created_at = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc))
     updated_at = db.Column(db.DateTime, default=lambda: datetime.now(timezone.utc), onupdate=lambda: datetime.now(timezone.utc))
 
@@ -34,6 +35,7 @@ class Habit(db.Model):
             'streak': self.streak,
             'level': self.level,
             'icon_url': self.icon_url,
+            'active_days': self.active_days,  # Added this line
             'created_at': self.created_at.isoformat() if self.created_at else None,
             'updated_at': self.updated_at.isoformat() if self.updated_at else None
         }

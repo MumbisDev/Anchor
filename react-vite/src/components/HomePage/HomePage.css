@@ -1,39 +1,9 @@
-/* HomePage.css */
 .home-container {
     min-height: 100vh;
     background-color: #1a1a1a;
     font-family: 'JetBrains Mono', monospace;
 }
 
-/* Header */
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 80px;
-}
-
-.header h1 {
-    color: #e0e0e0;
-    font-size: 28px;
-    font-weight: 700;
-}
-
-.user-icon {
-    width: 40px;
-    height: 40px;
-}
-
-.user-circle {
-    width: 100%;
-    height: 100%;
-    border: 1.5px solid #e0e0e0;
-    border-radius: 50%;
-    background-color: #2a2a2a;
-    position: relative;
-}
-
-/* Main Content */
 .main-content {
     max-width: 1200px;
     margin: 0 auto;
@@ -73,6 +43,7 @@
     background-color: #2a2a2a;
     border-radius: 8px;
     padding: 20px;
+    position: relative;  /* Needed for absolute positioning context */
 }
 
 .habits-header {
@@ -100,6 +71,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.add-habit-btn:hover {
+    background-color: #4a4a4a;
+    transform: scale(1.1);
 }
 
 .habits-list {
@@ -107,16 +84,75 @@
     flex-direction: column;
     gap: 10px;
 }
+.habit-menu-button {
+    color: #e0e0e0;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0 20px;
+    transition: all 0.2s ease;
+    line-height: 1;
+}
 
+.menu-item {
+    width: 100%;
+    height: 45px;
+    padding: 0 20px;
+    background-color: #2a2a2a;
+    border: none;
+    color: #e0e0e0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.menu-item:hover {
+    background-color: #3a3a3a;
+}
+
+
+.menu-divider {
+    height: 1px;
+    margin: 0 10px;
+    background-color: #3a3a3a;
+}
+.habit-item-container {
+    position: relative; /* Container for each habit and its menu */
+    display: flex;
+    align-items: center;
+}
+.habit-menu-button:hover {
+    color: #5f9ea0;
+    transform: scale(1.1);
+}
 .habit-item {
+    width: 100%;
     background-color: #3a3a3a;
     border-radius: 4px;
     height: 70px;
     padding: 0 20px;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 100px 60px;
     align-items: center;
-    justify-content: space-between;
 }
+
+
+.habit-menu-container {
+    position: absolute;
+    left: calc(100% + 10px);
+    top: 50%;
+    transform: translateY(-50%);
+    width: 140px;
+    background-color: #2a2a2a;
+    border: 1px solid #3a3a3a;
+    border-radius: 4px;
+    overflow: hidden;
+    z-index: 1000;
+}
+
 
 .habit-name {
     color: #e0e0e0;
@@ -127,6 +163,7 @@
     color: #5f9ea0;
     font-size: 20px;
     font-weight: 700;
+    justify-self: end;
 }
 
 .habit-menu {
@@ -135,35 +172,5 @@
     border: none;
     font-size: 20px;
     cursor: pointer;
-}
-
-/* User Icon Components */
-.icon-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.head {
-    width: 16px;
-    height: 16px;
-    background-color: #e0e0e0;
-    border-radius: 50%;
-    margin-bottom: 2px;
-}
-
-.body {
-    width: 2px;
-    height: 10px;
-    background-color: #e0e0e0;
-    margin: 0 auto;
-}
-
-.shoulders {
-    width: 20px;
-    height: 10px;
-    border-top: 2px solid #e0e0e0;
-    border-radius: 10px 10px 0 0;
-    margin: -2px auto 0;
+    justify-self: end;
 }
