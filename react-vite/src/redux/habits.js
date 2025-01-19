@@ -87,6 +87,26 @@ export const thunkUpdateHabit = (habitId, habitData) => async (dispatch) => {
   }
 };
 
+export const thunkDeleteHabit = (habitId) => async (dispatch) => {
+  try {
+    const response = await fetch(`/api/habits/${habitId}`, {
+      method: "DELETE",
+      credentials: "include",
+    });
+
+    if (response.ok) {
+      dispatch({
+        type: REMOVE_HABIT,
+        payload: habitId,
+      });
+      return { success: true };
+    }
+  } catch (error) {
+    console.error("Error deleting habit:", error);
+    throw error;
+  }
+};
+
 const initialState = {
   userHabits: [],
   isLoading: false,

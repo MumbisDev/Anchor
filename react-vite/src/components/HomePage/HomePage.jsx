@@ -6,6 +6,8 @@ import CreateHabitModal from '../CreateHabitModal';
 import HabitMenu from '../HabitMenu';
 import './HomePage.css';
 import EditHabitModal from '../EditHabitModal';
+import DeleteConfirmationModal from '../DeleteConfirmationModal';
+import { thunkDeleteHabit } from '../../redux/habits'; 
 
 const HomePage = () => {
     const dispatch = useDispatch();
@@ -43,8 +45,21 @@ const HomePage = () => {
     };
 
     const handleDelete = (habit) => {
-        console.log('Delete habit:', habit);
         setActiveMenu(null);
+        setModalContent(
+            <DeleteConfirmationModal 
+                habit={habit} 
+                onDelete={confirmDelete} 
+            />
+        );
+    };
+
+    const confirmDelete = async (habitId) => {
+        try {
+            await dispatch(thunkDeleteHabit(habitId));
+        } catch (error) {
+            console.error('Error deleting habit:', error);
+        }
     };
 
     useEffect(() => {
