@@ -1,0 +1,130 @@
+.daily-entries-container {
+    min-height: 100vh;
+    background-color: #1a1a1a;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Action Buttons */
+.entry-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.left-actions, .right-actions {
+    display: flex;
+    gap: 20px;
+}
+
+.action-button {
+    height: 40px;
+    width: 160px;
+    background-color: #5f9ea0;
+    border: none;
+    border-radius: 4px;
+    color: #e0e0e0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.action-button:hover {
+    background-color: #4f8e90;
+}
+
+/* Entries List */
+.entries-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.entry-card {
+    background-color: #2a2a2a;
+    border-radius: 8px;
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    min-height: 160px;
+}
+
+.entry-content {
+    flex: 1;
+}
+
+.entry-date {
+    color: #e0e0e0;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.entry-text {
+    color: #e0e0e0;
+    font-size: 14px;
+    line-height: 1.6;
+    white-space: pre-line;
+}
+
+.entry-graph {
+    width: 240px;
+    height: 100px;
+    flex-shrink: 0;
+    overflow: hidden; /* Add this to prevent overflow */
+}
+
+
+.entry-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This will maintain aspect ratio while filling the container */
+    border-radius: 4px;
+}
+
+
+.graph-placeholder {
+    width: 100%;
+    height: 100%;
+    background-color: #3a3a3a;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+}
+/* Add graph placeholder decoration */
+.graph-placeholder::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    right: 20px;
+    height: 2px;
+    background-color: #4a4a4a;
+    transform: translateY(-50%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.entry-card {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.entry-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.entry-card.selected {
+    border: 1px solid #5f9ea0;
+}
+
+.action-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

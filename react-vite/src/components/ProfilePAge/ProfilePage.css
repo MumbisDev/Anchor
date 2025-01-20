@@ -1,0 +1,172 @@
+.profile-container {
+    min-height: 100vh;
+    background-color: #1a1a1a;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Profile Header */
+.profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.avatar-circle {
+    width: 120px;
+    height: 120px;
+    background-color: #2a2a2a;
+    border-radius: 50%;
+    border: 1px solid #3a3a3a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.avatar-circle .user-icon {
+    width: 60px;
+    height: 60px;
+}
+
+
+.avatar-circle .user-icon::before {
+    width: 24px;
+    height: 24px;
+}
+
+
+.avatar-circle .user-icon::after {
+    width: 60px;
+    height: 30px;
+    top: 30px;
+}
+.user-icon {
+    position: relative;
+    width: 60px;
+    height: 60px;
+}
+
+.default-avatar-icon {
+    width: 60px;
+    height: 60px;
+    stroke: #4a4a4a;
+}
+
+.icon-head {
+    width: 16px;
+    height: 16px;
+    background-color: #e0e0e0;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.icon-body {
+    width: 2px;
+    height: 20px;
+    background-color: #e0e0e0;
+    position: absolute;
+    top: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.icon-shoulders {
+    width: 26px;
+    height: 13px;
+    border-top: 2px solid #e0e0e0;
+    border-radius: 12px 12px 0 0;
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.profile-names h1 {
+    color: #e0e0e0;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.username {
+    color: #5f9ea0;
+    font-size: 16px;
+}
+
+.edit-profile-button {
+    padding: 10px 40px;
+    background-color: #5f9ea0;
+    border: none;
+    border-radius: 20px;
+    color: #e0e0e0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.edit-profile-button:hover {
+    background-color: #4f8e90;
+}
+
+/* Settings Sections */
+.settings-section {
+    background-color: #2a2a2a;
+    border-radius: 8px;
+    padding: 40px;
+    margin-bottom: 40px;
+}
+
+.settings-section h2 {
+    color: #e0e0e0;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.settings-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.setting-item {
+    display: flex;
+    gap: 200px;
+}
+
+.setting-label {
+    color: #949494;
+    font-size: 14px;
+    min-width: 150px;
+}
+
+.setting-value {
+    color: #e0e0e0;
+    font-size: 14px;
+}
+
+.setting-toggle {
+    background-color: #3a3a3a;
+    padding: 5px 20px;
+    border-radius: 15px;
+    color: #e0e0e0;
+    font-size: 14px;
+    width: 120px;
+    text-align: center;
+}

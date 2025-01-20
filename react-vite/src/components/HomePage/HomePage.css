@@ -10,32 +10,54 @@
     padding: 20px;
 }
 
-/* Progress Bars */
 .progress-container {
     background-color: #2a2a2a;
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 20px;
 }
-
 .progress-bar {
     height: 60px;
     background-color: rgba(95, 158, 160, 0.3);
     border-radius: 4px;
     overflow: hidden;
+    position: relative;
 }
 
 .progress-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
     height: 100%;
+    width: 100%;
     background-color: #5f9ea0;
-    display: flex;
-    align-items: center;
-    padding-left: 20px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-out;
 }
 
 .progress-text {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
     color: #e0e0e0;
     font-size: 16px;
+    font-family: 'JetBrains Mono', monospace;
+    white-space: nowrap;
+    z-index: 1; /* Ensure text stays above the fill */
+}
+/* Animation for the progress fill */
+@keyframes fillAnimation {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+.progress-fill.updating {
+    animation: fillAnimation 1s ease-in-out;
 }
 
 /* Habits Section */
@@ -90,9 +112,9 @@
     border: none;
     font-size: 24px;
     cursor: pointer;
-    padding: 0 20px;
-    transition: all 0.2s ease;
-    line-height: 1;
+    padding: 0;
+    justify-self: end;
+    z-index: 2;  /* Make sure button is above hover effect */
 }
 
 .menu-item {
@@ -120,10 +142,10 @@
     background-color: #3a3a3a;
 }
 .habit-item-container {
-    position: relative; /* Container for each habit and its menu */
-    display: flex;
-    align-items: center;
+    position: relative;
+    width: 100%;
 }
+
 .habit-menu-button:hover {
     color: #5f9ea0;
     transform: scale(1.1);
@@ -135,11 +157,30 @@
     height: 70px;
     padding: 0 20px;
     display: grid;
-    grid-template-columns: 1fr 100px 60px;
+    grid-template-columns: 1fr 80px 60px;
     align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 
+
+.habit-item:hover {
+    background-color: #3a3a3a;
+}
+
+
+.habit-item:hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #5f9ea0;
+    opacity: 0.1;
+    border-radius: 4px;
+}
 .habit-menu-container {
     position: absolute;
     left: calc(100% + 10px);
@@ -157,15 +198,18 @@
 .habit-name {
     color: #e0e0e0;
     font-size: 16px;
+    position: relative;
 }
+
+
 
 .habit-count {
     color: #5f9ea0;
     font-size: 20px;
     font-weight: 700;
     justify-self: end;
+    transition: color 0.3s ease;
 }
-
 .habit-menu {
     color: #e0e0e0;
     background: none;
@@ -173,4 +217,30 @@
     font-size: 20px;
     cursor: pointer;
     justify-self: end;
+}
+.habit-item.completed {
+    background-color: #5f9ea0;
+    animation: completeAnimation 0.3s ease;
+}
+
+.habit-item.completed .habit-name {
+    text-decoration: line-through;
+}
+
+.habit-item.completed .habit-count {
+    color: #e0e0e0;
+}
+
+@keyframes completeAnimation {
+    0% {
+        transform: scale(1);
+        background-color: #3a3a3a;
+    }
+    50% {
+        transform: scale(1.02);
+    }
+    100% {
+        transform: scale(1);
+        background-color: #5f9ea0;
+    }
 }

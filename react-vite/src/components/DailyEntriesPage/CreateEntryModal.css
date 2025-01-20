@@ -1,0 +1,102 @@
+.create-entry-modal {
+    width: 600px;
+    background-color: #2a2a2a;
+    border-radius: 8px;
+    padding: 40px;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.create-entry-modal h2 {
+    color: #e0e0e0;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+.input-group {
+    margin-bottom: 40px;
+}
+
+.input-group label {
+    display: block;
+    color: #949494;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.input-group textarea {
+    width: 520px;
+    height: 200px;
+    background-color: #1a1a1a;
+    border: 1px solid #3a3a3a;
+    border-radius: 4px;
+    padding: 20px;
+    color: #e0e0e0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    resize: none;
+}
+
+.input-group input {
+    width: 520px;
+    height: 50px;
+    background-color: #1a1a1a;
+    border: 1px solid #3a3a3a;
+    border-radius: 4px;
+    padding: 0 20px;
+    color: #e0e0e0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+}
+
+.input-group textarea::placeholder,
+.input-group input::placeholder {
+    color: #949494;
+}
+
+.input-group textarea:focus,
+.input-group input:focus {
+    outline: none;
+    border-color: #5f9ea0;
+}
+
+.button-group {
+    display: flex;
+    gap: 20px;
+}
+
+.cancel-button,
+.create-button {
+    width: 250px;
+    height: 50px;
+    border: none;
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.cancel-button {
+    background-color: #3a3a3a;
+    color: #e0e0e0;
+}
+
+.create-button {
+    background-color: #5f9ea0;
+    color: #e0e0e0;
+}
+
+.cancel-button:hover {
+    background-color: #4a4a4a;
+}
+
+.create-button:hover {
+    background-color: #4f8e90;
+}
+
+.error-message {
+    color: #ff6b6b;
+    font-size: 14px;
+    margin-top: 8px;
+}

@@ -8,6 +8,96 @@ import './HomePage.css';
 import EditHabitModal from '../EditHabitModal';
 import DeleteConfirmationModal from '../DeleteConfirmationModal';
 import { thunkDeleteHabit } from '../../redux/habits'; 
+import { getUserStats, updateUserStats } from '../../redux/stats';
+
+// ProgressBar Component
+const ProgressBar = ({ value, total, text }) => {
+    const percentage = Math.min((value / total) * 100, 100);
+    
+    return (
+        <div className="progress-bar">
+            <span className="progress-text">{text}</span>
+            <div
+                className="progress-fill"
+                style={{ 
+                    transform: `translateX(${percentage - 100}%)`,
+                }}
+            />
+        </div>
+    );
+};
+
+// HabitItem Component
+const HabitItem = ({ habit, onMenuClick, activeMenu, onComplete }) => {
+    const [isCompleted, setIsCompleted] = useState(() => {
+        const storedCompletion = localStorage.getItem(`habit_${habit.id}_completion`);
+        if (storedCompletion) {
+            const { date, completed } = JSON.parse(storedCompletion);
+            const today = new Date().toDateString();
+            return date === today && completed;
+        }
+        return false;
+    });
+    const [streak, setStreak] = useState(habit.streak);
+
+    const handleClick = async (e) => {
+        if (!e.target.closest('.habit-menu-button')) {
+            const newCompletedState = !isCompleted;
+            setIsCompleted(newCompletedState);
+            
+            const today = new Date().toDateString();
+            localStorage.setItem(`habit_${habit.id}_completion`, JSON.stringify({
+                date: today,
+                completed: newCompletedState
+            }));
+            
+            if (newCompletedState) {
+                setStreak(prev => prev + 1);
+                await onComplete(true);
+            } else {
+                setStreak(prev => prev - 1);
+                await onComplete(false);
+            }
+        }
+    };
+
+    useEffect(() => {
+        const checkDate = () => {
+            const storedCompletion = localStorage.getItem(`habit_${habit.id}_completion`);
+            if (storedCompletion) {
+                const { date, completed } = JSON.parse(storedCompletion);
+                const today = new Date().toDateString();
+                if (date !== today && completed) {
+                    setIsCompleted(false);
+                    localStorage.removeItem(`habit_${habit.id}_completion`);
+                }
+            }
+        };
+
+        checkDate();
+        const interval = setInterval(checkDate, 60000);
+        return () => clearInterval(interval);
+    }, [habit.id]);
+
+    return (
+        <div 
+            className={`habit-item ${isCompleted ? 'completed' : ''}`}
+            onClick={handleClick}
+        >
+            <span className="habit-name">{habit.name}</span>
+            <span className="habit-count">×{streak}</span>
+            <button 
+                className="habit-menu-button"
+                onClick={(e) => {
+                    e.stopPropagation();
+                    onMenuClick(e);
+                }}
+            >
+                •••
+            </button>
+        </div>
+    );
+};
 
 const HomePage = () => {
     const dispatch = useDispatch();
@@ -17,9 +107,31 @@ const HomePage = () => {
     const [activeMenu, setActiveMenu] = useState(null);
     const [menuPosition, setMenuPosition] = useState({ top: 0, left: 0 });
 
+    const stats = useSelector(state => state.stats?.stats) || {
+        level: 1,
+        xp: 0,
+        compound_meter: 0,
+        total_habits_completed: 0
+    };
+
     useEffect(() => {
+        dispatch(getUserStats());
         dispatch(getUserHabits());
     }, [dispatch]);
+
+    const handleHabitComplete = async (isCompleting) => {
+        const xpPerHabit = 100;
+        const compoundIncrement = 0.5;
+
+        const newStats = {
+            total_habits_completed: (stats.total_habits_completed || 0) + (isCompleting ? 1 : -1),
+            compound_meter: (stats.compound_meter || 0) + (isCompleting ? compoundIncrement : -compoundIncrement),
+            xp: (stats.xp || 0) + (isCompleting ? xpPerHabit : -xpPerHabit),
+            level: Math.floor((stats.xp || 0) / 1000) + 1,
+        };
+
+        await dispatch(updateUserStats(newStats));
+    };
 
     const openCreateHabitModal = () => {
         setModalContent(<CreateHabitModal />);
@@ -33,7 +145,7 @@ const HomePage = () => {
             const rect = e.currentTarget.getBoundingClientRect();
             setMenuPosition({
                 top: rect.top,
-                left: rect.right + 20 // 20px offset from the habit item
+                left: rect.right + 20
             });
             setActiveMenu(habitId);
         }
@@ -73,8 +185,25 @@ const HomePage = () => {
     return (
         <div className="home-container">
             <main className="main-content">
-                {/* Progress bars remain the same */}
-                
+                {/* Level Progress */}
+                <div className="progress-container">
+                    <ProgressBar
+                        value={stats.xp - ((stats.level - 1) * 1000)}
+                        total={1000}
+                        text={`Level ${stats.level} - ${(stats.xp - ((stats.level - 1) * 1000))} / 1000 XP`}
+                    />
+                </div>
+
+                {/* Compound Rate */}
+                <div className="progress-container">
+                    <ProgressBar
+                        value={stats.compound_meter || 0}
+                        total={100}
+                        text={`Compound Improvement: ${((stats.compound_meter || 0)).toFixed(1)}%`}
+                    />
+                </div>
+
+                {/* Habits Container */}
                 <div className="habits-container">
                     <div className="habits-header">
                         <h2>Active Habits</h2>
@@ -84,33 +213,29 @@ const HomePage = () => {
                     </div>
                     
                     <div className="habits-list">
-    {Array.isArray(habits) && habits.length > 0 ? (
-        habits.map(habit => (
-            <div key={habit.id} className="habit-item-container">
-                <div className="habit-item">
-                    <span className="habit-name">{habit.name}</span>
-                    <span className="habit-count">×{habit.streak}</span>
-                    <button 
-                        className="habit-menu-button"
-                        onClick={(e) => toggleMenu(habit.id, e)}
-                    >
-                        •••
-                    </button>
-                </div>
-                {activeMenu === habit.id && (
-                    <HabitMenu 
-                        onEdit={() => handleEdit(habit)}
-                        onDelete={() => handleDelete(habit)}
-                    />
-                )}
-            </div>
-        ))
-    ) : (
-        <div className="no-habits-message">
-            No habits created yet. Click the + button to add one!
-        </div>
-    )}
-</div>
+                        {Array.isArray(habits) && habits.length > 0 ? (
+                            habits.map(habit => (
+                                <div key={habit.id} className="habit-item-container">
+                                    <HabitItem
+                                        habit={habit}
+                                        onMenuClick={(e) => toggleMenu(habit.id, e)}
+                                        activeMenu={activeMenu}
+                                        onComplete={handleHabitComplete}
+                                    />
+                                    {activeMenu === habit.id && (
+                                        <HabitMenu 
+                                            onEdit={() => handleEdit(habit)}
+                                            onDelete={() => handleDelete(habit)}
+                                        />
+                                    )}
+                                </div>
+                            ))
+                        ) : (
+                            <div className="no-habits-message">
+                                No habits created yet. Click the + button to add one!
+                            </div>
+                        )}
+                    </div>
                 </div>
             </main>
         </div>

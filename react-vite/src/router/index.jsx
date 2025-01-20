@@ -5,6 +5,8 @@ import Layout from './Layout';
 import InitialLandingPage from '../components/InitialLandingPage';
 import HomePage from '../components/HomePage'
 import { PublicRoute, ProtectedRoute } from '../components/auth';
+import DailyEntriesPage from '../components/DailyEntriesPage';
+import ProfilePage from '../components/ProfilePAge';
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -19,12 +21,16 @@ export const router = createBrowserRouter([
         },
         {
             path: "/entries",
-            element: <div>Daily Entries Page</div>,
+            element: <DailyEntriesPage />,
         },
         {
             path: "/stats",
             element: <div>Stats Page</div>,
-        }
+        },
+        {
+          path: "/profile",
+          element: <ProfilePage />,
+      }
     ],
 },
 {
