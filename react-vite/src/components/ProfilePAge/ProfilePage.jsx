@@ -20,15 +20,23 @@ const ProfilePage = () => {
                 {/* Profile Header */}
                 <div className="profile-header">
                     <div className="profile-info">
-                    <div className="profile-avatar">
-    <div className="avatar-circle">
-        <div className="user-icon">
-            <div className="icon-head"></div>
-            <div className="icon-body"></div>
-            <div className="icon-shoulders"></div>
-        </div>
-    </div>
-</div>
+                        <div className="profile-avatar">
+                            <div className="avatar-circle">
+                                <svg 
+                                    width="60" 
+                                    height="60" 
+                                    viewBox="0 0 24 24" 
+                                    fill="none" 
+                                    stroke="#e0e0e0" 
+                                    strokeWidth="2" 
+                                    strokeLinecap="round" 
+                                    strokeLinejoin="round"
+                                >
+                                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4z" />
+                                    <path d="M12 14c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                                </svg>
+                            </div>
+                        </div>
                         <div className="profile-names">
                             <h1>{user?.username || 'User'}</h1>
                             <span className="username">@{(user?.username || 'user').toLowerCase()}</span>
@@ -39,7 +47,7 @@ const ProfilePage = () => {
                     </button>
                 </div>
 
-                {/* Account Settings */}
+                {/* Rest of the component remains the same */}
                 <div className="settings-section">
                     <h2>Account Settings</h2>
                     <div className="settings-grid">
@@ -62,7 +70,6 @@ const ProfilePage = () => {
                     </div>
                 </div>
 
-                {/* Preferences */}
                 <div className="settings-section">
                     <h2>Preferences</h2>
                     <div className="settings-grid">
@@ -77,7 +84,6 @@ const ProfilePage = () => {
                     </div>
                 </div>
 
-                {/* Privacy */}
                 <div className="settings-section">
                     <h2>Privacy</h2>
                     <div className="settings-grid">
