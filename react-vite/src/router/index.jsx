@@ -7,6 +7,7 @@ import HomePage from '../components/HomePage'
 import { PublicRoute, ProtectedRoute } from '../components/auth';
 import DailyEntriesPage from '../components/DailyEntriesPage';
 import ProfilePage from '../components/ProfilePAge';
+import StatsPage from '../components/StatsPage';
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -25,7 +26,7 @@ export const router = createBrowserRouter([
         },
         {
             path: "/stats",
-            element: <div>Stats Page</div>,
+            element: <StatsPage />,
         },
         {
           path: "/profile",

@@ -1,9 +1,17 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { thunkUpdateUser } from '../../redux/session';
 import './ProfilePage.css';
 
 const ProfilePage = () => {
+    const dispatch = useDispatch();
     const user = useSelector(state => state.session.user) || {};
+    const [isEditing, setIsEditing] = useState(false);
+    const [editData, setEditData] = useState({
+        username: user.username || '',
+        email: user.email || ''
+    });
+    const [errors, setErrors] = useState({});
     
     const formatDate = (dateString) => {
         if (!dateString) return 'N/A';
@@ -12,6 +20,34 @@ const ProfilePage = () => {
             month: 'long',
             year: 'numeric'
         });
+    };
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setEditData(prev => ({
+            ...prev,
+            [name]: value
+        }));
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const response = await dispatch(thunkUpdateUser(user.id, editData));
+        if (response === null) {
+            setIsEditing(false);
+            setErrors({});
+        } else {
+            setErrors(response.errors || {});
+        }
+    };
+
+    const handleCancel = () => {
+        setIsEditing(false);
+        setEditData({
+            username: user.username || '',
+            email: user.email || ''
+        });
+        setErrors({});
     };
 
     return (
@@ -38,38 +74,71 @@ const ProfilePage = () => {
                             </div>
                         </div>
                         <div className="profile-names">
-                            <h1>{user?.username || 'User'}</h1>
-                            <span className="username">@{(user?.username || 'user').toLowerCase()}</span>
+                            <h1>{user.username || 'User'}</h1>
+                            <span className="username">@{(user.username || 'user').toLowerCase()}</span>
                         </div>
                     </div>
-                    <button className="edit-profile-button">
-                        Edit Profile
-                    </button>
+                    <div className="button-group">
+                        <button 
+                            className={`edit-profile-button ${isEditing ? 'editing' : ''}`}
+                            onClick={isEditing ? handleSubmit : () => setIsEditing(true)}
+                        >
+                            {isEditing ? 'Save Changes' : 'Edit Profile'}
+                        </button>
+                        {isEditing && (
+                            <button className="cancel-button" onClick={handleCancel}>
+                                Cancel
+                            </button>
+                        )}
+                    </div>
                 </div>
 
-                {/* Rest of the component remains the same */}
+                {/* Account Settings */}
                 <div className="settings-section">
                     <h2>Account Settings</h2>
                     <div className="settings-grid">
                         <div className="setting-item">
                             <span className="setting-label">Email</span>
-                            <span className="setting-value">{user?.email || 'N/A'}</span>
+                            {isEditing ? (
+                                <div className="setting-input-container">
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        value={editData.email}
+                                        onChange={handleInputChange}
+                                        className="setting-input"
+                                    />
+                                    {errors.email && <span className="error-message">{errors.email}</span>}
+                                </div>
+                            ) : (
+                                <span className="setting-value">{user.email || 'N/A'}</span>
+                            )}
                         </div>
                         <div className="setting-item">
                             <span className="setting-label">Username</span>
-                            <span className="setting-value">{user?.username || 'N/A'}</span>
-                        </div>
-                        <div className="setting-item">
-                            <span className="setting-label">Time Zone</span>
-                            <span className="setting-value">UTC-8 (Pacific Time)</span>
+                            {isEditing ? (
+                                <div className="setting-input-container">
+                                    <input
+                                        type="text"
+                                        name="username"
+                                        value={editData.username}
+                                        onChange={handleInputChange}
+                                        className="setting-input"
+                                    />
+                                    {errors.username && <span className="error-message">{errors.username}</span>}
+                                </div>
+                            ) : (
+                                <span className="setting-value">{user.username || 'N/A'}</span>
+                            )}
                         </div>
                         <div className="setting-item">
                             <span className="setting-label">Member Since</span>
-                            <span className="setting-value">{formatDate(user?.created_at)}</span>
+                            <span className="setting-value">{formatDate(user.created_at)}</span>
                         </div>
                     </div>
                 </div>
 
+                {/* Future features sections can stay as is */}
                 <div className="settings-section">
                     <h2>Preferences</h2>
                     <div className="settings-grid">
@@ -90,10 +159,6 @@ const ProfilePage = () => {
                         <div className="setting-item">
                             <span className="setting-label">Profile Visibility</span>
                             <div className="setting-toggle">Private</div>
-                        </div>
-                        <div className="setting-item">
-                            <span className="setting-label">Share Statistics</span>
-                            <div className="setting-toggle">Friends</div>
                         </div>
                         <div className="setting-item">
                             <span className="setting-label">Activity Status</span>

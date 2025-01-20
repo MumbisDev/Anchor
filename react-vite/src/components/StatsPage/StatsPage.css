@@ -1,0 +1,141 @@
+.stats-container {
+    min-height: 100vh;
+    background-color: #1a1a1a;
+    padding: 20px;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.stats-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Quick Stats Section */
+.quick-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.stat-card {
+    background-color: #2a2a2a;
+    border-radius: 8px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.stat-label {
+    color: #e0e0e0;
+    font-size: 16px;
+}
+
+.stat-value {
+    color: #e0e0e0;
+    font-size: 36px;
+    font-weight: 700;
+}
+
+/* Stats Sections */
+.stats-section {
+    background-color: #2a2a2a;
+    border-radius: 8px;
+    padding: 30px;
+}
+
+.stats-section h2 {
+    color: #e0e0e0;
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+/* Weekly Progress Graph */
+.graph-container {
+    display: flex;
+    gap: 20px;
+    height: 200px;
+}
+
+.y-axis {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #e0e0e0;
+    font-size: 12px;
+    padding-right: 10px;
+}
+
+.graph {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-left: 2px solid #4a4a4a;
+    border-bottom: 2px solid #4a4a4a;
+    padding: 20px 0;
+}
+
+.graph-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+}
+
+.graph-bar {
+    width: 2px;
+    background-color: #5f9ea0;
+    transition: height 0.3s ease;
+}
+
+.day-label {
+    color: #e0e0e0;
+    font-size: 12px;
+}
+
+/* Habit Performance */
+.habits-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.habit-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.habit-name {
+    color: #e0e0e0;
+    font-size: 14px;
+    width: 150px;
+}
+
+.habit-progress-container {
+    flex: 1;
+    height: 30px;
+    background-color: #3a3a3a;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.habit-progress-bar {
+    height: 100%;
+    background-color: #5f9ea0;
+    border-radius: 15px;
+    transition: width 0.3s ease;
+}
+
+.habit-percentage {
+    color: #e0e0e0;
+    font-size: 14px;
+    width: 50px;
+    text-align: right;
+}
