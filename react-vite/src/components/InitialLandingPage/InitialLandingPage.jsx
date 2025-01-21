@@ -1,9 +1,13 @@
 import React from 'react';
 import { useModal } from '../../context/Modal';
+import { useDispatch } from "react-redux";
+import { thunkLogin } from "../../redux/session";
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import './InitialLandingPage.css';
+
 const InitialLandingPage = () => {
+    const dispatch = useDispatch();
     const { setModalContent } = useModal();
 
     const openLoginModal = () => {
@@ -14,22 +18,38 @@ const InitialLandingPage = () => {
         setModalContent(<SignupFormModal />);
     };
 
+    const handleDemoLogin = async () => {
+        await dispatch(
+            thunkLogin({
+                email: "demo@aa.io",
+                password: "password",
+            })
+        );
+    };
+
     return (
         <div className="landing-page">
             {/* Header */}
             <header className="landing-header">
                 <h1 className="landing-logo">Anchor</h1>
-                <button 
-                    onClick={openLoginModal}
-                    className="sign-in-button"
-                >
-                    Sign in
-                </button>
+                <div className="header-buttons">
+                    <button 
+                        onClick={handleDemoLogin}
+                        className="demo-button"
+                    >
+                        Demo User
+                    </button>
+                    <button 
+                        onClick={openLoginModal}
+                        className="sign-in-button"
+                    >
+                        Sign in
+                    </button>
+                </div>
             </header>
 
-            {/* Main Content */}
+            {/* Rest of your component remains the same */}
             <main className="main-content">
-                {/* Hero Section */}
                 <div className="hero-section">
                     <h2 className="hero-title">
                         Build better habits
@@ -45,7 +65,6 @@ const InitialLandingPage = () => {
                     </button>
                 </div>
 
-                {/* Feature Grid */}
                 <div className="feature-grid">
                     {[
                         {

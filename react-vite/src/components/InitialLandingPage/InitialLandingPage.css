@@ -126,3 +126,39 @@
     font-weight: 700;
     margin-bottom: 1.5rem;
 }
+
+.header-buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.sign-in-button,
+.demo-button {
+    padding: 0.625rem 2rem;
+    font-size: 14px;
+    font-family: 'JetBrains Mono', monospace;
+    color: #ffffff;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    transition: background-color 0.2s;
+    border-radius: 9999px;
+    cursor: pointer;
+}
+
+.sign-in-button {
+    background-color: #2a2a2a;
+}
+
+.demo-button {
+    background-color: #5f9ea0;
+}
+
+.sign-in-button:hover {
+    background-color: #3a3a3a;
+}
+
+.demo-button:hover {
+    background-color: #4f8e90;
+}
