@@ -105,7 +105,8 @@ pipenv run flask run
 - Theme options
 - More habit data visualization
 - Making the progression system more rewarding
-- Ironing out quirks
+- Ironing out bugs
+- Creating a desktop and IOS/Android ports for a more straight forward experience
 
 ## Feedback
 
