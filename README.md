@@ -10,8 +10,10 @@ Anchor is a habit and progress tracking application. Anchor allows you to create
 
 ## Screenshots
 
-![App Screenshot][habits](https://github.com/user-attachments/assets/c29f6487-a1b0-4795-bf2a-9b313c75b041)
-enshot+Here)
+### Habits Page
+![habits](https://github.com/user-attachments/assets/e6c912ef-96a8-4065-a92a-16a6978d5e2e)
+
+
 
 ## Installation
 
