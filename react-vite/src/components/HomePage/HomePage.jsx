@@ -1,13 +1,12 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserHabits } from '../../redux/habits';
 import { useModal } from '../../context/Modal';
 import CreateHabitModal from '../CreateHabitModal';
 import HabitMenu from '../HabitMenu';
 import './HomePage.css';
 import EditHabitModal from '../EditHabitModal';
 import DeleteConfirmationModal from '../DeleteConfirmationModal';
-import { thunkDeleteHabit } from '../../redux/habits'; 
+import { thunkDeleteHabit, getUserHabits, thunkUpdateHabit} from '../../redux/habits'; 
 import { getUserStats, updateUserStats } from '../../redux/stats';
 
 // ProgressBar Component
@@ -29,6 +28,7 @@ const ProgressBar = ({ value, total, text }) => {
 
 // HabitItem Component
 const HabitItem = ({ habit, onMenuClick, activeMenu, onComplete }) => {
+    const dispatch = useDispatch();
     const [isCompleted, setIsCompleted] = useState(() => {
         const storedCompletion = localStorage.getItem(`habit_${habit.id}_completion`);
         if (storedCompletion) {
@@ -38,11 +38,12 @@ const HabitItem = ({ habit, onMenuClick, activeMenu, onComplete }) => {
         }
         return false;
     });
-    const [streak, setStreak] = useState(habit.streak);
 
     const handleClick = async (e) => {
         if (!e.target.closest('.habit-menu-button')) {
             const newCompletedState = !isCompleted;
+            const newStreak = newCompletedState ? habit.streak + 1 : Math.max(0, habit.streak - 1);
+            
             setIsCompleted(newCompletedState);
             
             const today = new Date().toDateString();
@@ -51,33 +52,26 @@ const HabitItem = ({ habit, onMenuClick, activeMenu, onComplete }) => {
                 completed: newCompletedState
             }));
             
-            if (newCompletedState) {
-                setStreak(prev => prev + 1);
-                await onComplete(true);
-            } else {
-                setStreak(prev => prev - 1);
-                await onComplete(false);
+            try {
+                // Only send minimal required data
+                await dispatch(thunkUpdateHabit(habit.id, {
+                    streak: newStreak,
+                    completed: newCompletedState
+                }));
+                
+                await onComplete(newCompletedState);
+            } catch (error) {
+                console.error('Error updating habit:', error);
+                // Revert UI state if backend update fails
+                setIsCompleted(!newCompletedState);
+                localStorage.setItem(`habit_${habit.id}_completion`, JSON.stringify({
+                    date: today,
+                    completed: !newCompletedState
+                }));
             }
         }
     };
 
-    useEffect(() => {
-        const checkDate = () => {
-            const storedCompletion = localStorage.getItem(`habit_${habit.id}_completion`);
-            if (storedCompletion) {
-                const { date, completed } = JSON.parse(storedCompletion);
-                const today = new Date().toDateString();
-                if (date !== today && completed) {
-                    setIsCompleted(false);
-                    localStorage.removeItem(`habit_${habit.id}_completion`);
-                }
-            }
-        };
-
-        checkDate();
-        const interval = setInterval(checkDate, 60000);
-        return () => clearInterval(interval);
-    }, [habit.id]);
 
     return (
         <div 
@@ -85,7 +79,7 @@ const HabitItem = ({ habit, onMenuClick, activeMenu, onComplete }) => {
             onClick={handleClick}
         >
             <span className="habit-name">{habit.name}</span>
-            <span className="habit-count">×{streak}</span>
+            <span className="habit-count">×{habit.streak}</span>
             <button 
                 className="habit-menu-button"
                 onClick={(e) => {
@@ -98,7 +92,6 @@ const HabitItem = ({ habit, onMenuClick, activeMenu, onComplete }) => {
         </div>
     );
 };
-
 const HomePage = () => {
     const dispatch = useDispatch();
     const { setModalContent } = useModal();

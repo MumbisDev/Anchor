@@ -2,6 +2,7 @@ const LOAD_USER_HABITS = "habits/LOAD_USER_HABITS";
 const ADD_HABIT = "habits/ADD_HABIT";
 const UPDATE_HABIT = "habits/UPDATE_HABIT";
 const REMOVE_HABIT = "habits/REMOVE_HABIT";
+const TOGGLE_HABIT_COMPLETION = "habits/TOGGLE_HABIT_COMPLETION";
 
 // Action Creators
 const loadHabits = (habits) => ({
@@ -24,7 +25,69 @@ const removeHabit = (habitId) => ({
   payload: habitId,
 });
 
+const toggleHabitCompletion = (habitId, completed) => ({
+  type: TOGGLE_HABIT_COMPLETION,
+  payload: { habitId, completed },
+});
+
 // Thunks
+export const thunkToggleHabit =
+  (habitId, currentlyCompleted) => async (dispatch, getState) => {
+    try {
+      const userId = getState().session.user.id;
+      const currentStats = getState().stats.stats || { streak: 0 };
+
+      // Calculate new streak
+      const newStreak = !currentlyCompleted
+        ? currentStats.streak + 1
+        : Math.max(0, currentStats.streak - 1);
+
+      // First update the habit
+      const response = await fetch(`/api/habits/${habitId}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ completed: !currentlyCompleted }),
+        credentials: "include",
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to update habit");
+      }
+
+      const updatedHabit = await response.json();
+
+      // Then update stats with new streak
+      const statsResponse = await fetch(`/api/stats/${userId}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...currentStats,
+          streak: newStreak,
+        }),
+        credentials: "include",
+      });
+
+      if (!statsResponse.ok) {
+        throw new Error("Failed to update stats");
+      }
+
+      const updatedStats = await statsResponse.json();
+
+      // Update both reducers
+      dispatch(toggleHabitCompletion(habitId, !currentlyCompleted));
+      dispatch(updateStats(updatedStats));
+
+      return { habit: updatedHabit, stats: updatedStats };
+    } catch (error) {
+      console.error("Error toggling habit:", error);
+      throw error;
+    }
+  };
+
 export const getUserHabits = () => async (dispatch, getState) => {
   try {
     const userId = getState().session.user.id;
@@ -67,18 +130,27 @@ export const createHabit = (habitData) => async (dispatch, getState) => {
 
 export const thunkUpdateHabit = (habitId, habitData) => async (dispatch) => {
   try {
+    // Only send the fields we want to update, not the entire habit object
+    const updateData = {
+      streak: habitData.streak,
+      completed: habitData.completed,
+    };
+
     const response = await fetch(`/api/habits/${habitId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(habitData),
+      body: JSON.stringify(updateData),
       credentials: "include",
     });
 
     if (response.ok) {
       const updatedHabit = await response.json();
-      dispatch(updateHabit(updatedHabit)); // Use the action creator here
+      dispatch({
+        type: UPDATE_HABIT,
+        payload: updatedHabit,
+      });
       return updatedHabit;
     }
   } catch (error) {
@@ -86,7 +158,6 @@ export const thunkUpdateHabit = (habitId, habitData) => async (dispatch) => {
     throw error;
   }
 };
-
 export const thunkDeleteHabit = (habitId) => async (dispatch) => {
   try {
     const response = await fetch(`/api/habits/${habitId}`, {
@@ -139,6 +210,15 @@ const habitsReducer = (state = initialState, action) => {
         ...state,
         userHabits: state.userHabits.filter(
           (habit) => habit.id !== action.payload
+        ),
+      };
+    case TOGGLE_HABIT_COMPLETION:
+      return {
+        ...state,
+        userHabit: state.userHabits.map((habit) =>
+          habit.id === action.payload.habitId
+            ? { ...habit, completed: action.payload.completed }
+            : habit
         ),
       };
     default:
