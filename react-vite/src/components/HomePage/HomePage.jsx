@@ -8,13 +8,6 @@ import EditHabitModal from '../EditHabitModal';
 import DeleteConfirmationModal from '../DeleteConfirmationModal';
 import { thunkDeleteHabit, getUserHabits, thunkUpdateHabit} from '../../redux/habits'; 
 import { getUserStats, updateUserStats } from '../../redux/stats';
-import { motion } from 'framer-motion'; // Import Framer Motion
-
-
-const slideInVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
-};
 
 // ProgressBar Component
 const ProgressBar = ({ value, total, text }) => {
@@ -103,10 +96,8 @@ const HomePage = () => {
     const dispatch = useDispatch();
     const { setModalContent } = useModal();
     const habits = useSelector(state => state.habits.userHabits);
-    const isLoading = useSelector(state => state.habits.isLoading);
     const [activeMenu, setActiveMenu] = useState(null);
-    const [menuPosition, setMenuPosition] = useState({ top: 0, left: 0 });
-
+    
     const stats = useSelector(state => state.stats?.stats) || {
         level: 1,
         xp: 0,
@@ -180,36 +171,29 @@ const HomePage = () => {
         return () => document.removeEventListener('click', handleClickOutside);
     }, []);
 
-    if (isLoading) return <div>Loading...</div>;
-
     return (
-        <motion.div 
-            className="home-container"
-            initial="hidden"
-            animate="visible"
-            variants={slideInVariants}
-        >
-            <motion.main className="main-content" variants={slideInVariants}>
+        <div className="home-container">
+            <main className="main-content">
                 {/* Level Progress */}
-                <motion.div className="progress-container" variants={slideInVariants}>
+                <div className="progress-container">
                     <ProgressBar
                         value={stats.xp - ((stats.level - 1) * 1000)}
                         total={1000}
                         text={`Level ${stats.level} - ${(stats.xp - ((stats.level - 1) * 1000))} / 1000 XP`}
                     />
-                </motion.div>
+                </div>
 
                 {/* Compound Rate */}
-                <motion.div className="progress-container" variants={slideInVariants}>
+                <div className="progress-container">
                     <ProgressBar
                         value={stats.compound_meter || 0}
                         total={100}
                         text={`Compound Improvement: ${((stats.compound_meter || 0)).toFixed(1)}%`}
                     />
-                </motion.div>
+                </div>
 
                 {/* Habits Container */}
-                <motion.div className="habits-container" variants={slideInVariants}>
+                <div className="habits-container">
                     <div className="habits-header">
                         <h2>Active Habits</h2>
                         <button className="add-habit-btn" onClick={openCreateHabitModal}>
@@ -220,19 +204,30 @@ const HomePage = () => {
                     <div className="habits-list">
                         {Array.isArray(habits) && habits.length > 0 ? (
                             habits.map(habit => (
-                                <motion.div key={habit.id} className="habit-item-container" variants={slideInVariants}>
-                                    <HabitItem habit={habit} />
-                                </motion.div>
+                                <div key={habit.id} className="habit-item-container">
+                                    <HabitItem
+                                        habit={habit}
+                                        onMenuClick={(e) => toggleMenu(habit.id, e)}
+                                        activeMenu={activeMenu}
+                                        onComplete={handleHabitComplete}
+                                    />
+                                    {activeMenu === habit.id && (
+                                        <HabitMenu 
+                                            onEdit={() => handleEdit(habit)}
+                                            onDelete={() => handleDelete(habit)}
+                                        />
+                                    )}
+                                </div>
                             ))
                         ) : (
-                            <motion.div className="no-habits-message" variants={slideInVariants}>
+                            <div className="no-habits-message">
                                 No habits created yet. Click the + button to add one!
-                            </motion.div>
+                            </div>
                         )}
                     </div>
-                </motion.div>
-            </motion.main>
-        </motion.div>
+                </div>
+            </main>
+        </div>
     );
 };
 
