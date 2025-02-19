@@ -96,8 +96,10 @@ const HomePage = () => {
     const dispatch = useDispatch();
     const { setModalContent } = useModal();
     const habits = useSelector(state => state.habits.userHabits);
+    const isLoading = useSelector(state => state.habits.isLoading);
     const [activeMenu, setActiveMenu] = useState(null);
-    
+    const [menuPosition, setMenuPosition] = useState({ top: 0, left: 0 });
+
     const stats = useSelector(state => state.stats?.stats) || {
         level: 1,
         xp: 0,
@@ -170,6 +172,8 @@ const HomePage = () => {
         document.addEventListener('click', handleClickOutside);
         return () => document.removeEventListener('click', handleClickOutside);
     }, []);
+
+    if (isLoading) return <div>Loading...</div>;
 
     return (
         <div className="home-container">
