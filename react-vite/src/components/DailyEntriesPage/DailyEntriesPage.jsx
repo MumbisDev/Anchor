@@ -137,7 +137,7 @@ const DailyEntriesPage = () => {
                         ))
                     ) : (
                         <div className="no-entries-message">
-                            No entries yet. Click 'Create Entry' to add one!
+                            No entries yet. Click &apos;Create Entry&apos; to add one!
                         </div>
                     )}
                 </div>

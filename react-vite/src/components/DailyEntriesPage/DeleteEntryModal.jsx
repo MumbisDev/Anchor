@@ -1,7 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
 import { useModal } from '../../context/Modal';
-import { deleteEntry } from '../../redux/entries';
 import './DeleteEntryModal.css';
 
 const DeleteEntryModal = ({ entry, onDelete }) => {
