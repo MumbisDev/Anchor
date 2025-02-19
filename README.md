@@ -41,6 +41,8 @@ The frontend should now be up and running, available at `http://localhost:5173/`
 
 ### Backend
 
+For the backend I've used pipenv to make things smoother, if you do not have pipenv, refer to the [pipenv documentation](https://pipenv.pypa.io/en/latest/installation.html)
+
 In the root directory, run this command to install requirements and initialize the virtual environment:
 
 ```bash
