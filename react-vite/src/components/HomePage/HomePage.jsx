@@ -8,6 +8,13 @@ import EditHabitModal from '../EditHabitModal';
 import DeleteConfirmationModal from '../DeleteConfirmationModal';
 import { thunkDeleteHabit, getUserHabits, thunkUpdateHabit} from '../../redux/habits'; 
 import { getUserStats, updateUserStats } from '../../redux/stats';
+import { motion } from 'framer-motion'; // Import Framer Motion
+
+
+const slideInVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
+};
 
 // ProgressBar Component
 const ProgressBar = ({ value, total, text }) => {
@@ -176,28 +183,33 @@ const HomePage = () => {
     if (isLoading) return <div>Loading...</div>;
 
     return (
-        <div className="home-container">
-            <main className="main-content">
+        <motion.div 
+            className="home-container"
+            initial="hidden"
+            animate="visible"
+            variants={slideInVariants}
+        >
+            <motion.main className="main-content" variants={slideInVariants}>
                 {/* Level Progress */}
-                <div className="progress-container">
+                <motion.div className="progress-container" variants={slideInVariants}>
                     <ProgressBar
                         value={stats.xp - ((stats.level - 1) * 1000)}
                         total={1000}
                         text={`Level ${stats.level} - ${(stats.xp - ((stats.level - 1) * 1000))} / 1000 XP`}
                     />
-                </div>
+                </motion.div>
 
                 {/* Compound Rate */}
-                <div className="progress-container">
+                <motion.div className="progress-container" variants={slideInVariants}>
                     <ProgressBar
                         value={stats.compound_meter || 0}
                         total={100}
                         text={`Compound Improvement: ${((stats.compound_meter || 0)).toFixed(1)}%`}
                     />
-                </div>
+                </motion.div>
 
                 {/* Habits Container */}
-                <div className="habits-container">
+                <motion.div className="habits-container" variants={slideInVariants}>
                     <div className="habits-header">
                         <h2>Active Habits</h2>
                         <button className="add-habit-btn" onClick={openCreateHabitModal}>
@@ -208,30 +220,19 @@ const HomePage = () => {
                     <div className="habits-list">
                         {Array.isArray(habits) && habits.length > 0 ? (
                             habits.map(habit => (
-                                <div key={habit.id} className="habit-item-container">
-                                    <HabitItem
-                                        habit={habit}
-                                        onMenuClick={(e) => toggleMenu(habit.id, e)}
-                                        activeMenu={activeMenu}
-                                        onComplete={handleHabitComplete}
-                                    />
-                                    {activeMenu === habit.id && (
-                                        <HabitMenu 
-                                            onEdit={() => handleEdit(habit)}
-                                            onDelete={() => handleDelete(habit)}
-                                        />
-                                    )}
-                                </div>
+                                <motion.div key={habit.id} className="habit-item-container" variants={slideInVariants}>
+                                    <HabitItem habit={habit} />
+                                </motion.div>
                             ))
                         ) : (
-                            <div className="no-habits-message">
+                            <motion.div className="no-habits-message" variants={slideInVariants}>
                                 No habits created yet. Click the + button to add one!
-                            </div>
+                            </motion.div>
                         )}
                     </div>
-                </div>
-            </main>
-        </div>
+                </motion.div>
+            </motion.main>
+        </motion.div>
     );
 };
 
