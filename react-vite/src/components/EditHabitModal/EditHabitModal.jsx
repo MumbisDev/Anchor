@@ -49,7 +49,7 @@ const EditHabitModal = ({ habit }) => {
 
     return (
         <div className="create-habit-modal">
-            <h2>Edit habit</h2>
+            <h2>Edit your habit</h2>
             
             <form onSubmit={handleSubmit}>
                 <div className="input-group">
@@ -58,7 +58,7 @@ const EditHabitModal = ({ habit }) => {
                         type="text"
                         value={habitName}
                         onChange={(e) => setHabitName(e.target.value)}
-                        placeholder="Enter habit name"
+                        placeholder= "Enter your habit name here"
                         required
                     />
                 </div>
