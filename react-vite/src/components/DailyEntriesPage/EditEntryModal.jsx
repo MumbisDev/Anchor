@@ -35,7 +35,7 @@ const EditEntryModal = ({ entry }) => {
 
     return (
         <div className="create-entry-modal">
-            <h2>Edit entry</h2>
+            <h2>Edit an entry</h2>
             
             <form onSubmit={handleSubmit}>
                 <div className="input-group">
