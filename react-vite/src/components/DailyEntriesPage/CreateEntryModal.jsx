@@ -45,7 +45,7 @@ const CreateEntryModal = () => {
 
     return (
         <div className="create-entry-modal">
-            <h2>Create entry</h2>
+            <h2>Create an entry</h2>
             
             <form onSubmit={handleSubmit}>
                 <div className="input-group">
