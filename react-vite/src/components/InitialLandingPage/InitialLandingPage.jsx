@@ -73,11 +73,11 @@ const InitialLandingPage = () => {
                         },
                         {
                             title: "Level Up",
-                            description: "Transform habits into achievements with XP system"
+                            description: "Real time progression for every habit you track"
                         },
                         {
                             title: "Stay Consistent",
-                            description: "Build momentum with compound tracking"
+                            description: "Ease of use and responsiveness allows you to easily stay consistent"
                         }
                     ].map((feature, index) => (
                         <div key={index} className="feature-card">
