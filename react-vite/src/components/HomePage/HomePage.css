@@ -244,3 +244,137 @@
         background-color: #5f9ea0;
     }
 }
+
+.no-habits-message {
+    color: #949494;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 14px;
+}
+
+/* Mobile Responsive Styles */
+@media screen and (max-width: 1024px) {
+    .main-content {
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .progress-container {
+        padding: 15px;
+    }
+    
+    .progress-bar {
+        height: 50px;
+    }
+    
+    .progress-text {
+        font-size: 14px;
+    }
+    
+    .habits-container {
+        padding: 15px;
+    }
+    
+    .habits-header h2 {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .main-content {
+        padding: 10px;
+    }
+    
+    .progress-container {
+        padding: 12px;
+        margin-bottom: 15px;
+    }
+    
+    .progress-bar {
+        height: 40px;
+    }
+    
+    .progress-text {
+        font-size: 12px;
+        left: 12px;
+    }
+    
+    .habits-container {
+        padding: 12px;
+    }
+    
+    .habits-header h2 {
+        font-size: 16px;
+    }
+    
+    .habit-item {
+        height: 60px;
+        padding: 0 12px;
+        grid-template-columns: 1fr 60px 40px;
+    }
+    
+    .habit-name {
+        font-size: 14px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+    }
+    
+    .habit-count {
+        font-size: 16px;
+    }
+    
+    .habit-menu-button {
+        font-size: 20px;
+    }
+    
+    .add-habit-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 18px;
+    }
+    
+    /* Fix menu positioning for mobile */
+    .habit-menu-container {
+        position: fixed;
+        left: auto;
+        right: 20px;
+        width: 120px;
+    }
+    
+    .menu-item {
+        height: 40px;
+        font-size: 12px;
+    }
+}
+
+/* Extra small devices */
+@media screen and (max-width: 320px) {
+    .progress-bar {
+        height: 36px;
+    }
+    
+    .progress-text {
+        font-size: 10px;
+        left: 10px;
+    }
+    
+    .habit-item {
+        height: 50px;
+        grid-template-columns: 1fr 50px 30px;
+    }
+    
+    .habit-name {
+        font-size: 12px;
+    }
+    
+    .habit-count {
+        font-size: 14px;
+    }
+    
+    .habit-menu-button {
+        font-size: 16px;
+    }
+}

@@ -7,6 +7,7 @@
     border-radius: 4px;
     overflow: hidden;
     z-index: 1000;  /* Ensure it's above other content */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .menu-item {
@@ -31,4 +32,42 @@
     height: 1px;
     margin: 0 10px;
     background-color: #3a3a3a;
+}
+
+/* Mobile Responsive Styles */
+@media screen and (max-width: 768px) {
+    .habit-menu-container {
+        width: 130px;
+    }
+    
+    .menu-item {
+        height: 42px;
+        font-size: 13px;
+        padding: 0 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .habit-menu-container {
+        width: 120px;
+        margin-left: 10px;
+    }
+    
+    .menu-item {
+        height: 40px;
+        font-size: 12px;
+        padding: 0 12px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .habit-menu-container {
+        width: 110px;
+    }
+    
+    .menu-item {
+        height: 38px;
+        font-size: 11px;
+        padding: 0 10px;
+    }
 }
