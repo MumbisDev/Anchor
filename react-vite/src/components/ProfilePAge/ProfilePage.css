@@ -158,3 +158,44 @@
     font-size: 12px;
     margin-top: 4px;
 }
+
+@media screen and (max-width: 600px) {
+    .profile-container {
+        padding: 10px;
+    }
+
+    .main-content {
+        padding: 10px;
+    }
+
+    .profile-header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .profile-header .button-group {
+        width: 100%;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .profile-header .button-group button {
+        width: 100%;
+    }
+
+    .setting-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .setting-input {
+        width: 100%;
+    }
+}
