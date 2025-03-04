@@ -133,11 +133,12 @@
     .entry-actions {
         flex-direction: column;
         align-items: stretch;
+        gap: 20px; /* Add vertical spacing between action groups */
     }
 
     .left-actions, .right-actions {
         flex-direction: column;
-        gap: 10px;
+        gap: 15px; /* Increase gap between buttons */
     }
 
     .action-button {
