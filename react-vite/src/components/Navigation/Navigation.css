@@ -126,6 +126,8 @@
   border: 1px solid #3a3a3a;
   border-radius: 8px;
   overflow: hidden;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .user-info {
@@ -144,6 +146,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .user-icon-large {
@@ -153,6 +156,7 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
+  overflow: hidden;
 }
 
 
@@ -161,11 +165,17 @@
   color: #e0e0e0;
   font-size: 16px;
   font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .user-handle {
   color: #5f9ea0;
   font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .menu-divider {
@@ -210,4 +220,161 @@
 
 .logout-button:hover {
   color: #5f9ea0;
+}
+
+/* Mobile Responsive Styles */
+@media screen and (max-width: 1024px) {
+  .main-header {
+    padding: 20px 40px;
+  }
+  
+  .nav-content {
+    width: 450px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main-header {
+    padding: 15px 20px;
+  }
+  
+  .main-header h1 {
+    font-size: 24px;
+  }
+  
+  .nav-wrapper {
+    margin-bottom: 30px;
+  }
+  
+  .nav-container {
+    padding: 15px 0;
+  }
+  
+  .nav-content {
+    width: 90%;
+    max-width: 400px;
+    padding: 0 30px;
+  }
+  
+  .nav-item {
+    font-size: 14px;
+    padding: 12px 15px;
+  }
+  
+  .nav-item::after {
+    width: 40px;
+    bottom: 6px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .main-header {
+    padding: 12px 15px;
+  }
+  
+  .main-header h1 {
+    font-size: 20px;
+  }
+  
+  .nav-wrapper {
+    margin-bottom: 20px;
+  }
+  
+  .nav-container {
+    padding: 10px 0;
+  }
+  
+  .nav-content {
+    height: 40px;
+    padding: 0 15px;
+  }
+  
+  .nav-item {
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+  
+  .nav-item::after {
+    width: 30px;
+    height: 1px;
+    bottom: 4px;
+  }
+  
+  .profile-button {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .profile-dropdown {
+    width: 220px;
+    right: -10px; /* Adjust position to prevent overflow */
+  }
+  
+  .user-avatar {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .user-info {
+    padding: 15px;
+    gap: 15px;
+  }
+  
+  .user-name {
+    font-size: 14px;
+  }
+  
+  .user-handle {
+    font-size: 12px;
+  }
+  
+  .menu-item {
+    height: 45px;
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .main-header {
+    padding: 10px;
+  }
+  
+  .main-header h1 {
+    font-size: 18px;
+  }
+  
+  .nav-content {
+    height: 36px;
+  }
+  
+  .nav-item {
+    padding: 6px 8px;
+    font-size: 11px;
+  }
+  
+  .profile-button {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .profile-dropdown {
+    width: 200px;
+    right: -15px; /* Move dropdown more to ensure it stays in view */
+  }
+  
+  .user-info {
+    padding: 12px;
+    gap: 10px;
+  }
+  
+  .user-avatar {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .menu-item {
+    height: 40px;
+    font-size: 12px;
+    padding: 0 15px;
+  }
 }
