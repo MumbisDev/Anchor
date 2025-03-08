@@ -3,6 +3,7 @@
     background-color: #1a1a1a;
     padding: 20px;
     font-family: 'JetBrains Mono', monospace;
+    box-sizing: border-box;
 }
 
 .stats-content {
@@ -138,4 +139,125 @@
     font-size: 14px;
     width: 50px;
     text-align: right;
+}
+
+/* Media Queries for Tablet */
+@media screen and (max-width: 900px) {
+    .quick-stats {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    
+    .stat-card {
+        padding: 20px;
+    }
+    
+    .stat-value {
+        font-size: 30px;
+    }
+    
+    .habit-name {
+        width: 120px;
+    }
+}
+
+/* Media Queries for Mobile */
+@media screen and (max-width: 768px) {
+    .stats-content {
+        gap: 20px;
+    }
+    
+    .quick-stats {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .stat-card {
+        padding: 20px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .stat-value {
+        font-size: 28px;
+    }
+    
+    .stats-section {
+        padding: 20px;
+    }
+    
+    .graph-container {
+        height: 180px;
+    }
+    
+    .habit-row {
+        flex-wrap: wrap;
+    }
+    
+    .habit-name {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    
+    .habit-progress-container {
+        flex: 1;
+        order: 2;
+    }
+    
+    .habit-percentage {
+        order: 3;
+    }
+}
+
+/* Media Queries for Small Mobile */
+@media screen and (max-width: 480px) {
+    .stats-container {
+        padding: 15px;
+    }
+    
+    .stats-content {
+        gap: 15px;
+    }
+    
+    .stat-card {
+        padding: 15px;
+    }
+    
+    .stat-label {
+        font-size: 14px;
+    }
+    
+    .stat-value {
+        font-size: 24px;
+    }
+    
+    .stats-section {
+        padding: 15px;
+    }
+    
+    .stats-section h2 {
+        font-size: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .graph-container {
+        height: 150px;
+    }
+    
+    .graph-bar {
+        width: 2px;
+    }
+    
+    .day-label {
+        font-size: 10px;
+    }
+    
+    .habit-row {
+        gap: 10px;
+    }
+    
+    .habit-progress-container {
+        height: 25px;
+    }
 }
