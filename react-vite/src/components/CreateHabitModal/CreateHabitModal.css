@@ -52,6 +52,7 @@
 
 .input-group {
     margin-bottom: 40px;
+    width: 100%;
 }
 
 .input-group label {
@@ -72,6 +73,7 @@
     font-family: 'JetBrains Mono', monospace;
     font-size: 14px;
     box-sizing: border-box;
+    max-width: 100%;
 }
 
 .input-group input::placeholder {
@@ -106,6 +108,7 @@
     display: flex;
     justify-content: center;
     gap: 20px;
+    width: 100%;
 }
 
 .cancel-button,
@@ -154,6 +157,12 @@
     .input-group {
         margin-bottom: 30px;
     }
+    
+    /* Remove fixed width on input */
+    .input-group input {
+        width: 100%;
+        padding: 0 15px;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -179,7 +188,7 @@
     
     .input-group input {
         height: 40px;
-        padding: 0 15px;
+        padding: 0 10px;
         font-size: 13px;
     }
     
