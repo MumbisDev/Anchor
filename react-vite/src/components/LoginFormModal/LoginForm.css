@@ -1,48 +1,48 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
 
 .login-modal {
-    width: 600px;
+    width: 100%;
+    max-width: 600px;
     background-color: #2a2a2a;
-    border-radius: 8px;
-    padding: 40px;
+    border-radius: clamp(6px, 1vw, 8px);
+    padding: clamp(25px, 5vw, 40px);
     font-family: 'JetBrains Mono', monospace;
-    max-width: 100%;
     box-sizing: border-box;
 }
 
 .login-modal h1 {
     color: #e0e0e0;
-    font-size: 28px;
+    font-size: clamp(22px, 4vw, 28px);
     font-weight: 700;
-    margin-bottom: 40px;
+    margin-bottom: clamp(25px, 5vw, 40px);
 }
 
 .login-form {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: clamp(25px, 4vw, 40px);
 }
 
 .input-group {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: clamp(12px, 2vw, 20px);
 }
 
 .input-group label {
     color: #949494;
-    font-size: 14px;
+    font-size: clamp(13px, 1.5vw, 14px);
 }
 
 .input-group input {
-    height: 50px;
+    height: clamp(45px, 5vw, 50px);
     background-color: #1a1a1a;
     border: 1px solid #3a3a3a;
     border-radius: 4px;
-    padding: 0 20px;
+    padding: 0 clamp(15px, 2.5vw, 20px);
     color: #e0e0e0;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 16px;
+    font-size: clamp(14px, 1.8vw, 16px);
     width: 100%;
     box-sizing: border-box;
 }
@@ -53,14 +53,15 @@
 }
 
 .login-button {
-    height: 50px;
+    height: clamp(45px, 5vw, 50px);
     background-color: #5f9ea0;
     border: none;
     border-radius: 4px;
     color: #e0e0e0;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 16px;
+    font-size: clamp(14px, 1.8vw, 16px);
     cursor: pointer;
+    transition: background-color 0.2s ease;
 }
 
 .login-button:hover {
@@ -70,10 +71,10 @@
 .divider {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: clamp(15px, 2.5vw, 20px);
     color: #949494;
-    font-size: 14px;
-    margin: 30px 0;
+    font-size: clamp(13px, 1.5vw, 14px);
+    margin: clamp(20px, 3.5vw, 30px) 0;
 }
 
 .divider::before,
@@ -86,10 +87,11 @@
 
 .create-account {
     color: #5f9ea0;
-    font-size: 14px;
+    font-size: clamp(13px, 1.5vw, 14px);
     text-align: center;
     cursor: pointer;
     text-decoration: none;
+    transition: color 0.2s ease;
 }
 
 .create-account:hover {
@@ -98,69 +100,15 @@
 
 .error-message {
     color: #ff6b6b;
-    font-size: 14px;
+    font-size: clamp(13px, 1.5vw, 14px);
     margin-top: 8px;
 }
 
-/* Media Queries for Tablet */
-@media screen and (max-width: 768px) {
+/* Optional enhancements for very large screens */
+@media screen and (min-width: 1400px) {
     .login-modal {
-        width: 100%;
-        padding: 30px;
-    }
-    
-    .login-modal h1 {
-        font-size: 24px;
-        margin-bottom: 30px;
-    }
-    
-    .login-form {
-        gap: 30px;
-    }
-    
-    .input-group {
-        gap: 15px;
+        max-width: 650px;
     }
 }
 
-/* Media Queries for Mobile */
-@media screen and (max-width: 480px) {
-    .login-modal {
-        padding: 25px;
-        border-radius: 6px;
-    }
-    
-    .login-modal h1 {
-        font-size: 22px;
-        margin-bottom: 25px;
-    }
-    
-    .login-form {
-        gap: 25px;
-    }
-    
-    .input-group {
-        gap: 12px;
-    }
-    
-    .input-group input {
-        height: 45px;
-        font-size: 14px;
-        padding: 0 15px;
-    }
-    
-    .login-button {
-        height: 45px;
-        font-size: 14px;
-    }
-    
-    .divider {
-        gap: 15px;
-        margin: 20px 0;
-        font-size: 13px;
-    }
-    
-    .create-account {
-        font-size: 13px;
-    }
-}
+/* Remove existing media queries as they're no longer needed with the clamp approach */
