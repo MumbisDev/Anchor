@@ -1,48 +1,48 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
 
 .login-modal {
-    width: 100%;
-    max-width: 600px;
+    width: 600px;
     background-color: #2a2a2a;
-    border-radius: clamp(6px, 1vw, 8px);
-    padding: clamp(25px, 5vw, 40px);
+    border-radius: 8px;
+    padding: 40px;
     font-family: 'JetBrains Mono', monospace;
+    max-width: 100%;
     box-sizing: border-box;
 }
 
 .login-modal h1 {
     color: #e0e0e0;
-    font-size: clamp(22px, 4vw, 28px);
+    font-size: 28px;
     font-weight: 700;
-    margin-bottom: clamp(25px, 5vw, 40px);
+    margin-bottom: 40px;
 }
 
 .login-form {
     display: flex;
     flex-direction: column;
-    gap: clamp(25px, 4vw, 40px);
+    gap: 40px;
 }
 
 .input-group {
     display: flex;
     flex-direction: column;
-    gap: clamp(12px, 2vw, 20px);
+    gap: 20px;
 }
 
 .input-group label {
     color: #949494;
-    font-size: clamp(13px, 1.5vw, 14px);
+    font-size: 14px;
 }
 
 .input-group input {
-    height: clamp(45px, 5vw, 50px);
+    height: 50px;
     background-color: #1a1a1a;
     border: 1px solid #3a3a3a;
     border-radius: 4px;
-    padding: 0 clamp(15px, 2.5vw, 20px);
+    padding: 0 20px;
     color: #e0e0e0;
     font-family: 'JetBrains Mono', monospace;
-    font-size: clamp(14px, 1.8vw, 16px);
+    font-size: 16px;
     width: 100%;
     box-sizing: border-box;
 }
@@ -53,15 +53,14 @@
 }
 
 .login-button {
-    height: clamp(45px, 5vw, 50px);
+    height: 50px;
     background-color: #5f9ea0;
     border: none;
     border-radius: 4px;
     color: #e0e0e0;
     font-family: 'JetBrains Mono', monospace;
-    font-size: clamp(14px, 1.8vw, 16px);
+    font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.2s ease;
 }
 
 .login-button:hover {
@@ -71,10 +70,10 @@
 .divider {
     display: flex;
     align-items: center;
-    gap: clamp(15px, 2.5vw, 20px);
+    gap: 20px;
     color: #949494;
-    font-size: clamp(13px, 1.5vw, 14px);
-    margin: clamp(20px, 3.5vw, 30px) 0;
+    font-size: 14px;
+    margin: 30px 0;
 }
 
 .divider::before,
@@ -87,11 +86,10 @@
 
 .create-account {
     color: #5f9ea0;
-    font-size: clamp(13px, 1.5vw, 14px);
+    font-size: 14px;
     text-align: center;
     cursor: pointer;
     text-decoration: none;
-    transition: color 0.2s ease;
 }
 
 .create-account:hover {
@@ -100,15 +98,80 @@
 
 .error-message {
     color: #ff6b6b;
-    font-size: clamp(13px, 1.5vw, 14px);
+    font-size: 14px;
     margin-top: 8px;
 }
 
-/* Optional enhancements for very large screens */
-@media screen and (min-width: 1400px) {
+/* Media query for screens smaller than the modal's default width */
+@media screen and (max-width: 650px) {
     .login-modal {
-        max-width: 650px;
+        width: 95%;
+        padding: calc(20px + 3vw);
+        border-radius: 8px;
+    }
+    
+    .login-modal h1 {
+        font-size: calc(22px + 0.5vw);
+        margin-bottom: calc(20px + 2vw);
+    }
+    
+    .login-form {
+        gap: calc(20px + 2vw);
+    }
+    
+    .input-group {
+        gap: calc(10px + 1vw);
+    }
+    
+    .input-group input {
+        height: calc(45px + 0.5vw);
+        font-size: calc(14px + 0.2vw);
+        padding: 0 calc(15px + 0.5vw);
+    }
+    
+    .login-button {
+        height: calc(45px + 0.5vw);
+        font-size: calc(14px + 0.2vw);
+    }
+    
+    .divider {
+        gap: calc(10px + 1vw);
+        margin: calc(15px + 1.5vw) 0;
     }
 }
 
-/* Remove existing media queries as they're no longer needed with the clamp approach */
+/* Fine-tuning for very small screens */
+@media screen and (max-width: 400px) {
+    .login-modal {
+        padding: 20px;
+    }
+    
+    .login-modal h1 {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+    
+    .login-form {
+        gap: 20px;
+    }
+    
+    .input-group {
+        gap: 10px;
+    }
+    
+    .input-group input {
+        height: 45px;
+        font-size: 14px;
+        padding: 0 15px;
+    }
+    
+    .login-button {
+        height: 45px;
+        font-size: 14px;
+    }
+    
+    .divider {
+        gap: 10px;
+        margin: 15px 0;
+    }
+}
