@@ -4,6 +4,8 @@
     border-radius: 8px;
     padding: 40px;
     font-family: 'JetBrains Mono', monospace;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .create-entry-modal h2 {
@@ -60,7 +62,7 @@
 }
 
 .input-group textarea {
-    width: 520px;
+    width: 100%;
     height: 200px;
     background-color: #1a1a1a;
     border: 1px solid #3a3a3a;
@@ -70,10 +72,11 @@
     font-family: 'JetBrains Mono', monospace;
     font-size: 14px;
     resize: none;
+    box-sizing: border-box;
 }
 
 .input-group input {
-    width: 520px;
+    width: 100%;
     height: 50px;
     background-color: #1a1a1a;
     border: 1px solid #3a3a3a;
@@ -82,6 +85,7 @@
     color: #e0e0e0;
     font-family: 'JetBrains Mono', monospace;
     font-size: 14px;
+    box-sizing: border-box;
 }
 
 .input-group textarea::placeholder,
@@ -135,4 +139,61 @@
     color: #ff6b6b;
     font-size: 14px;
     margin-top: 8px;
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+    .create-entry-modal {
+        width: 100%;
+        padding: 30px;
+        border-radius: 8px;
+    }
+    
+    .create-entry-modal h2 {
+        font-size: 22px;
+        margin-bottom: 30px;
+    }
+    
+    .input-group {
+        margin-bottom: 30px;
+    }
+    
+    .input-group textarea {
+        height: 180px;
+    }
+}
+
+/* Extra Small Devices */
+@media screen and (max-width: 480px) {
+    .create-entry-modal {
+        padding: 25px;
+    }
+    
+    .create-entry-modal h2 {
+        font-size: 20px;
+        margin-bottom: 25px;
+    }
+    
+    .input-group {
+        margin-bottom: 25px;
+    }
+    
+    .input-group label {
+        margin-bottom: 15px;
+    }
+    
+    .input-group textarea {
+        height: 160px;
+        padding: 15px;
+    }
+    
+    .button-group {
+        gap: 15px;
+    }
+    
+    .cancel-button,
+    .create-button {
+        height: 50px;
+        font-size: 14px;
+    }
 }
