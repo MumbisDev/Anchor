@@ -17,6 +17,11 @@
   font-weight: 700;
 }
 
+/* Add this new rule for the header link */
+.main-header a {
+  text-decoration: none;
+}
+
 .nav-container {
   display: flex;
   justify-content: center;
