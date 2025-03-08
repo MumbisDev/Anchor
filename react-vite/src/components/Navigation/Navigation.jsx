@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
 
@@ -8,7 +8,9 @@ const Navigation = () => {
         <div className="nav-wrapper">
             {/* Header */}
             <header className="main-header">
-                <h1>Anchor</h1>
+                <Link to="/home">
+                    <h1>Anchor</h1>
+                </Link>
                 <ProfileButton />
             </header>
 
