@@ -6,6 +6,8 @@
     border-radius: 8px;
     padding: 40px;
     font-family: 'JetBrains Mono', monospace;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .login-modal h1 {
@@ -42,6 +44,7 @@
     font-family: 'JetBrains Mono', monospace;
     font-size: 16px;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .input-group input:focus {
@@ -97,4 +100,67 @@
     color: #ff6b6b;
     font-size: 14px;
     margin-top: 8px;
+}
+
+/* Media Queries for Tablet */
+@media screen and (max-width: 768px) {
+    .login-modal {
+        width: 100%;
+        padding: 30px;
+    }
+    
+    .login-modal h1 {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+    
+    .login-form {
+        gap: 30px;
+    }
+    
+    .input-group {
+        gap: 15px;
+    }
+}
+
+/* Media Queries for Mobile */
+@media screen and (max-width: 480px) {
+    .login-modal {
+        padding: 25px;
+        border-radius: 6px;
+    }
+    
+    .login-modal h1 {
+        font-size: 22px;
+        margin-bottom: 25px;
+    }
+    
+    .login-form {
+        gap: 25px;
+    }
+    
+    .input-group {
+        gap: 12px;
+    }
+    
+    .input-group input {
+        height: 45px;
+        font-size: 14px;
+        padding: 0 15px;
+    }
+    
+    .login-button {
+        height: 45px;
+        font-size: 14px;
+    }
+    
+    .divider {
+        gap: 15px;
+        margin: 20px 0;
+        font-size: 13px;
+    }
+    
+    .create-account {
+        font-size: 13px;
+    }
 }
