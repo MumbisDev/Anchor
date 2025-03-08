@@ -1,48 +1,50 @@
-/* SignupForm.css */
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
 
 .signup-modal {
     width: 600px;
     background-color: #2a2a2a;
     border-radius: 8px;
-    padding: 20px 40px; /* Further reduced top and bottom padding */
+    padding: 20px 40px;
     font-family: 'JetBrains Mono', monospace;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .signup-modal h1 {
     color: #e0e0e0;
-    font-size: 22px; /* Further reduced font size */
+    font-size: 22px;
     font-weight: 700;
-    margin-bottom: 15px; /* Further reduced margin */
+    margin-bottom: 15px;
 }
 
 .signup-form {
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Further reduced gap between form elements */
+    gap: 15px;
 }
 
 .input-group {
     display: flex;
     flex-direction: column;
-    gap: 12px; /* Further reduced gap between label and input */
+    gap: 12px;
 }
 
 .input-group label {
     color: #949494;
-    font-size: 12px; /* Kept label font size small */
+    font-size: 12px;
 }
 
 .input-group input {
-    height: 40px; /* Further reduced input height */
+    height: 40px;
     background-color: #1a1a1a;
     border: 1px solid #3a3a3a;
     border-radius: 4px;
-    padding: 0 12px; /* Further reduced padding */
+    padding: 0 12px;
     color: #e0e0e0;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 14px; /* Kept font size for input smaller */
+    font-size: 14px;
     width: 100%;
+    box-sizing: border-box;
 }
 
 .input-group input:focus {
@@ -51,16 +53,16 @@
 }
 
 .signup-button {
-    height: 40px; /* Further reduced button height */
-    width: 100%; /* Full width button */
+    height: 40px;
+    width: 100%;
     background-color: #5f9ea0;
     border: none;
     border-radius: 4px;
     color: #e0e0e0;
     font-family: 'JetBrains Mono', monospace;
-    font-size: 14px; /* Kept font size for button smaller */
+    font-size: 14px;
     cursor: pointer;
-    margin-top: 8px; /* Reduced margin above the button */
+    margin-top: 8px;
 }
 
 .signup-button:hover {
@@ -70,10 +72,10 @@
 .divider {
     display: flex;
     align-items: center;
-    gap: 12px; /* Further reduced gap between elements */
+    gap: 12px;
     color: #949494;
-    font-size: 12px; /* Kept font size small */
-    margin: 8px 0; /* Reduced margin above and below divider */
+    font-size: 12px;
+    margin: 8px 0;
 }
 
 .divider::before,
@@ -86,7 +88,7 @@
 
 .login-link {
     color: #5f9ea0;
-    font-size: 12px; /* Kept font size small */
+    font-size: 12px;
     text-align: center;
     text-decoration: none;
     cursor: pointer;
@@ -98,6 +100,80 @@
 
 .error-message {
     color: #ff6b6b;
-    font-size: 12px; /* Kept font size small */
-    margin-top: -6px; /* Adjusted margin to be a bit closer */
+    font-size: 12px;
+    margin-top: -6px;
+}
+
+/* Media query for screens smaller than the modal's default width */
+@media screen and (max-width: 650px) {
+    .signup-modal {
+        width: 95%;
+        padding: 15px calc(15px + 3vw);
+        border-radius: 8px;
+    }
+    
+    .signup-modal h1 {
+        font-size: calc(18px + 0.5vw);
+        margin-bottom: calc(10px + 1vw);
+    }
+    
+    .signup-form {
+        gap: calc(10px + 1vw);
+    }
+    
+    .input-group {
+        gap: calc(8px + 0.5vw);
+    }
+    
+    .input-group input {
+        height: calc(36px + 0.5vw);
+        padding: 0 calc(8px + 0.5vw);
+    }
+    
+    .signup-button {
+        height: calc(36px + 0.5vw);
+    }
+    
+    .divider {
+        gap: calc(8px + 0.5vw);
+        margin: calc(6px + 0.5vw) 0;
+    }
+}
+
+/* Fine-tuning for very small screens */
+@media screen and (max-width: 400px) {
+    .signup-modal {
+        padding: 12px 20px;
+    }
+    
+    .signup-modal h1 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    
+    .signup-form {
+        gap: 10px;
+    }
+    
+    .input-group {
+        gap: 8px;
+    }
+    
+    .input-group input {
+        height: 36px;
+        padding: 0 10px;
+    }
+    
+    .signup-button {
+        height: 36px;
+    }
+    
+    .divider {
+        gap: 8px;
+        margin: 6px 0;
+    }
+    
+    .login-link, .error-message {
+        font-size: 11px;
+    }
 }
