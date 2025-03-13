@@ -50,6 +50,10 @@ const ProfilePage = () => {
         setErrors({});
     };
 
+    const handleFeatureClick = () => {
+        alert("Feature coming soon");
+    };
+
     return (
         <div className="profile-container">
             <main className="main-content">
@@ -144,11 +148,11 @@ const ProfilePage = () => {
                     <div className="settings-grid">
                         <div className="setting-item">
                             <span className="setting-label">Theme</span>
-                            <div className="setting-toggle">Dark</div>
+                            <div className="setting-toggle" onClick={handleFeatureClick}>Dark</div>
                         </div>
                         <div className="setting-item">
                             <span className="setting-label">Notifications</span>
-                            <div className="setting-toggle">On</div>
+                            <div className="setting-toggle" onClick={handleFeatureClick}>On</div>
                         </div>
                     </div>
                 </div>

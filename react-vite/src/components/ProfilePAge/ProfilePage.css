@@ -206,3 +206,18 @@
         width: 100%;
     }
 }
+
+.setting-toggle {
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.setting-toggle:hover {
+    background-color: #3a3a3a;
+}
+
+.setting-toggle:active {
+    background-color: #5f9ea0;
+}
