@@ -153,19 +153,6 @@ const ProfilePage = () => {
                     </div>
                 </div>
 
-                <div className="settings-section">
-                    <h2>Privacy</h2>
-                    <div className="settings-grid">
-                        <div className="setting-item">
-                            <span className="setting-label">Profile Visibility</span>
-                            <div className="setting-toggle">Private</div>
-                        </div>
-                        <div className="setting-item">
-                            <span className="setting-label">Activity Status</span>
-                            <div className="setting-toggle">Show</div>
-                        </div>
-                    </div>
-                </div>
             </main>
         </div>
     );
