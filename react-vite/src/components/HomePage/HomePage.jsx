@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef} from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useModal } from '../../context/Modal';
 import CreateHabitModal from '../CreateHabitModal';
@@ -6,19 +6,19 @@ import HabitMenu from '../HabitMenu';
 import './HomePage.css';
 import EditHabitModal from '../EditHabitModal';
 import DeleteConfirmationModal from '../DeleteConfirmationModal';
-import { thunkDeleteHabit, getUserHabits, thunkUpdateHabit} from '../../redux/habits'; 
+import { thunkDeleteHabit, getUserHabits, thunkUpdateHabit } from '../../redux/habits';
 import { getUserStats, updateUserStats } from '../../redux/stats';
 
 // ProgressBar Component
 const ProgressBar = ({ value, total, text }) => {
     const percentage = Math.min((value / total) * 100, 100);
-    
+
     return (
         <div className="progress-bar">
             <span className="progress-text">{text}</span>
             <div
                 className="progress-fill"
-                style={{ 
+                style={{
                     transform: `translateX(${percentage - 100}%)`,
                 }}
             />
@@ -43,22 +43,22 @@ const HabitItem = ({ habit, onMenuClick, activeMenu, onComplete }) => {
         if (!e.target.closest('.habit-menu-button')) {
             const newCompletedState = !isCompleted;
             const newStreak = newCompletedState ? habit.streak + 1 : Math.max(0, habit.streak - 1);
-            
+
             setIsCompleted(newCompletedState);
-            
+
             const today = new Date().toDateString();
             localStorage.setItem(`habit_${habit.id}_completion`, JSON.stringify({
                 date: today,
                 completed: newCompletedState
             }));
-            
+
             try {
                 // Only send minimal required data
                 await dispatch(thunkUpdateHabit(habit.id, {
                     streak: newStreak,
                     completed: newCompletedState
                 }));
-                
+
                 await onComplete(newCompletedState);
             } catch (error) {
                 console.error('Error updating habit:', error);
@@ -72,15 +72,14 @@ const HabitItem = ({ habit, onMenuClick, activeMenu, onComplete }) => {
         }
     };
 
-
     return (
-        <div 
+        <div
             className={`habit-item ${isCompleted ? 'completed' : ''}`}
             onClick={handleClick}
         >
             <span className="habit-name">{habit.name}</span>
             <span className="habit-count">×{habit.streak}</span>
-            <button 
+            <button
                 className="habit-menu-button"
                 onClick={(e) => {
                     e.stopPropagation();
@@ -92,6 +91,7 @@ const HabitItem = ({ habit, onMenuClick, activeMenu, onComplete }) => {
         </div>
     );
 };
+
 const HomePage = () => {
     const dispatch = useDispatch();
     const { setModalContent } = useModal();
@@ -136,9 +136,14 @@ const HomePage = () => {
             setActiveMenu(null);
         } else {
             const rect = e.currentTarget.getBoundingClientRect();
+            const windowWidth = window.innerWidth;
+            const menuWidth = 200; // Assume the menu width is 200px
+
+            const left = rect.right + menuWidth > windowWidth ? rect.left - menuWidth : rect.right + 20;
+            const top = windowWidth <= 768 ? rect.bottom + 10 : rect.top;
             setMenuPosition({
-                top: rect.top,
-                left: rect.right + 20
+                top: top,
+                left: left
             });
             setActiveMenu(habitId);
         }
@@ -152,9 +157,9 @@ const HomePage = () => {
     const handleDelete = (habit) => {
         setActiveMenu(null);
         setModalContent(
-            <DeleteConfirmationModal 
-                habit={habit} 
-                onDelete={confirmDelete} 
+            <DeleteConfirmationModal
+                habit={habit}
+                onDelete={confirmDelete}
             />
         );
     };
@@ -204,7 +209,7 @@ const HomePage = () => {
                             <span>+</span>
                         </button>
                     </div>
-                    
+
                     <div className="habits-list">
                         {Array.isArray(habits) && habits.length > 0 ? (
                             habits.map(habit => (
@@ -216,9 +221,10 @@ const HomePage = () => {
                                         onComplete={handleHabitComplete}
                                     />
                                     {activeMenu === habit.id && (
-                                        <HabitMenu 
+                                        <HabitMenu
                                             onEdit={() => handleEdit(habit)}
                                             onDelete={() => handleDelete(habit)}
+                                            style={{ top: menuPosition.top, left: menuPosition.left }}
                                         />
                                     )}
                                 </div>

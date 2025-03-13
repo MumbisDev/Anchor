@@ -211,12 +211,13 @@
     transition: color 0.3s ease;
 }
 .habit-menu {
-    color: #e0e0e0;
-    background: none;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-    justify-self: end;
+    position: absolute;
+    width: 200px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
 }
 .habit-item.completed {
     background-color: #5f9ea0;
@@ -338,12 +339,23 @@
     
     /* Fix menu positioning for mobile */
     .habit-menu-container {
-        position: fixed;
-        left: auto;
-        right: 20px;
-        width: 120px;
+        position: absolute;
+        width: 200px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
     }
     
+    .habit-menu-item {
+        padding: 10px;
+        cursor: pointer;
+    }
+    
+    .habit-menu-item:hover {
+        background-color: #f0f0f0;
+    }
     .menu-item {
         height: 40px;
         font-size: 12px;
@@ -376,5 +388,30 @@
     
     .habit-menu-button {
         font-size: 16px;
+    }
+}
+
+.habit-menu-container {
+    position: absolute;
+    width: 200px;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.habit-menu-item {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.habit-menu-item:hover {
+    background-color: #f0f0f0;
+}
+
+@media screen and (max-width: 768px) {
+    .habit-menu-container {
+        left: 0 !important; /* Override left positioning */
+        top: calc(100% + 10px) !important; /* Position below the button */
+        transform: none !important; /* Remove any transform */
     }
 }
