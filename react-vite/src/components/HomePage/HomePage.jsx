@@ -117,10 +117,10 @@ const HomePage = () => {
         const compoundIncrement = 0.5;
 
         const newStats = {
-            total_habits_completed: (stats.total_habits_completed || 0) + (isCompleting ? 1 : -1),
-            compound_meter: (stats.compound_meter || 0) + (isCompleting ? compoundIncrement : -compoundIncrement),
-            xp: (stats.xp || 0) + (isCompleting ? xpPerHabit : -xpPerHabit),
-            level: Math.floor((stats.xp || 0) / 1000) + 1,
+            total_habits_completed: Math.max(0, (stats.total_habits_completed || 0) + (isCompleting ? 1 : -1)),
+            compound_meter: Math.max(0, (stats.compound_meter || 0) + (isCompleting ? compoundIncrement : -compoundIncrement)),
+            xp: Math.max(0, (stats.xp || 0) + (isCompleting ? xpPerHabit : -xpPerHabit)),
+            level: Math.floor(Math.max(0, (stats.xp || 0) + (isCompleting ? xpPerHabit : -xpPerHabit)) / 1000) + 1,
         };
 
         await dispatch(updateUserStats(newStats));
