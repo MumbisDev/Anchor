@@ -8,6 +8,7 @@ import EditHabitModal from '../EditHabitModal';
 import DeleteConfirmationModal from '../DeleteConfirmationModal';
 import { thunkDeleteHabit, getUserHabits, thunkUpdateHabit } from '../../redux/habits';
 import { getUserStats, updateUserStats } from '../../redux/stats';
+import { debounce } from 'lodash';
 
 // ProgressBar Component
 const ProgressBar = ({ value, total, text }) => {
@@ -116,11 +117,16 @@ const HomePage = () => {
         const xpPerHabit = 100;
         const compoundIncrement = 0.5;
 
+        // Use a transaction-like approach to ensure consistent state updates
+        const currentStats = { ...stats };
+        const newXp = Math.max(0, currentStats.xp + (isCompleting ? xpPerHabit : -xpPerHabit));
+        const newLevel = Math.floor(newXp / 1000) + 1;
+
         const newStats = {
-            total_habits_completed: Math.max(0, (stats.total_habits_completed || 0) + (isCompleting ? 1 : -1)),
-            compound_meter: Math.max(0, (stats.compound_meter || 0) + (isCompleting ? compoundIncrement : -compoundIncrement)),
-            xp: Math.max(0, (stats.xp || 0) + (isCompleting ? xpPerHabit : -xpPerHabit)),
-            level: Math.floor(Math.max(0, (stats.xp || 0) + (isCompleting ? xpPerHabit : -xpPerHabit)) / 1000) + 1,
+            total_habits_completed: Math.max(0, currentStats.total_habits_completed + (isCompleting ? 1 : -1)),
+            compound_meter: Math.max(0, currentStats.compound_meter + (isCompleting ? compoundIncrement : -compoundIncrement)),
+            xp: newXp,
+            level: newLevel,
         };
 
         await dispatch(updateUserStats(newStats));
