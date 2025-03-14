@@ -39,9 +39,11 @@ const HabitItem = ({ habit, onMenuClick, activeMenu, onComplete }) => {
         }
         return false;
     });
+    const [isButtonDisabled, setIsButtonDisabled] = useState(false); // New state variable
 
     const handleClick = async (e) => {
-        if (!e.target.closest('.habit-menu-button')) {
+        if (!e.target.closest('.habit-menu-button') && !isButtonDisabled) {
+            setIsButtonDisabled(true); // Disable the button
             const newCompletedState = !isCompleted;
             const newStreak = newCompletedState ? habit.streak + 1 : Math.max(0, habit.streak - 1);
 
@@ -69,6 +71,8 @@ const HabitItem = ({ habit, onMenuClick, activeMenu, onComplete }) => {
                     date: today,
                     completed: !newCompletedState
                 }));
+            } finally {
+                setTimeout(() => setIsButtonDisabled(false), 500); // Re-enable the button after 500ms
             }
         }
     };
@@ -86,6 +90,7 @@ const HabitItem = ({ habit, onMenuClick, activeMenu, onComplete }) => {
                     e.stopPropagation();
                     onMenuClick(e);
                 }}
+                disabled={isButtonDisabled} // Disable the menu button as well
             >
                 •••
             </button>
@@ -100,6 +105,7 @@ const HomePage = () => {
     const isLoading = useSelector(state => state.habits.isLoading);
     const [activeMenu, setActiveMenu] = useState(null);
     const [menuPosition, setMenuPosition] = useState({ top: 0, left: 0 });
+    const [isButtonDisabled, setIsButtonDisabled] = useState(false); // New state variable
 
     const stats = useSelector(state => state.stats?.stats) || {
         level: 1,
@@ -211,7 +217,7 @@ const HomePage = () => {
                 <div className="habits-container">
                     <div className="habits-header">
                         <h2>Active Habits</h2>
-                        <button className="add-habit-btn" onClick={openCreateHabitModal}>
+                        <button className="add-habit-btn" onClick={openCreateHabitModal} disabled={isButtonDisabled}>
                             <span>+</span>
                         </button>
                     </div>
@@ -224,7 +230,13 @@ const HomePage = () => {
                                         habit={habit}
                                         onMenuClick={(e) => toggleMenu(habit.id, e)}
                                         activeMenu={activeMenu}
-                                        onComplete={handleHabitComplete}
+                                        onComplete={async (isCompleting) => {
+                                            if (!isButtonDisabled) {
+                                                setIsButtonDisabled(true);
+                                                await handleHabitComplete(isCompleting);
+                                                setTimeout(() => setIsButtonDisabled(false), 500); // 500ms delay
+                                            }
+                                        }}
                                     />
                                     {activeMenu === habit.id && (
                                         <HabitMenu
