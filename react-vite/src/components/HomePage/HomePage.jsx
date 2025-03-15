@@ -27,6 +27,22 @@ const ProgressBar = ({ value, total, text }) => {
     );
 };
 
+// CurrentDate Component
+const CurrentDate = () => {
+    const today = new Date().toLocaleDateString('en-US', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+    });
+
+    return (
+        <div className="current-date">
+            {today}
+        </div>
+    );
+};
+
 // HabitItem Component
 const HabitItem = ({ habit, onMenuClick, activeMenu, onComplete, isButtonDisabled, setIsButtonDisabled }) => {
     const dispatch = useDispatch();
@@ -201,6 +217,7 @@ const HomePage = () => {
 
     return (
         <div className="home-container">
+            <CurrentDate /> {/* Add the CurrentDate component */}
             <main className="main-content">
                 {/* Level Progress */}
                 <div className="progress-container">

@@ -415,3 +415,10 @@
         transform: none !important; /* Remove any transform */
     }
 }
+
+.current-date {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
