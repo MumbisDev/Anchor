@@ -118,7 +118,6 @@ const HabitItem = ({ habit, onMenuClick, activeMenu, onComplete, isButtonDisable
             >
                 •••
             </button>
-            {!isHabitActiveToday() && <span className="inactive-day-warning">Not active today</span>}
         </div>
     );
 };
