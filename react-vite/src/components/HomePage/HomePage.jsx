@@ -56,8 +56,13 @@ const HabitItem = ({ habit, onMenuClick, activeMenu, onComplete, isButtonDisable
         return false;
     });
 
+    const isHabitActiveToday = () => {
+        const todayIndex = new Date().getDay();
+        return habit.active_days[todayIndex] === '1';
+    };
+
     const handleClick = async (e) => {
-        if (!e.target.closest('.habit-menu-button') && !isButtonDisabled) {
+        if (!e.target.closest('.habit-menu-button') && !isButtonDisabled && isHabitActiveToday()) {
             setIsButtonDisabled(true); // Disable all buttons
             const newCompletedState = !isCompleted;
             const newStreak = newCompletedState ? habit.streak + 1 : Math.max(0, habit.streak - 1);
@@ -109,6 +114,7 @@ const HabitItem = ({ habit, onMenuClick, activeMenu, onComplete, isButtonDisable
             >
                 •••
             </button>
+            {!isHabitActiveToday() && <span className="inactive-day-warning">Not active today</span>}
         </div>
     );
 };
