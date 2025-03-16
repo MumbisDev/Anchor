@@ -62,7 +62,11 @@ const HabitItem = ({ habit, onMenuClick, activeMenu, onComplete, isButtonDisable
     };
 
     const handleClick = async (e) => {
-        if (!e.target.closest('.habit-menu-button') && !isButtonDisabled && isHabitActiveToday()) {
+        if (!e.target.closest('.habit-menu-button') && !isButtonDisabled) {
+            if (!isHabitActiveToday()) {
+                alert('This habit is not active today.');
+                return;
+            }
             setIsButtonDisabled(true); // Disable all buttons
             const newCompletedState = !isCompleted;
             const newStreak = newCompletedState ? habit.streak + 1 : Math.max(0, habit.streak - 1);
