@@ -15,10 +15,24 @@ const DailyEntriesPage = () => {
     const stats = useSelector(state => state.stats.stats);
     const isLoading = useSelector(state => state.entries.isLoading);
     const [selectedEntry, setSelectedEntry] = useState(null);
+    const [entryExistsForToday, setEntryExistsForToday] = useState(false);
 
     useEffect(() => {
         dispatch(getUserEntries());
     }, [dispatch]);
+
+    useEffect(() => {
+        const checkEntryExistsForToday = () => {
+            const todayDate = new Date().toISOString().split('T')[0];
+            const exists = entries.some(entry => {
+                const entryDate = new Date(entry.created_at).toISOString().split('T')[0];
+                return entryDate === todayDate;
+            });
+            setEntryExistsForToday(exists);
+        };
+
+        checkEntryExistsForToday();
+    }, [entries]);
 
     const handleDelete = async (entryId) => {
         try {
@@ -79,14 +93,15 @@ const DailyEntriesPage = () => {
             <main className="main-content">
                 {/* Action Buttons */}
                 <div className="entry-actions">
-                <div className="left-actions">
-        <button 
-            className="action-button"
-            onClick={openCreateEntryModal}
-        >
-            Create Entry
-        </button>
-    </div>
+                    <div className="left-actions">
+                        <button 
+                            className="action-button"
+                            onClick={openCreateEntryModal}
+                            disabled={entryExistsForToday}
+                        >
+                            Create Entry
+                        </button>
+                    </div>
                     <div className="right-actions">
                         <button 
                             className="action-button"
