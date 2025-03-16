@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { User } from 'lucide-react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -9,6 +9,7 @@ function ProfileButton() {
     const navigate = useNavigate();
     const [showMenu, setShowMenu] = useState(false);
     const user = useSelector(state => state.session.user) || {};
+    const dropdownRef = useRef(null);
 
     const navigateToProfile = () => {
         setShowMenu(false);
@@ -21,13 +22,30 @@ function ProfileButton() {
         navigate('/');
     };
 
+    const handleClickOutside = (event) => {
+        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+            setShowMenu(false);
+        }
+    };
+
+    useEffect(() => {
+        if (showMenu) {
+            document.addEventListener('mousedown', handleClickOutside);
+        } else {
+            document.removeEventListener('mousedown', handleClickOutside);
+        }
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [showMenu]);
+
     return (
         <div className="profile-button-container">
             <button className={`profile-button ${showMenu ? 'active' : ''}`} onClick={(e) => setShowMenu(!showMenu)}>
                 <User size={20} color="#e0e0e0" />
             </button>
             {showMenu && (
-                <div className="profile-dropdown">
+                <div className="profile-dropdown" ref={dropdownRef}>
                     <div className="user-info">
                         <div className="user-avatar">
                             <svg 
