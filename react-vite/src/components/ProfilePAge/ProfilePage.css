@@ -219,6 +219,22 @@
     }
 }
 
+@media screen and (max-width: 900px) {
+    .settings-grid {
+        gap: 20px; /* Reduce gap between settings items */
+    }
+
+    .setting-item {
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align items to the left */
+        gap: 10px; /* Add spacing between stacked items */
+    }
+
+    .setting-input {
+        width: 100%; /* Ensure input fields fit within the container */
+    }
+}
+
 .setting-toggle {
     cursor: pointer;
     padding: 5px 10px;
