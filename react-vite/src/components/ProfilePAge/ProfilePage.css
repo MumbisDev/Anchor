@@ -111,6 +111,12 @@
     cursor: pointer;
     transition: background-color 0.2s ease;
     color: #e0e0e0;
+    white-space: nowrap; /* Prevent text from stacking */
+    display: flex; /* Ensure proper alignment */
+    align-items: center; /* Center text vertically */
+    justify-content: center; /* Center text horizontally */
+    width: 150px; /* Set a consistent width for all buttons */
+    box-sizing: border-box; /* Ensure padding and border are included in width */
 }
 
 .profile-header .edit-profile-button {
