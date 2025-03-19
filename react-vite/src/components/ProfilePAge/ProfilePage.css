@@ -97,7 +97,7 @@
 /* Button Group Styles - Matching Edit Modal Style */
 .profile-header .button-group {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end; /* Align buttons to the edge */
     gap: 10px;
 }
 
