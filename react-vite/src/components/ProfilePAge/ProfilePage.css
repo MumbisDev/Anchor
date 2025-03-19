@@ -119,6 +119,8 @@
 
 .profile-header .cancel-button {
     background-color: #3a3a3a;
+    height: 40px; /* Match height */
+    padding: 0 30px; /* Match padding */
 }
 
 .profile-header .edit-profile-button:hover {

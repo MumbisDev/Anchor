@@ -15,9 +15,9 @@ function ProfileButton() {
         setShowMenu(false);
         navigate('/profile');
     };
-
+        
     const logout = (e) => {
-        e.preventDefault();
+    e.preventDefault();
         dispatch(thunkLogout());
         navigate('/');
     };
