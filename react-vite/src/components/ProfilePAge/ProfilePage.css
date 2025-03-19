@@ -115,12 +115,16 @@
 
 .profile-header .edit-profile-button {
     background-color: #5f9ea0;
+    min-width: 120px; /* Ensure consistent width */
+    max-width: 120px; /* Ensure consistent width */
 }
 
 .profile-header .cancel-button {
     background-color: #3a3a3a;
     height: 40px; /* Match height */
     padding: 0 30px; /* Match padding */
+    min-width: 120px; /* Ensure consistent width */
+    max-width: 120px; /* Ensure consistent width */
 }
 
 .profile-header .edit-profile-button:hover {
