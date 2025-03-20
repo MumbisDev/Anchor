@@ -1,10 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
 
+/* Fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .landing-page {
     min-height: 100vh;
     background-color: #1a1a1a;
     color: #e0e0e0;
     font-family: 'JetBrains Mono', monospace;
+    animation: fadeIn 1s ease-in-out;
 }
 
 .landing-header {
@@ -46,6 +59,7 @@
 .hero-section {
     text-align: center;
     margin-bottom: 5rem;
+    animation: fadeIn 1.2s ease-in-out;
 }
 
 .hero-title {
@@ -88,6 +102,7 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 2.5rem;
     margin-bottom: 4rem;
+    animation: fadeIn 1.4s ease-in-out;
 }
 
 .feature-card {
@@ -121,6 +136,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    animation: fadeIn 1.6s ease-in-out;
 }
 
 .cta-heading {
