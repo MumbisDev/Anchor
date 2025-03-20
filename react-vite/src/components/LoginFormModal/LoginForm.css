@@ -11,7 +11,7 @@
     overflow-y: auto;
     max-width: 100%;
     box-sizing: border-box;
-    animation: fadeSlideIn 0.5s ease-out;
+    animation: fadeIn 1s ease-in-out; /* Fade-in effect with smooth transition */
 }
 
 .login-modal h1 {
@@ -107,14 +107,12 @@
 }
 
 /* Keyframe animations */
-@keyframes fadeSlideIn {
+@keyframes fadeIn {
     from {
-        opacity: 0;
-        transform: translateY(-20px);
+        opacity: 0; /* Start fully transparent */
     }
     to {
-        opacity: 1;
-        transform: translateY(0);
+        opacity: 1; /* End fully visible */
     }
 }
 
