@@ -11,6 +11,7 @@
     overflow-y: auto;
     max-width: 100%;
     box-sizing: border-box;
+    animation: fadeSlideIn 0.5s ease-out;
 }
 
 .login-modal h1 {
@@ -103,6 +104,18 @@
     color: #ff6b6b;
     font-size: 14px;
     margin-top: 8px;
+}
+
+/* Keyframe animations */
+@keyframes fadeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Media query for screens smaller than the modal's default width */
