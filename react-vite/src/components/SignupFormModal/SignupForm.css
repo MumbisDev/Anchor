@@ -11,6 +11,7 @@
     font-family: 'JetBrains Mono', monospace;
     max-width: 100%;
     box-sizing: border-box;
+    animation: fadeIn 1s ease-in-out; /* Fade-in effect with smooth transition */
 }
 
 .signup-modal h1 {
@@ -190,5 +191,15 @@
     
     .login-link, .error-message {
         font-size: 11px;
+    }
+}
+
+/* Keyframe animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Start fully transparent */
+    }
+    to {
+        opacity: 1; /* End fully visible */
     }
 }
