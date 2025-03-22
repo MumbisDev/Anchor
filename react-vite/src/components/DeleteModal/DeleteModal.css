@@ -1,0 +1,16 @@
+.delete-modal {
+    // ...existing code...
+    animation: fadeIn 1s ease-in-out; /* Fade-in effect with smooth transition */
+}
+
+// Keyframe animations
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Start fully transparent */
+    }
+    to {
+        opacity: 1; /* End fully visible */
+    }
+}
+
+// ...existing code...
