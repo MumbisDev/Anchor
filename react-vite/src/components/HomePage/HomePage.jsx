@@ -139,9 +139,16 @@ const HomePage = () => {
     };
 
     useEffect(() => {
-        dispatch(getUserStats());
-        dispatch(getUserHabits());
-    }, [dispatch]);
+        if (!stats || Object.keys(stats).length === 0) {
+            dispatch(getUserStats());
+        }
+    }, [dispatch, stats]); // Ensure stats are only fetched if not already present
+
+    useEffect(() => {
+        if (!habits || habits.length === 0) {
+            dispatch(getUserHabits());
+        }
+    }, [dispatch, habits]); // Ensure habits are only fetched if not already present
 
     const handleHabitComplete = async (isCompleting) => {
         const xpPerHabit = 100;
