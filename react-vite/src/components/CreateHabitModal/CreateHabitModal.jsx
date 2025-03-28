@@ -13,9 +13,11 @@ const CreateHabitModal = () => {
     const [activeDays, setActiveDays] = useState(Array(7).fill(false));
 
     const handleDayToggle = (index) => {
-        const newActiveDays = [...activeDays];
-        newActiveDays[index] = !newActiveDays[index];
-        setActiveDays(newActiveDays);
+        setActiveDays((prevActiveDays) => {
+            const newActiveDays = [...prevActiveDays];
+            newActiveDays[index] = !newActiveDays[index];
+            return newActiveDays;
+        });
     };
 
     const handleSubmit = async (e) => {
@@ -33,6 +35,7 @@ const CreateHabitModal = () => {
         };
 
         try {
+            console.log('Submitting habit data:', habitData); // Debugging log
             await dispatch(createHabit(habitData));
             closeModal();
         } catch (error) {
