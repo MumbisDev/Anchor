@@ -5,7 +5,7 @@ import { thunkUpdateHabit, isHabitEnabledToday } from '../../redux/habits';  // 
 import '../CreateHabitModal/CreateHabitModal.css'
 
 
-const DAYS = ['M', 'T', 'W', 'Th', 'F', 'S', 'Su'];
+const DAYS = ['Su', 'M', 'T', 'W', 'Th', 'F', 'S']; // Reordered to place Sunday first
 
 const EditHabitModal = ({ habit }) => {
     const dispatch = useDispatch();
@@ -46,15 +46,17 @@ const EditHabitModal = ({ habit }) => {
         try {
             await dispatch(thunkUpdateHabit(habit.id, habitData)); // Ensure this action updates the state
 
-            // Check if the habit is enabled for today
-            if (!isHabitEnabledToday(activeDaysString)) {
-                alert('This habit is not enabled for today.');
-            } else {
-                closeModal();
-            }
+            // Close the modal after successfully saving changes
+            closeModal();
         } catch (error) {
             console.error('Error updating habit:', error);
         }
+    };
+
+    // Remove the alert logic from here
+    const isHabitEnabledToday = (activeDaysString) => {
+        const todayIndex = new Date().getDay(); // Sunday = 0, Monday = 1, ..., Saturday = 6
+        return activeDaysString[todayIndex] === '1';
     };
 
     return (
