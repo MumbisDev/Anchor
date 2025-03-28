@@ -20,9 +20,11 @@ const EditHabitModal = ({ habit }) => {
     const [activeDays, setActiveDays] = useState(activeDaysArray);
 
     const handleDayToggle = (index) => {
-        const newActiveDays = [...activeDays];
-        newActiveDays[index] = !newActiveDays[index];
-        setActiveDays(newActiveDays);
+        setActiveDays((prevActiveDays) => {
+            const newActiveDays = [...prevActiveDays];
+            newActiveDays[index] = !newActiveDays[index];
+            return newActiveDays;
+        });
     };
 
     const handleSubmit = async (e) => {

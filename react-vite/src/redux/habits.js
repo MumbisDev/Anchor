@@ -130,34 +130,31 @@ export const createHabit = (habitData) => async (dispatch, getState) => {
 
 export const thunkUpdateHabit = (habitId, habitData) => async (dispatch) => {
   try {
-    // Only send the fields we want to update, not the entire habit object
-    const updateData = {
-      streak: habitData.streak,
-      completed: habitData.completed,
-    };
-
     const response = await fetch(`/api/habits/${habitId}`, {
-      method: "PUT",
+      method: 'PUT',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify(updateData),
-      credentials: "include",
+      body: JSON.stringify(habitData),
     });
 
-    if (response.ok) {
-      const updatedHabit = await response.json();
-      dispatch({
-        type: UPDATE_HABIT,
-        payload: updatedHabit,
-      });
-      return updatedHabit;
+    if (!response.ok) {
+      throw new Error('Failed to update habit');
     }
+
+    const updatedHabit = await response.json();
+
+    console.log('Updated habit from server:', updatedHabit); // Debugging log
+
+    dispatch({
+      type: 'habits/UPDATE_HABIT',
+      payload: updatedHabit,
+    });
   } catch (error) {
-    console.error("Error updating habit:", error);
-    throw error;
+    console.error('Error in thunkUpdateHabit:', error);
   }
 };
+
 export const thunkDeleteHabit = (habitId) => async (dispatch) => {
   try {
     const response = await fetch(`/api/habits/${habitId}`, {
