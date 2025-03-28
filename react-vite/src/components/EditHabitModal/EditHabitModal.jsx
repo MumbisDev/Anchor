@@ -39,8 +39,10 @@ const EditHabitModal = ({ habit }) => {
             active_days: activeDaysString
         };
 
+        console.log('Submitting updated habit data:', habitData); // Debugging log
+
         try {
-            await dispatch(thunkUpdateHabit(habit.id, habitData));
+            await dispatch(thunkUpdateHabit(habit.id, habitData)); // Ensure this action updates the state
             closeModal();
         } catch (error) {
             console.error('Error updating habit:', error);
