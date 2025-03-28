@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useModal } from '../../context/Modal';
-import { thunkUpdateHabit } from '../../redux/habits';  // Update this import
+import { thunkUpdateHabit, isHabitEnabledToday } from '../../redux/habits';  // Update this import
 import '../CreateHabitModal/CreateHabitModal.css'
 
 
@@ -45,7 +45,13 @@ const EditHabitModal = ({ habit }) => {
 
         try {
             await dispatch(thunkUpdateHabit(habit.id, habitData)); // Ensure this action updates the state
-            closeModal();
+
+            // Check if the habit is enabled for today
+            if (!isHabitEnabledToday(activeDaysString)) {
+                alert('This habit is not enabled for today.');
+            } else {
+                closeModal();
+            }
         } catch (error) {
             console.error('Error updating habit:', error);
         }

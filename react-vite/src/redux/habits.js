@@ -30,6 +30,12 @@ const toggleHabitCompletion = (habitId, completed) => ({
   payload: { habitId, completed },
 });
 
+// Utility function to check if a habit is enabled for the current day
+export const isHabitEnabledToday = (activeDays) => {
+    const todayIndex = new Date().getDay(); // Sunday = 0, Monday = 1, ..., Saturday = 6
+    return activeDays[todayIndex] === '1';
+};
+
 // Thunks
 export const thunkToggleHabit =
   (habitId, currentlyCompleted) => async (dispatch, getState) => {
