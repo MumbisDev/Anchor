@@ -2,6 +2,7 @@
     min-height: 100vh;
     background-color: #1a1a1a;
     font-family: 'JetBrains Mono', monospace;
+    animation: fadeInUp 0.5s ease-in-out;
 }
 
 .main-content {
@@ -16,6 +17,7 @@
     justify-content: space-between;
     margin-bottom: 20px;
     flex-wrap: wrap;
+    animation: fadeInUp 0.5s ease-in-out;
 }
 
 .left-actions, .right-actions {
@@ -45,6 +47,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    animation: fadeInUp 0.5s ease-in-out;
 }
 
 .entry-card {
@@ -55,6 +58,7 @@
     justify-content: space-between;
     gap: 40px;
     min-height: 160px;
+    animation: fadeInUp 0.5s ease-in-out;
 }
 
 .entry-content {
@@ -156,3 +160,15 @@
         height: 200px;
     }
 }
+
+/* Add keyframes for fade-in and rise-up animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+} 
