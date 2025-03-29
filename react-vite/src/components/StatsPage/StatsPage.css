@@ -4,6 +4,7 @@
     padding: 20px;
     font-family: 'JetBrains Mono', monospace;
     box-sizing: border-box;
+    animation: fadeInUp 0.5s ease-in-out;
 }
 
 .stats-content {
@@ -28,6 +29,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    animation: fadeInUp 0.5s ease-in-out;
 }
 
 .stat-label {
@@ -46,6 +48,7 @@
     background-color: #2a2a2a;
     border-radius: 8px;
     padding: 30px;
+    animation: fadeInUp 0.5s ease-in-out;
 }
 
 .stats-section h2 {
@@ -60,6 +63,7 @@
     display: flex;
     gap: 20px;
     height: 200px;
+    animation: fadeInUp 0.5s ease-in-out;
 }
 
 .y-axis {
@@ -111,6 +115,7 @@
     display: flex;
     align-items: center;
     gap: 20px;
+    animation: fadeInUp 0.5s ease-in-out;
 }
 
 .habit-name {
@@ -259,5 +264,17 @@
     
     .habit-progress-container {
         height: 25px;
+    }
+}
+
+/* Add keyframes for fade-in and rise-up animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
