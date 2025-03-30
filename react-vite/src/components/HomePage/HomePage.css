@@ -429,20 +429,11 @@
     font-size: 2.2rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
-    color: #5f9ea0;
-    text-shadow: 0 0 15px rgba(95, 158, 160, 0.8), 0 0 30px rgba(95, 158, 160, 0.6);
+    color: #ffffff; /* Change to white */
     letter-spacing: 2px;
     text-transform: uppercase;
-    animation: pulseGlow 2s infinite alternate;
-}
-
-@keyframes pulseGlow {
-    from {
-        text-shadow: 0 0 15px rgba(95, 158, 160, 0.8), 0 0 30px rgba(95, 158, 160, 0.6);
-    }
-    to {
-        text-shadow: 0 0 25px rgba(95, 158, 160, 1), 0 0 40px rgba(95, 158, 160, 0.9);
-    }
+    text-shadow: none; /* Remove glow effect */
+    animation: none; /* Disable animation */
 }
 
 .current-date .time {
