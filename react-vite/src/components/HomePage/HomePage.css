@@ -419,9 +419,22 @@
 
 .current-date {
     text-align: center;
-    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #e0e0e0;
+    font-family: 'JetBrains Mono', monospace;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.current-date .date {
+    font-size: 1.8rem;
     font-weight: bold;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.current-date .time {
+    font-size: 1.2rem;
+    color: #5f9ea0;
+    font-weight: 500;
 }
 
 @keyframes fadeIn {

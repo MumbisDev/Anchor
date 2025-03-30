@@ -18,12 +18,14 @@
     align-items: center;
     margin-bottom: 40px;
     animation: fadeInUp 0.5s ease-in-out;
+    transition: all 0.3s ease-in-out; /* Smooth transition for layout changes */
 }
 
 .profile-info {
     display: flex;
     align-items: center;
     gap: 30px;
+    transition: all 0.3s ease-in-out; /* Smooth transition for position changes */
 }
 
 .avatar-circle {
@@ -74,6 +76,7 @@
 .setting-item {
     display: flex;
     gap: 200px;
+    transition: all 0.3s ease-in-out; /* Smooth transition for settings layout */
 }
 
 .setting-label {
@@ -102,6 +105,7 @@
     display: flex;
     justify-content: flex-end; /* Align buttons to the edge */
     gap: 10px;
+    transition: all 0.3s ease-in-out; /* Smooth transition for button group layout */
 }
 
 .profile-header .button-group button {
