@@ -39,13 +39,9 @@ const CurrentDate = () => {
         return () => clearInterval(interval);
     }, []);
 
-    const formattedDate = currentTime.toLocaleDateString('en-US', {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-    });
-
+    const day = currentTime.toLocaleDateString('en-US', { weekday: 'long' });
+    const monthDay = currentTime.toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
+    const year = currentTime.getFullYear();
     const formattedTime = currentTime.toLocaleTimeString('en-US', {
         hour: '2-digit',
         minute: '2-digit',
@@ -54,7 +50,9 @@ const CurrentDate = () => {
 
     return (
         <div className="current-date">
-            <div className="date">{formattedDate}</div>
+            <div className="date">
+                {day} | {monthDay} | {year}
+            </div>
             <div className="time">{formattedTime}</div>
         </div>
     );

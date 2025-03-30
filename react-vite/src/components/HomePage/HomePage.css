@@ -423,21 +423,32 @@
     color: #e0e0e0;
     font-family: 'JetBrains Mono', monospace;
     animation: fadeIn 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center align both date and time */
 }
 
 .current-date .date {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
     font-weight: bold;
-    margin-bottom: 0.5rem;
-    color: #ffffff; /* Change to white */
-    letter-spacing: 2px;
+    color: #ffffff;
+    letter-spacing: 1px;
     text-transform: uppercase;
-    text-shadow: none; /* Remove glow effect */
-    animation: none; /* Disable animation */
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Add spacing between date parts */
+    margin-bottom: 0.5rem; /* Add spacing between date and time */
+    position: relative;
+}
+
+.current-date .date .month-day {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* Center align the month-day part */
 }
 
 .current-date .time {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     color: #5f9ea0;
     font-weight: 500;
 }
