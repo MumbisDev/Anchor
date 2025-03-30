@@ -426,22 +426,21 @@
 }
 
 .current-date .date {
-    font-size: 2.2rem;
+    font-size: 2rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
     color: #5f9ea0;
-    text-shadow: 0 0 15px rgba(95, 158, 160, 0.8), 0 0 30px rgba(95, 158, 160, 0.6);
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    animation: pulseGlow 2s infinite alternate;
+    text-shadow: 0 0 10px rgba(95, 158, 160, 0.8), 0 0 20px rgba(95, 158, 160, 0.6);
+    letter-spacing: 1.5px;
+    animation: glow 1.5s infinite alternate;
 }
 
-@keyframes pulseGlow {
+@keyframes glow {
     from {
-        text-shadow: 0 0 15px rgba(95, 158, 160, 0.8), 0 0 30px rgba(95, 158, 160, 0.6);
+        text-shadow: 0 0 10px rgba(95, 158, 160, 0.8), 0 0 20px rgba(95, 158, 160, 0.6);
     }
     to {
-        text-shadow: 0 0 25px rgba(95, 158, 160, 1), 0 0 40px rgba(95, 158, 160, 0.9);
+        text-shadow: 0 0 20px rgba(95, 158, 160, 1), 0 0 30px rgba(95, 158, 160, 0.8);
     }
 }
 
