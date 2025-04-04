@@ -41,8 +41,10 @@ const CreateEntryModal = () => {
                     compound_meter: (stats.compound_meter || 0) + 1.0
                 };
                 await dispatch(updateUserStats(newStats));
+                closeModal(); // Ensure modal closes after successful submission
+            } else {
+                setErrors({ submit: "Failed to create entry" });
             }
-            closeModal();
         } catch (error) {
             setErrors({ submit: "Failed to create entry" });
         } finally {
