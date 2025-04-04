@@ -438,13 +438,6 @@
     justify-content: center;
     gap: 10px; /* Add spacing between date parts */
     margin-bottom: 0.5rem; /* Add spacing between date and time */
-    position: relative;
-}
-
-.current-date .date .month-day {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%); /* Center align the month-day part */
 }
 
 .current-date .time {

@@ -12,12 +12,17 @@ const CreateEntryModal = () => {
     const [entryText, setEntryText] = useState('');
     const [imageUrl, setImageUrl] = useState('');
     const [errors, setErrors] = useState({});
+    const [isSubmitting, setIsSubmitting] = useState(false); // Track submission state
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         
+        if (isSubmitting) return; // Prevent multiple submissions
+        setIsSubmitting(true); // Disable button
+
         if (!entryText.trim()) {
             setErrors({ entry: "Entry text is required" });
+            setIsSubmitting(false); // Re-enable button
             return;
         }
 
@@ -40,6 +45,8 @@ const CreateEntryModal = () => {
             closeModal();
         } catch (error) {
             setErrors({ submit: "Failed to create entry" });
+        } finally {
+            setIsSubmitting(false); // Re-enable button
         }
     };
 
@@ -74,14 +81,16 @@ const CreateEntryModal = () => {
                         type="button" 
                         className="cancel-button"
                         onClick={closeModal}
+                        disabled={isSubmitting} // Disable cancel button if submitting
                     >
                         Cancel
                     </button>
                     <button 
                         type="submit" 
                         className="create-button"
+                        disabled={isSubmitting} // Disable create button if submitting
                     >
-                        Create Entry
+                        {isSubmitting ? "Submitting..." : "Create Entry"} {/* Show loading text */}
                     </button>
                 </div>
             </form>
