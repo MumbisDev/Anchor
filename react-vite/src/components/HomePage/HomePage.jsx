@@ -167,7 +167,7 @@ const HomePage = () => {
 
     const handleHabitComplete = async (isCompleting) => {
         const xpPerHabit = 50;
-        const compoundIncrement = 0.5;
+        const compoundIncrement = 0.25;
 
         // Optimistically update the state on the frontend
         const newXp = Math.max(0, stats.xp + (isCompleting ? xpPerHabit : -xpPerHabit));
