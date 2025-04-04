@@ -92,7 +92,7 @@ const CreateEntryModal = () => {
                         className="create-button"
                         disabled={isSubmitting} // Disable create button if submitting
                     >
-                        {isSubmitting ? "Submitting..." : "Create Entry"} {/* Show loading text */}
+                        {isSubmitting ? "Create Entry" : "Create Entry"} {/* Show loading text */}
                     </button>
                 </div>
             </form>
