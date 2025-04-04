@@ -166,7 +166,7 @@ const HomePage = () => {
     }, [dispatch, habits]); // Ensure habits are only fetched if not already present
 
     const handleHabitComplete = async (isCompleting) => {
-        const xpPerHabit = 100;
+        const xpPerHabit = 50;
         const compoundIncrement = 0.5;
 
         // Optimistically update the state on the frontend
