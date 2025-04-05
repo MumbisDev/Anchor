@@ -6,9 +6,12 @@ import './CreateEntryModal.css';
 import { updateUserStats } from '../../redux/stats';  
 
 const CreateEntryModal = () => {
+    // Initialize Redux dispatch and selectors
     const dispatch = useDispatch();
     const stats = useSelector(state => state.stats.stats);
     const { closeModal } = useModal();
+
+    // State variables for form inputs and errors
     const [entryText, setEntryText] = useState('');
     const [imageUrl, setImageUrl] = useState('');
     const [errors, setErrors] = useState({});
@@ -20,12 +23,14 @@ const CreateEntryModal = () => {
         if (isSubmitting) return; // Prevent multiple submissions
         setIsSubmitting(true); // Disable button
 
+        // Validate entry text
         if (!entryText.trim()) {
             setErrors({ entry: "Entry text is required" });
             setIsSubmitting(false); // Re-enable button
             return;
         }
 
+        // Prepare entry data for submission
         const entryData = {
             improvement_note: entryText,
             image_url: imageUrl || null,
@@ -33,9 +38,10 @@ const CreateEntryModal = () => {
         };
 
         try {
+            // Dispatch createEntry action
             const result = await dispatch(createEntry(entryData));
             if (result) {
-                // Update stats
+                // Update user stats after successful entry creation
                 const newStats = {
                     ...stats,
                     compound_meter: (stats.compound_meter || 0) + 1.0
@@ -79,6 +85,7 @@ const CreateEntryModal = () => {
                 </div>
 
                 <div className="button-group">
+                    {/* Cancel button to close the modal */}
                     <button 
                         type="button" 
                         className="cancel-button"
@@ -87,6 +94,7 @@ const CreateEntryModal = () => {
                     >
                         Cancel
                     </button>
+                    {/* Submit button to create the entry */}
                     <button 
                         type="submit" 
                         className="create-button"
