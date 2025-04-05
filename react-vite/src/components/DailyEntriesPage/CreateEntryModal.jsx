@@ -12,8 +12,8 @@ const CreateEntryModal = () => {
     const { closeModal } = useModal();
 
     // State variables for form inputs and errors
-    const [entryText, setEntryText] = useState('');
-    const [imageUrl, setImageUrl] = useState('');
+    const [entryContent, setEntryContent] = useState(''); // Renamed from entryText to entryContent
+    const [imageLink, setImageLink] = useState(''); // Renamed from imageUrl to imageLink
     const [errors, setErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false); // Track submission state
 
@@ -23,8 +23,8 @@ const CreateEntryModal = () => {
         if (isSubmitting) return; // Prevent multiple submissions
         setIsSubmitting(true); // Disable button
 
-        // Validate entry text
-        if (!entryText.trim()) {
+        // Validate entry content
+        if (!entryContent.trim()) { // Updated variable name
             setErrors({ entry: "Entry text is required" });
             setIsSubmitting(false); // Re-enable button
             return;
@@ -32,8 +32,8 @@ const CreateEntryModal = () => {
 
         // Prepare entry data for submission
         const entryData = {
-            improvement_note: entryText,
-            image_url: imageUrl || null,
+            improvement_note: entryContent, // Updated variable name
+            image_url: imageLink || null, // Updated variable name
             compound_meter_increment: 1.0
         };
 
@@ -66,9 +66,9 @@ const CreateEntryModal = () => {
                 <div className="input-group">
                     <label>Entry</label>
                     <textarea
-                        value={entryText}
-                        onChange={(e) => setEntryText(e.target.value)}
-                        placeholder="Write about your day or improvements..." // Updated placeholder
+                        value={entryContent} // Updated variable name
+                        onChange={(e) => setEntryContent(e.target.value)} // Updated variable name
+                        placeholder="Write about your day or improvements..."
                         required
                     />
                     {errors.entry && <p className="error-message">{errors.entry}</p>}
@@ -78,9 +78,9 @@ const CreateEntryModal = () => {
                     <label>Image URL (optional)</label>
                     <input
                         type="text"
-                        value={imageUrl}
-                        onChange={(e) => setImageUrl(e.target.value)}
-                        placeholder="Enter a valid image URL (e.g., https://example.com/image.jpg)" // Updated placeholder
+                        value={imageLink} // Updated variable name
+                        onChange={(e) => setImageLink(e.target.value)} // Updated variable name
+                        placeholder="Enter a valid image URL (e.g., https://example.com/image.jpg)"
                     />
                 </div>
 
