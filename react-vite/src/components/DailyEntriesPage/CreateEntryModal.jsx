@@ -68,7 +68,7 @@ const CreateEntryModal = () => {
                     <textarea
                         value={entryText}
                         onChange={(e) => setEntryText(e.target.value)}
-                        placeholder="Write about your day..."
+                        placeholder="Write about your day or improvements..." // Updated placeholder
                         required
                     />
                     {errors.entry && <p className="error-message">{errors.entry}</p>}
@@ -80,7 +80,7 @@ const CreateEntryModal = () => {
                         type="text"
                         value={imageUrl}
                         onChange={(e) => setImageUrl(e.target.value)}
-                        placeholder="https://"
+                        placeholder="Enter a valid image URL (e.g., https://example.com/image.jpg)" // Updated placeholder
                     />
                 </div>
 
