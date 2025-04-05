@@ -12,8 +12,8 @@ const CreateEntryModal = () => {
     const { closeModal } = useModal();
 
     // State variables for form inputs and errors
-    const [entryContent, setEntryContent] = useState(''); // Renamed from entryText to entryContent
-    const [imageLink, setImageLink] = useState(''); // Renamed from imageUrl to imageLink
+    const [entryContent, setEntryContent] = useState('Start your entry here...'); // Added default value
+    const [imageLink, setImageLink] = useState('https://example.com/default-image.jpg'); // Added default value
     const [errors, setErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false); // Track submission state
 
@@ -66,8 +66,8 @@ const CreateEntryModal = () => {
                 <div className="input-group">
                     <label>Entry</label>
                     <textarea
-                        value={entryContent} // Updated variable name
-                        onChange={(e) => setEntryContent(e.target.value)} // Updated variable name
+                        value={entryContent}
+                        onChange={(e) => setEntryContent(e.target.value)}
                         placeholder="Write about your day or improvements..."
                         required
                     />
@@ -78,8 +78,8 @@ const CreateEntryModal = () => {
                     <label>Image URL (optional)</label>
                     <input
                         type="text"
-                        value={imageLink} // Updated variable name
-                        onChange={(e) => setImageLink(e.target.value)} // Updated variable name
+                        value={imageLink}
+                        onChange={(e) => setImageLink(e.target.value)}
                         placeholder="Enter a valid image URL (e.g., https://example.com/image.jpg)"
                     />
                 </div>
