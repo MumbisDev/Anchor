@@ -19,7 +19,7 @@ const CreateEntryModal = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
+
         if (isSubmitting) return; // Prevent multiple submissions
         setIsSubmitting(true); // Disable button
 
@@ -86,8 +86,8 @@ const CreateEntryModal = () => {
 
                 <div className="button-group">
                     {/* Cancel button to close the modal */}
-                    <button 
-                        type="button" 
+                    <button
+                        type="button"
                         className="cancel-button"
                         onClick={closeModal}
                         disabled={isSubmitting} // Disable cancel button if submitting
@@ -95,8 +95,8 @@ const CreateEntryModal = () => {
                         Cancel
                     </button>
                     {/* Submit button to create the entry */}
-                    <button 
-                        type="submit" 
+                    <button
+                        type="submit"
                         className="create-button"
                         disabled={isSubmitting} // Disable create button if submitting
                     >
