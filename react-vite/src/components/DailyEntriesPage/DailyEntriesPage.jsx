@@ -123,24 +123,24 @@ const DailyEntriesPage = () => {
                 {/* Entries List */}
                 <div className="entries-list">
                     {sortedEntries && sortedEntries.length > 0 ? (
-                        sortedEntries.map(entry => (
+                        sortedEntries.map(dailyEntry => (
                             <div 
-                                key={entry.id} 
-                                className={`entry-card ${selectedEntry?.id === entry.id ? 'selected' : ''}`}
-                                onClick={() => setSelectedEntry(entry)}
+                                key={dailyEntry.id} 
+                                className={`entry-card ${selectedEntry?.id === dailyEntry.id ? 'selected' : ''}`}
+                                onClick={() => setSelectedEntry(dailyEntry)}
                             >
                                 <div className="entry-content">
                                     <div className="entry-date">
-                                        {formatDate(entry.created_at)}
+                                        {formatDate(dailyEntry.created_at)}
                                     </div>
                                     <div className="entry-text">
-                                        {entry.improvement_note}
+                                        {dailyEntry.improvement_note}
                                     </div>
                                 </div>
                                 <div className="entry-graph">
-                                    {entry.image_url ? (
+                                    {dailyEntry.image_url ? (
                                         <img 
-                                            src={entry.image_url} 
+                                            src={dailyEntry.image_url} 
                                             alt="Entry visualization" 
                                             className="entry-image"
                                         />
