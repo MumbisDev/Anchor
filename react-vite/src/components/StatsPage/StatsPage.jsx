@@ -3,6 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getUserStats } from '../../redux/stats';
 import './StatsPage.css';
 
+// Added comments to clarify the purpose of the StatsPage component and its sections
+// This component displays user statistics, weekly progress, and habit performance
+
 function StatsPage() {
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user);
