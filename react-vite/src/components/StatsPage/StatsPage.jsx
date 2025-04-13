@@ -17,7 +17,7 @@ function StatsPage() {
     }, [dispatch]);
 
     // Placeholder data for the weekly progress
-    const weeklyData = [
+    const weeklyProgressData = [
         { day: 'Mon', value: 30 },
         { day: 'Tue', value: 45 },
         { day: 'Wed', value: 40 },
@@ -62,7 +62,7 @@ function StatsPage() {
                             <span>0%</span>
                         </div>
                         <div className="graph">
-                            {weeklyData.map((day, index) => (
+                            {weeklyProgressData.map((day, index) => (
                                 <div key={day.day} className="graph-column">
                                     <div 
                                         className="graph-bar" 
