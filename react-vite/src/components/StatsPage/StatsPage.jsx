@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getUserStats } from '../../redux/stats';
+
 import './StatsPage.css';
 
 // Added comments to clarify the purpose of the StatsPage component and its sections
