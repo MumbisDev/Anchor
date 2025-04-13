@@ -10,7 +10,8 @@ import './StatsPage.css';
 function StatsPage() {
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user);
-    const stats = useSelector(state => state.stats.stats);
+    // Added a default value for stats to prevent potential undefined errors
+    const stats = useSelector(state => state.stats.stats) || { xp: 0, level: 1 };
 
     useEffect(() => {
         dispatch(getUserStats());
