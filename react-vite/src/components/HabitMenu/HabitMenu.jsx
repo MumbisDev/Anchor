@@ -2,6 +2,7 @@ import React from 'react';
 import './HabitMenu.css';
 
 const HabitMenu = ({ onEdit, onDelete }) => {
+    console.log('HabitMenu component rendered');
     return (
         <div className="habit-menu-container">
             <button className="menu-item edit-button" onClick={onEdit} aria-label="Edit habit">
