@@ -70,26 +70,22 @@ const InitialLandingPage = () => {
                         // Feature 1: Track Progress
                         {
                             title: "Track Progress",
-                            description: "Monitor your habits with intuitive streak tracking"
+                            description: "Monitor your habits with intuitive streak tracking",
                         },
                         // Feature 2: Level Up
                         {
                             title: "Level Up",
-                            description: "Real time progression for every habit you track"
+                            description: "Real time progression for every habit you track",
                         },
                         // Feature 3: Stay Consistent
                         {
                             title: "Stay Consistent",
-                            description: "Ease of use and responsiveness allows you to easily stay consistent"
-                        }
+                            description: "Ease of use and responsiveness allows you to easily stay consistent",
+                        },
                     ].map((feature, index) => (
                         <div key={index} className="feature-card">
-                            <h3 className="feature-title">
-                                {feature.title}
-                            </h3>
-                            <p className="feature-description">
-                                {feature.description}
-                            </p>
+                            <h3 className="feature-title">{feature.title}</h3>
+                            <p className="feature-description">{feature.description}</p>
                         </div>
                     ))}
                 </div>
