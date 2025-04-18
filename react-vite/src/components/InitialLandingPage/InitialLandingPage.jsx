@@ -84,10 +84,10 @@ const InitialLandingPage = () => {
                             title: "Stay Consistent",
                             description: "Ease of use and responsiveness allows you to easily stay consistent",
                         },
-                    ].map((feature, index) => (
-                        <div key={index} className="feature-card">
-                            <h3 className="feature-title">{feature.title}</h3>
-                            <p className="feature-description">{feature.description}</p>
+                    ].map((featureDetails, featureIndex) => (
+                        <div key={featureIndex} className="feature-card">
+                            <h3 className="feature-title">{featureDetails.title}</h3>
+                            <p className="feature-description">{featureDetails.description}</p>
                         </div>
                     ))}
                 </div>
