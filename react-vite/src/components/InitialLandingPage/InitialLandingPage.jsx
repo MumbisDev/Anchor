@@ -18,6 +18,7 @@ const InitialLandingPage = () => {
         setModalContent(<SignupFormModal />);
     };
 
+    // TODO: Consider adding error handling for the demo login function
     const handleDemoLogin = async () => {
         await dispatch(
             thunkLogin({
@@ -95,5 +96,7 @@ const InitialLandingPage = () => {
         </div>
     );
 };
+
+// TODO: Add unit tests for this component to ensure proper functionality
 
 export default InitialLandingPage;
