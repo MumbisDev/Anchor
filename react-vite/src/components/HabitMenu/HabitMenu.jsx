@@ -16,4 +16,9 @@ const HabitMenu = ({ onEdit, onDelete }) => {
     );
 };
 
+HabitMenu.defaultProps = {
+    onEdit: () => {},
+    onDelete: () => {},
+};
+
 export default HabitMenu;
