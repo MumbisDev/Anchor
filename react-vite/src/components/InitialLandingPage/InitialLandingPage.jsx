@@ -67,14 +67,17 @@ const InitialLandingPage = () => {
 
                 <div className="feature-grid">
                     {[
+                        // Feature 1: Track Progress
                         {
                             title: "Track Progress",
                             description: "Monitor your habits with intuitive streak tracking"
                         },
+                        // Feature 2: Level Up
                         {
                             title: "Level Up",
                             description: "Real time progression for every habit you track"
                         },
+                        // Feature 3: Stay Consistent
                         {
                             title: "Stay Consistent",
                             description: "Ease of use and responsiveness allows you to easily stay consistent"
