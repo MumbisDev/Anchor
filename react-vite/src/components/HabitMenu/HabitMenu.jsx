@@ -7,6 +7,7 @@ const HabitMenu = ({ onEdit, onDelete }) => {
             <button className="menu-item edit-button" onClick={onEdit}>
                 Edit
             </button>
+            {/* Divider between menu items */}
             <div className="menu-divider"></div>
             <button className="menu-item delete-button" onClick={onDelete}>
                 Delete
