@@ -65,6 +65,8 @@ const InitialLandingPage = () => {
                     </button>
                 </div>
 
+                {/* Add spacing between sections */}
+                
                 <div className="feature-grid">
                     {[
                         // Feature 1: Track Progress
