@@ -21,25 +21,25 @@ const Navigation = () => {
             <nav className="nav-container">
                 <div className="nav-content">
                     {/* Navigation links */}
-                    <NavLink 
-                        to="/home" 
-                        className={({ isActive }) => 
+                    <NavLink
+                        to="/home"
+                        className={({ isActive }) =>
                             `nav-item ${isActive ? 'active' : ''}`
                         }
                     >
                         HABITS
                     </NavLink>
-                    <NavLink 
-                        to="/entries" 
-                        className={({ isActive }) => 
+                    <NavLink
+                        to="/entries"
+                        className={({ isActive }) =>
                             `nav-item ${isActive ? 'active' : ''}`
                         }
                     >
                         DAILY ENTRIES
                     </NavLink>
-                    <NavLink 
-                        to="/stats" 
-                        className={({ isActive }) => 
+                    <NavLink
+                        to="/stats"
+                        className={({ isActive }) =>
                             `nav-item ${isActive ? 'active' : ''}`
                         }
                     >
