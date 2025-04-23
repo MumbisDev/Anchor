@@ -26,6 +26,7 @@ const Navigation = () => {
                         className={({ isActive }) =>
                             `nav-item ${isActive ? 'active' : ''}`
                         }
+                        data-placeholder="Home Link"
                     >
                         HABITS
                     </NavLink>
@@ -34,6 +35,7 @@ const Navigation = () => {
                         className={({ isActive }) =>
                             `nav-item ${isActive ? 'active' : ''}`
                         }
+                        data-placeholder="Entries Link"
                     >
                         DAILY ENTRIES
                     </NavLink>
@@ -42,6 +44,7 @@ const Navigation = () => {
                         className={({ isActive }) =>
                             `nav-item ${isActive ? 'active' : ''}`
                         }
+                        data-placeholder="Stats Link"
                     >
                         STATS
                     </NavLink>
