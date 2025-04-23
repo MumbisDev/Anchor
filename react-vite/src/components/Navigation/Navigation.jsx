@@ -5,7 +5,7 @@ import './Navigation.css';
 
 const Navigation = () => {
     return (
-        <div className="nav-wrapper">
+        <div className="navigation-wrapper">
             {/* Wrapper for the entire navigation component */}
             
             {/* Header */}
