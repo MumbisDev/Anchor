@@ -6,8 +6,11 @@ import './Navigation.css';
 const Navigation = () => {
     return (
         <div className="nav-wrapper">
+            {/* Wrapper for the entire navigation component */}
+            
             {/* Header */}
             <header className="main-header">
+                {/* Logo and Profile Button */}
                 <Link to="/home">
                     <h1>Anchor</h1>
                 </Link>
@@ -17,6 +20,7 @@ const Navigation = () => {
             {/* Navigation Bar */}
             <nav className="nav-container">
                 <div className="nav-content">
+                    {/* Navigation links */}
                     <NavLink 
                         to="/home" 
                         className={({ isActive }) => 

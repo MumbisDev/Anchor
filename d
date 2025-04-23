@@ -1,0 +1,503 @@
+[33mcommit 1e8d39e57a687c5c7a49fecd7da056e52291266b[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Sat Mar 15 20:26:18 2025 -0400
+
+    added logic to prevent entry duplication
+
+[33mcommit 2c75fd5f7878fdc09657e48225f0bb0331b6b660[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Sat Mar 15 20:09:42 2025 -0400
+
+    removed inactive header
+
+[33mcommit c983554ba7c855a1797ce51eeec2380a7dcb9109[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Sat Mar 15 20:07:42 2025 -0400
+
+    added alert
+
+[33mcommit 83bb8e7c615e7820788b0920690a483dc62a038d[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Sat Mar 15 20:05:07 2025 -0400
+
+    added feature to prevent completing habits on unselected days
+
+[33mcommit 2e25a9c189e985aecd0f5174c692cffd780c4a04[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Sat Mar 15 19:52:42 2025 -0400
+
+    date
+
+[33mcommit 4926ec524cf527e27051902a7b57a4896d081359[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Fri Mar 14 20:18:37 2025 -0400
+
+    shared delay
+
+[33mcommit 3de61ec0c17d2863607bdbcf553a1f3b3bb7b52b[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Fri Mar 14 19:58:47 2025 -0400
+
+    delay
+
+[33mcommit 9ae28360729e0a998f232fb2d8a2152c2472645b[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Fri Mar 14 19:53:43 2025 -0400
+
+    more robust state management maybe?
+
+[33mcommit aca130bea95ce7735fa82ce156b017588108410f[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Fri Mar 14 19:39:42 2025 -0400
+
+    fixed negative xp bug
+
+[33mcommit 57cf84723721ca4477e95129ca79c4e76f1067c4[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Thu Mar 13 01:00:19 2025 -0400
+
+    changed edit pop out menu size
+
+[33mcommit 5f22e78fe901f6070643efcfa21053e0812ca60b[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Thu Mar 13 00:40:23 2025 -0400
+
+    added interactivity with preference options
+
+[33mcommit 1671b08fb7da4b5972c831080f25471c0b2ff91e[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Thu Mar 13 00:32:10 2025 -0400
+
+    Removed privacy section from profile page
+
+[33mcommit 17e07b045d631686bacc154c3ad901f09cb2bfdf[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Thu Mar 13 00:26:07 2025 -0400
+
+    adjustments to signin modal for vertical repositioning
+
+[33mcommit 543916997b479a1d3d3959478eebe5a9585a1d38[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Thu Mar 13 00:07:18 2025 -0400
+
+    adjusted sign up modal for vertical support
+
+[33mcommit 033fda32e25f5011c6d433661f58857759b32e45[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Sat Mar 8 16:33:56 2025 -0500
+
+    styling adjustments to logo
+
+[33mcommit f946f4748ebb5e8bf26a0eb481232c8f013bde55[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Sat Mar 8 16:29:42 2025 -0500
+
+    anchor navigates to habits page
+
+[33mcommit dba3a65a8b5acf482a0684ad975bb6cda46a40d2[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Sat Mar 8 16:23:10 2025 -0500
+
+    adjusted sizing of signup modal
+
+[33mcommit 6d3184b8e02e8d5a8106bb8c85f7fcf4c39e9838[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Sat Mar 8 16:18:30 2025 -0500
+
+    adjusted sizing to login modal again
+
+[33mcommit c2933857ef4e093b03b4bc7b1190bb669fd92422[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Sat Mar 8 16:16:04 2025 -0500
+
+    adjusted sizing to login modal
+
+[33mcommit 55601c7db739b5b1bf2e45e59fb2dc0afebdc367[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Sat Mar 8 16:07:58 2025 -0500
+
+    mobile support for login modal
+
+[33mcommit 07750eebf377c9975e2717d5e27b936ba8743e29[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Sat Mar 8 15:50:18 2025 -0500
+
+    stat page mobile adjustments
+
+[33mcommit a7684691f54ae860957b4d7c24c40a833b982e75[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Sat Mar 8 15:44:43 2025 -0500
+
+    create habit modal mobile support
+
+[33mcommit cfb67a701cbe6e67af4fefffd8f628a0f2dab294[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Sat Mar 8 15:34:09 2025 -0500
+
+    fixed bug with input field
+
+[33mcommit 2050036a4d38a9ba5e458a459e8d855a230998fd[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Sat Mar 8 15:30:13 2025 -0500
+
+    create habit modal mobile support
+
+[33mcommit 0d6878454da2778b1f433823388a1ac9aab03646[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Tue Mar 4 17:11:33 2025 -0500
+
+    adjusted button sizes on profile page
+
+[33mcommit fb233463275a4fe364581d6f3799ad6cb83e7744[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Tue Mar 4 17:04:04 2025 -0500
+
+    added mobile view to profile page
+
+[33mcommit b240626dcb58f0c8db722678292b8d07e8b2c907[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Tue Mar 4 16:57:34 2025 -0500
+
+    adjusted spacing of buttons on entries mobile view
+
+[33mcommit 7533090c570d3c25193c768bbb9d2edb324aaa10[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Tue Mar 4 16:52:29 2025 -0500
+
+    added mobile view for entries page
+
+[33mcommit 5ff5c4c16c880fc943cdbf12640747d6227b06c6[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Tue Mar 4 16:43:11 2025 -0500
+
+    fixed visual bug with profile dropdown
+
+[33mcommit 84c011872fc757613cf65feb9a64e784a0fefac8[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Sat Mar 1 18:03:14 2025 -0500
+
+    mobile formatting for habits page
+
+[33mcommit eb51bd26e0eb4733a507fd9e1d2eee9bfd713121[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Sat Mar 1 17:54:46 2025 -0500
+
+    added mobile formatting to initial landing page
+
+[33mcommit 98c287da7069c6d37cdeca3e4667cdec7d72d07b[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Sat Feb 22 17:11:38 2025 -0500
+
+    edited initial landing page
+
+[33mcommit 5b9ab62ca75b9e1d2dc54f139f8ae3ef9aff6acd[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Sat Feb 22 17:05:48 2025 -0500
+
+    changed edit entry modal
+
+[33mcommit 4fcfaa46ff3dd115262a5d91cea009014a85e00c[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Sat Feb 22 17:03:05 2025 -0500
+
+    changed create entries modal
+
+[33mcommit 25125a75f2984821edeafb2e1c4482cd0657756f[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Sat Feb 22 16:59:11 2025 -0500
+
+    edited edit habits modal
+
+[33mcommit 8805d1ecb7e58cb69303264be065d667461f4402[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Sat Feb 22 16:54:51 2025 -0500
+
+    made adjustments to create habit modal
+
+[33mcommit 7b7b1b5e68d81a98437cac63b48ee67213065d15[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Wed Feb 19 04:01:50 2025 -0500
+
+    removed certain imports
+
+[33mcommit 92d013cb6020a229f7f19f563ee39569bd9c64c5[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Wed Feb 19 03:51:30 2025 -0500
+
+    fixed edit menu bug
+
+[33mcommit b25bbbc3bc0e1522ec524dd36a27a6a4a983d557[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Wed Feb 19 03:43:09 2025 -0500
+
+    removed animations
+
+[33mcommit 75496b1a36fc4991f9bf2e29e50fa38f3d904b1d[m
+Merge: a8407c0 4be2b3b
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Wed Feb 19 03:17:57 2025 -0500
+
+    Merge branch 'main' of https://github.com/MumbisDev/Anchor
+    added smooth animations to user home page
+
+[33mcommit a8407c0ebd9130e6d1cb87e89f43016b9b58c8da[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Wed Feb 19 03:17:43 2025 -0500
+
+    added sliding animation to user home page
+
+[33mcommit 4be2b3b90886b88ffa580f92f5eb43240d8b4010[m
+Author: Mumbis <33399197+MumbisDev@users.noreply.github.com>
+Date:   Tue Feb 18 21:54:39 2025 -0500
+
+    Update README.md
+
+[33mcommit c2780b0259646d9c8d4303614858c1d952f58706[m
+Merge: 10c724b c120286
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Sun Feb 16 02:45:56 2025 -0500
+
+    Merge branch 'main' of https://github.com/MumbisDev/Anchor
+    fixed streak bug
+
+[33mcommit 10c724b12f572c8023bd0afe5f3180dd6da15084[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Sun Feb 16 02:45:40 2025 -0500
+
+    fixed streak bug
+
+[33mcommit c120286dc3a33fb36f01f896f7953b18c361ad2d[m
+Author: Mumbis <33399197+MumbisDev@users.noreply.github.com>
+Date:   Fri Jan 24 15:20:05 2025 -0500
+
+    Update README.md
+
+[33mcommit 569af5cd70e79f872fb606cd5b91fa1bdc877a83[m
+Author: Mumbis <33399197+MumbisDev@users.noreply.github.com>
+Date:   Fri Jan 24 02:23:44 2025 -0500
+
+    Update README.md
+
+[33mcommit 51ec1b4c80b379b4768c6c091421960f90b32168[m
+Author: Mumbis <33399197+MumbisDev@users.noreply.github.com>
+Date:   Fri Jan 24 02:22:43 2025 -0500
+
+    Update README.md
+
+[33mcommit 311e7f4bd72162de983ce7e196e98b3441402bfa[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Tue Jan 21 18:05:04 2025 -0500
+
+    demo user button added
+
+[33mcommit 740abc48d13531838d2194fee2c0cee74995edf7[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Tue Jan 21 12:11:11 2025 -0500
+
+    button styling adjustments
+
+[33mcommit b7a125647d0150ac8f2d26e57aa611ce9173b312[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Mon Jan 20 05:05:46 2025 -0500
+
+    demo build v0.0.0 (migration update)
+
+[33mcommit b8c447d780fad1f63bec0037a8e310c9e4d1734a[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Mon Jan 20 04:51:13 2025 -0500
+
+    demo build v0.0.0
+
+[33mcommit 720ca0ed58c84b1057244f25fb3b8af175728c4b[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Sun Jan 19 23:25:11 2025 -0500
+
+    updated user icons
+
+[33mcommit b4b281172c7b93f6c3db70cec45c77eff5892f97[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Sun Jan 19 23:11:42 2025 -0500
+
+    habit and entries pages done, profile page and stats not
+
+[33mcommit 15251af790df19a0cc0828c71ba9256e4277e3cc[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Sun Jan 19 00:57:26 2025 -0500
+
+    habits page all but complete
+
+[33mcommit 76855013dbe0d665e123da4ea79476d3bee938d5[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Sat Jan 18 18:58:39 2025 -0500
+
+    habit home page build (no delete or user button)
+
+[33mcommit 201f2f3bd70d95859ece719b9810db6bd7830a2e[m
+Merge: 46d2092 80fc7d5
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Sat Jan 18 18:55:24 2025 -0500
+
+    Merge branch 'main' of https://github.com/MumbisDev/Anchor
+
+[33mcommit 46d2092a8df5b51ec545d6a6de3491375691a885[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Sat Jan 18 18:55:01 2025 -0500
+
+    home habits page (no delete or stylized user icon yet)
+
+[33mcommit d6cca37e8db4233982283a7e176a1044bc264727[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Sat Jan 18 05:15:08 2025 -0500
+
+    landing page and signup/login modals
+
+[33mcommit 80fc7d5d6e900425bdccf89d3c1c5b6237f1cd0d[m
+Author: Mumbis <33399197+MumbisDev@users.noreply.github.com>
+Date:   Mon Jan 13 01:18:49 2025 -0500
+
+    Update README.md
+
+[33mcommit 51f14cd15ce85007f5edaed5456e9782a1d6946e[m
+Author: Mumbis <33399197+MumbisDev@users.noreply.github.com>
+Date:   Mon Jan 13 01:18:30 2025 -0500
+
+    Update README.md
+
+[33mcommit dcf9b5984d242a3f7e53947cd11f956cc81aace2[m
+Author: Mumbis <33399197+MumbisDev@users.noreply.github.com>
+Date:   Mon Jan 13 01:17:55 2025 -0500
+
+    Update README.md
+
+[33mcommit fc1aa4fe8d2d6c976534d20aa97da5e7c5207acf[m
+Author: Mumbis <33399197+MumbisDev@users.noreply.github.com>
+Date:   Mon Jan 13 01:17:47 2025 -0500
+
+    Update README.md
+
+[33mcommit fd671331398eca91e56783d8cd5c1a2e30e8af4a[m
+Author: Mumbis <33399197+MumbisDev@users.noreply.github.com>
+Date:   Mon Jan 13 00:47:26 2025 -0500
+
+    Update README.md
+
+[33mcommit cdccc0851e72162b4e30f08701bf346f47fec2f7[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Mon Jan 13 00:16:34 2025 -0500
+
+    user updates
+
+[33mcommit 2b59f09132db640952eeb4afbf25159d634ac33e[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Sun Jan 12 23:44:50 2025 -0500
+
+    user updates
+
+[33mcommit 6a8a9a86450d5fc5ae81065e3ac9b19f71d9494b[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Sun Jan 12 22:41:52 2025 -0500
+
+    debugging entry routes
+
+[33mcommit 5649f38a9470520beca2fd0534a238a55765fa00[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Sun Jan 12 22:07:36 2025 -0500
+
+    basic routes
+
+[33mcommit dbb857dd8d40668f03c9cf2e8391fc409badd896[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Sun Jan 12 21:07:04 2025 -0500
+
+    added flask db commands
+
+[33mcommit 199e8582469939ea8bc6b4017bbeb1e477878956[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Sun Jan 12 21:02:05 2025 -0500
+
+    added flask db commands
+
+[33mcommit a5ef4c86739e838438cf2c597dd2c2e4179054c4[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Sun Jan 12 20:40:08 2025 -0500
+
+    trying gunicorn
+
+[33mcommit 5d2358700719f20de4f6ed5d482bf8a3821dde8d[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Sun Jan 12 20:35:37 2025 -0500
+
+    postgres debugging II
+
+[33mcommit 32ec207186e357e5306785e2bdbc73e3a3d1a5fa[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Sun Jan 12 20:31:43 2025 -0500
+
+    postgres debugging
+
+[33mcommit 5064e2b81f3c98ddb2deb80f6e7ff99288c7f4ba[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Thu Jan 9 22:14:46 2025 -0500
+
+    added schema to migration
+
+[33mcommit 1ef82be94b5910fcccf18005a14be91e290b8b98[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Thu Jan 9 20:16:36 2025 -0500
+
+    updated time functionality in entries seed
+
+[33mcommit ad2464c7f051f3bcfa1181bf7c68364d7dad02ec[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Thu Jan 9 19:59:36 2025 -0500
+
+    copium
+
+[33mcommit d5e63bffc76b17c6471e55832b090c6f62075721[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Thu Jan 9 19:12:01 2025 -0500
+
+    schema update (revert if necessary)
+
+[33mcommit ba551eb48201a1c166282d043a53377994578819[m
+Merge: d0228df 7de581c
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Thu Jan 9 18:36:13 2025 -0500
+
+    Merge branch 'main' of https://github.com/MumbisDev/Anchor
+
+[33mcommit d0228dff83dbc3a7b221cc6d3bd0b2b1f48f339f[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Thu Jan 9 18:36:01 2025 -0500
+
+    Update README.md
+
+[33mcommit 7de581c81a4e839a384ef03d5e5efe4aa443719d[m
+Author: Mumbis <33399197+MumbisDev@users.noreply.github.com>
+Date:   Thu Jan 9 18:35:43 2025 -0500
+
+    Update README.md
+
+[33mcommit d5fd74a41b17dce163a9ade8b6e12036e169a5d7[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Thu Jan 9 18:25:03 2025 -0500
+
+    first build
+
+[33mcommit 8dc9bfa046f35c1fa24757fa1ea934755dc8a5bc[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Thu Jan 9 18:17:57 2025 -0500
+
+    redo
+
+[33mcommit 74048477fadfd8edf972d24db1eaa729761bb89d[m
+Author: MumbisDev <33399197+MumbisDev@users.noreply.github.com>
+Date:   Wed Jan 8 23:14:45 2025 -0500
+
+    auth me backend
+
+[33mcommit 3bbab6ac50fe2f14550779a4868a53cd7fd7a8a8[m
+Author: Mumbis <33399197+MumbisDev@users.noreply.github.com>
+Date:   Wed Jan 8 02:19:10 2025 -0500
+
+    Initial commit
