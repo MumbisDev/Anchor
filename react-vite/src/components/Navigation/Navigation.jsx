@@ -54,4 +54,7 @@ const Navigation = () => {
     );
 };
 
+// TODO: Consider making the navigation links dynamic based on user roles.
+// TODO: Add accessibility features like ARIA roles for better usability.
+
 export default Navigation;
