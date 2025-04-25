@@ -35,7 +35,7 @@ const ProfilePage = () => {
         }));
     };
 
-    // Handle form submission for updating user data
+    // Submits the updated user data to the server and handles the response
     const handleSubmit = async (e) => {
         e.preventDefault();
         const response = await dispatch(thunkUpdateUser(user.id, editData));
