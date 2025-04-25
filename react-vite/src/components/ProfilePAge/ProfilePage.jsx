@@ -16,7 +16,7 @@ const ProfilePage = () => {
     });
     const [errors, setErrors] = useState({});
     
-    // Helper function to format dates
+    // Helper function to format dates into a readable string
     const formatDate = (dateString) => {
         if (!dateString) return 'N/A';
         const date = new Date(dateString);
