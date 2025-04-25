@@ -47,7 +47,7 @@ const ProfilePage = () => {
         }
     };
 
-    // Cancel editing and reset form state
+    // Resets the form and exits edit mode without saving changes
     const handleCancel = () => {
         setIsEditing(false);
         setEditData({
