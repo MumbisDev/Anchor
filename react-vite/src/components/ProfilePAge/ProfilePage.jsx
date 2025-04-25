@@ -4,8 +4,11 @@ import { thunkUpdateUser } from '../../redux/session';
 import './ProfilePage.css';
 
 const ProfilePage = () => {
+    // Redux hooks for dispatching actions and accessing state
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user) || {};
+    
+    // State for managing edit mode and form data
     const [isEditing, setIsEditing] = useState(false);
     const [editData, setEditData] = useState({
         username: user.username || '',
@@ -13,6 +16,7 @@ const ProfilePage = () => {
     });
     const [errors, setErrors] = useState({});
     
+    // Helper function to format dates
     const formatDate = (dateString) => {
         if (!dateString) return 'N/A';
         const date = new Date(dateString);
@@ -22,6 +26,7 @@ const ProfilePage = () => {
         });
     };
 
+    // Handle input changes in the edit form
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setEditData(prev => ({
@@ -30,6 +35,7 @@ const ProfilePage = () => {
         }));
     };
 
+    // Handle form submission for updating user data
     const handleSubmit = async (e) => {
         e.preventDefault();
         const response = await dispatch(thunkUpdateUser(user.id, editData));
@@ -41,6 +47,7 @@ const ProfilePage = () => {
         }
     };
 
+    // Cancel editing and reset form state
     const handleCancel = () => {
         setIsEditing(false);
         setEditData({
@@ -50,6 +57,7 @@ const ProfilePage = () => {
         setErrors({});
     };
 
+    // Placeholder for future feature interactions
     const handleFeatureClick = () => {
         alert("Feature coming soon");
     };
@@ -59,6 +67,7 @@ const ProfilePage = () => {
             <main className="main-content">
                 {/* Profile Header */}
                 <div className="profile-header">
+                    {/* User avatar and basic info */}
                     <div className="profile-info">
                         <div className="profile-avatar">
                             <div className="avatar-circle">
@@ -82,6 +91,7 @@ const ProfilePage = () => {
                             <span className="username">@{(user.username || 'user').toLowerCase()}</span>
                         </div>
                     </div>
+                    {/* Edit and Cancel buttons */}
                     <div className="button-group">
                         <button 
                             className={`edit-profile-button ${isEditing ? 'editing' : ''}`}
@@ -142,7 +152,7 @@ const ProfilePage = () => {
                     </div>
                 </div>
 
-                {/* Future features sections can stay as is */}
+                {/* Preferences Section */}
                 <div className="settings-section">
                     <h2>Preferences</h2>
                     <div className="settings-grid">
