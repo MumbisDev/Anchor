@@ -4,6 +4,10 @@ import './HabitMenu.css';
 const HabitMenu = ({ onEdit, onDelete, placeholder }) => {
     // Log to indicate component rendering
     console.log('HabitMenu component rendered');
+    
+    // Debugging: Log prop values
+    console.log('Props:', { onEdit, onDelete, placeholder });
+
     return (
         <div className="habit-menu-container">
             {/* Button to edit a habit */}
