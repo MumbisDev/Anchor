@@ -1,7 +1,7 @@
 import React from 'react';
 import './HabitMenu.css';
 
-const HabitMenu = ({ onEdit, onDelete }) => {
+const HabitMenu = ({ onEdit, onDelete, placeholder }) => {
     // Log to indicate component rendering
     console.log('HabitMenu component rendered');
     return (
@@ -32,6 +32,7 @@ const HabitMenu = ({ onEdit, onDelete }) => {
 HabitMenu.defaultProps = {
     onEdit: () => {},
     onDelete: () => {},
+    placeholder: '', // Placeholder prop for future use
 };
 
 export default HabitMenu;
