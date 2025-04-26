@@ -9,7 +9,7 @@ const HabitMenu = ({ onEdit, onDelete, placeholder }) => {
     console.log('Props:', { onEdit, onDelete, placeholder });
 
     return (
-        <div className="habit-menu-container">
+        <div className="habit-menu-container habit-menu-extra-style">
             {/* Button to edit a habit */}
             <button
                 className="menu-item edit-button"
