@@ -7,13 +7,21 @@ const HabitMenu = ({ onEdit, onDelete }) => {
     return (
         <div className="habit-menu-container">
             {/* Button to edit a habit */}
-            <button className="menu-item edit-button" onClick={onEdit} aria-label="Edit habit">
+            <button
+                className="menu-item edit-button"
+                onClick={onEdit}
+                aria-label="Edit habit"
+            >
                 Edit
             </button>
             {/* Divider between menu items */}
             <div className="menu-divider"></div>
             {/* Button to delete a habit */}
-            <button className="menu-item delete-button" onClick={onDelete} aria-label="Delete habit">
+            <button
+                className="menu-item delete-button"
+                onClick={onDelete}
+                aria-label="Delete habit"
+            >
                 Delete
             </button>
         </div>
