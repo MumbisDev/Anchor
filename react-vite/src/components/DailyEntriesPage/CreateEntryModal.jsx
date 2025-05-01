@@ -12,10 +12,10 @@ const CreateEntryModal = () => {
     const { closeModal } = useModal();
 
     // State variables for form inputs and errors
-    const [entryContent, setEntryContent] = useState('Start your entry here...'); // Added default value
-    const [imageLink, setImageLink] = useState('https://example.com/default-image.jpg'); // Added default value
-    const [errors, setErrors] = useState({});
-    const [isSubmitting, setIsSubmitting] = useState(false); // Track submission state
+    const [entryContent, setEntryContent] = useState('Start your entry here...'); // Default entry content
+    const [imageLink, setImageLink] = useState('https://example.com/default-image.jpg'); // Default image URL
+    const [errors, setErrors] = useState({}); // Error messages for form validation
+    const [isSubmitting, setIsSubmitting] = useState(false); // Tracks if form is being submitted
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -32,9 +32,9 @@ const CreateEntryModal = () => {
 
         // Prepare entry data for submission
         const entryData = {
-            improvement_note: entryContent, // Updated variable name
-            image_url: imageLink || null, // Updated variable name
-            compound_meter_increment: 1.0
+            improvement_note: entryContent, // Maps entry content to API field
+            image_url: imageLink || null, // Maps image link to API field
+            compound_meter_increment: 1.0 // Increment value for compound meter
         };
 
         try {
@@ -43,13 +43,13 @@ const CreateEntryModal = () => {
             if (result) {
                 // Update user stats after successful entry creation
                 const newStats = {
-                    ...stats,
-                    compound_meter: (stats.compound_meter || 0) + 1.0
+                    ...stats, // Spread existing stats
+                    compound_meter: (stats.compound_meter || 0) + 1.0 // Increment compound meter
                 };
-                await dispatch(updateUserStats(newStats));
-                closeModal(); // Ensure modal closes after successful submission
+                await dispatch(updateUserStats(newStats)); // Dispatch updated stats
+                closeModal(); // Close modal on success
             } else {
-                setErrors({ submit: "Failed to create entry" });
+                setErrors({ submit: "Failed to create entry" }); // Handle failure
             }
         } catch (error) {
             setErrors({ submit: "Failed to create entry" });
