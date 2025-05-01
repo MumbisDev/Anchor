@@ -21,6 +21,7 @@ const CreateEntryModal = () => {
         e.preventDefault();
 
         if (isSubmitting) return; // Prevent multiple submissions
+
         setIsSubmitting(true); // Disable button
 
         // Validate entry content
@@ -40,12 +41,14 @@ const CreateEntryModal = () => {
         try {
             // Dispatch createEntry action
             const result = await dispatch(createEntry(entryData));
+
             if (result) {
                 // Update user stats after successful entry creation
                 const newStats = {
                     ...stats, // Spread existing stats
                     compound_meter: (stats.compound_meter || 0) + 1.0 // Increment compound meter
                 };
+
                 await dispatch(updateUserStats(newStats)); // Dispatch updated stats
                 closeModal(); // Close modal on success
             } else {
