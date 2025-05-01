@@ -24,6 +24,8 @@ const CreateEntryModal = () => {
 
         setIsSubmitting(true); // Disable button
 
+        // TODO: Add more robust validation for entryText (e.g., character limits, profanity filter)
+
         // Validate entry content
         if (!entryText.trim()) { // Updated variable name
             setErrors({ entry: "Entry text is required" });
@@ -43,6 +45,8 @@ const CreateEntryModal = () => {
             const result = await dispatch(createEntry(entryData));
 
             if (result) {
+                // TODO: Consider showing a success message to the user before closing the modal
+
                 // Update user stats after successful entry creation
                 const newStats = {
                     ...stats, // Spread existing stats
@@ -55,6 +59,7 @@ const CreateEntryModal = () => {
                 setErrors({ submit: "Failed to create entry" }); // Handle failure
             }
         } catch (error) {
+            // TODO: Log error details for debugging purposes
             setErrors({ submit: "Failed to create entry" });
         } finally {
             setIsSubmitting(false); // Re-enable button
