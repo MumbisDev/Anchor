@@ -12,8 +12,8 @@ const CreateEntryModal = () => {
     const { closeModal } = useModal();
 
     // State variables for form inputs and errors
-    const [entryContent, setEntryContent] = useState('Start your entry here...'); // Default entry content
-    const [imageLink, setImageLink] = useState('https://example.com/default-image.jpg'); // Default image URL
+    const [entryText, setEntryText] = useState('Start your entry here...'); // Renamed from entryContent
+    const [imageURL, setImageURL] = useState('https://example.com/default-image.jpg'); // Renamed from imageLink
     const [errors, setErrors] = useState({}); // Error messages for form validation
     const [isSubmitting, setIsSubmitting] = useState(false); // Tracks if form is being submitted
 
@@ -25,7 +25,7 @@ const CreateEntryModal = () => {
         setIsSubmitting(true); // Disable button
 
         // Validate entry content
-        if (!entryContent.trim()) { // Updated variable name
+        if (!entryText.trim()) { // Updated variable name
             setErrors({ entry: "Entry text is required" });
             setIsSubmitting(false); // Re-enable button
             return;
@@ -33,8 +33,8 @@ const CreateEntryModal = () => {
 
         // Prepare entry data for submission
         const entryData = {
-            improvement_note: entryContent, // Maps entry content to API field
-            image_url: imageLink || null, // Maps image link to API field
+            improvement_note: entryText, // Updated variable name
+            image_url: imageURL || null, // Updated variable name
             compound_meter_increment: 1.0 // Increment value for compound meter
         };
 
@@ -69,8 +69,8 @@ const CreateEntryModal = () => {
                 <div className="input-group">
                     <label>Entry</label>
                     <textarea
-                        value={entryContent}
-                        onChange={(e) => setEntryContent(e.target.value)}
+                        value={entryText} // Updated variable name
+                        onChange={(e) => setEntryText(e.target.value)} // Updated variable name
                         placeholder="Write about your day or improvements..."
                         required
                     />
@@ -81,8 +81,8 @@ const CreateEntryModal = () => {
                     <label>Image URL (optional)</label>
                     <input
                         type="text"
-                        value={imageLink}
-                        onChange={(e) => setImageLink(e.target.value)}
+                        value={imageURL} // Updated variable name
+                        onChange={(e) => setImageURL(e.target.value)} // Updated variable name
                         placeholder="Enter a valid image URL (e.g., https://example.com/image.jpg)"
                     />
                 </div>
