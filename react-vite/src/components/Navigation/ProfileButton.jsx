@@ -8,7 +8,7 @@ function ProfileButton() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [showMenu, setShowMenu] = useState(false);
-    const user = useSelector(state => state.session.user) || {};
+    const user = useSelector(state => state.session.user) || { username: 'User' };
     const dropdownRef = useRef(null);
 
     const navigateToProfile = () => {
