@@ -86,7 +86,7 @@ const InitialLandingPage = () => {
                             description: "Ease of use and responsiveness allows you to easily stay consistent",
                         },
                     ].map((featureDetails, featureIndex) => (
-                        <div key={featureIndex} className="feature-card">
+                        <div key={featureIndex} className="feature-card feature-spacing">
                             <h3 className="feature-title">{featureDetails.title}</h3>
                             <p className="feature-description">{featureDetails.description}</p>
                         </div>
