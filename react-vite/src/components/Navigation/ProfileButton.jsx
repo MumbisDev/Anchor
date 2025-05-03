@@ -22,8 +22,8 @@ function ProfileButton() {
         navigate('/');
     };
 
-    const handleClickOutside = (event) => {
-        if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+    const handleClickOutside = (e) => {
+        if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
             setShowMenu(false);
         }
     };
