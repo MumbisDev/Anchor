@@ -38,12 +38,14 @@ const InitialLandingPage = () => {
                     <button 
                         onClick={handleDemoLogin}
                         className="demo-button"
+                        aria-label="Log in as Demo User"
                     >
                         Demo User
                     </button>
                     <button 
                         onClick={openLoginModal}
                         className="sign-in-button"
+                        aria-label="Open Sign In Modal"
                     >
                         Sign in
                     </button>
@@ -62,6 +64,7 @@ const InitialLandingPage = () => {
                     <button 
                         onClick={openSignupModal}
                         className="cta-button"
+                        aria-label="Open Sign Up Modal"
                     >
                         Get Started
                     </button>
