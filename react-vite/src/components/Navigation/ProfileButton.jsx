@@ -9,7 +9,7 @@ function ProfileButton() {
     const navigate = useNavigate();
     const [showMenu, setShowMenu] = useState(false);
     const user = useSelector(state => state.session.user) || { username: 'User' };
-    const dropdownRef = useRef(null);
+    const dropdownRef = useRef(null); // Ref to detect clicks outside the dropdown menu
 
     const navigateToProfile = () => {
         setShowMenu(false);
