@@ -61,6 +61,11 @@ const InitialLandingPage = () => {
                     <p className="hero-subtitle">
                         Track, analyze, and improve your daily routines
                     </p>
+                    <img 
+                        src="placeholder-image.jpg" 
+                        alt="Placeholder description" 
+                        className="hero-image" 
+                    />
                     <button 
                         onClick={openSignupModal}
                         className="cta-button"
