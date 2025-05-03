@@ -15,7 +15,7 @@ function ProfileButton() {
         setShowMenu(false);
         navigate('/profile');
     };
-        
+
     const logout = (e) => {
         e.preventDefault();
         dispatch(thunkLogout());
