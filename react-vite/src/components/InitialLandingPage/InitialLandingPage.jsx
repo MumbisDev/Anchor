@@ -34,6 +34,7 @@ const InitialLandingPage = () => {
             <header className="landing-header">
                 <h1 className="landing-logo">Anchor</h1>
                 <div className="header-buttons">
+                    {/* TODO: Add ARIA labels for better accessibility */}
                     <button 
                         onClick={handleDemoLogin}
                         className="demo-button"
