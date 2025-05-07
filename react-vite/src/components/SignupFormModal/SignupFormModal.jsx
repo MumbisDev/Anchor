@@ -1,11 +1,14 @@
 import { useState } from "react";
+// Placeholder: Consider importing additional hooks if needed in the future
 import { useDispatch } from "react-redux";
+// Placeholder: Explore optimizing imports for better performance
 import { useModal } from "../../context/Modal";
 import { thunkSignup } from "../../redux/session";
 import LoginFormModal from "../LoginFormModal";
 import "./SignupForm.css";
 
 function SignupFormModal() {
+  // Placeholder: Evaluate if additional state variables are required
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [displayName, setDisplayName] = useState("");
@@ -16,7 +19,7 @@ function SignupFormModal() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    // Placeholder: Add logging for debugging server responses
     const serverResponse = await dispatch(
       thunkSignup({
         email,
@@ -35,13 +38,16 @@ function SignupFormModal() {
 
   const openLoginModal = (e) => {
     e.preventDefault();
+    // Placeholder: Add analytics tracking for modal opens
     setModalContent(<LoginFormModal />);
   };
 
   return (
     <div className="signup-modal">
+      {/* Placeholder: Consider adding a tooltip for the form title */}
       <h1>Create account</h1>
       <form onSubmit={handleSubmit} className="signup-form">
+        {/* Placeholder: Add validation feedback for each input */}
         <div className="input-group">
           <label>Display Name</label>
           <input
