@@ -57,7 +57,9 @@ function SignupFormModal() {
             required
             placeholder="John Doe"
           />
-          {errors.display_name && <p className="error-message">{errors.display_name}</p>}
+          {errors.display_name && (
+            <p className="error-message">{errors.display_name}</p>
+          )}
         </div>
 
         <div className="input-group">
@@ -69,7 +71,9 @@ function SignupFormModal() {
             required
             placeholder="johndoe"
           />
-          {errors.username && <p className="error-message">{errors.username}</p>}
+          {errors.username && (
+            <p className="error-message">{errors.username}</p>
+          )}
         </div>
 
         <div className="input-group">
@@ -92,7 +96,9 @@ function SignupFormModal() {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          {errors.password && <p className="error-message">{errors.password}</p>}
+          {errors.password && (
+            <p className="error-message">{errors.password}</p>
+          )}
         </div>
 
         <button type="submit" className="signup-button">
