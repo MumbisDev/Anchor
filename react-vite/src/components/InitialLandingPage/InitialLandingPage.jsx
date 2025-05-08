@@ -11,16 +11,18 @@ const InitialLandingPage = () => {
     const { setModalContent } = useModal();
 
     const openLoginModal = () => {
+        // Opens the login modal by setting its content
         setModalContent(<LoginFormModal />);
     };
 
     const openSignupModal = () => {
+        // Opens the signup modal by setting its content
         setModalContent(<SignupFormModal />);
     };
 
     // TODO: Consider adding error handling for the demo login function
     const handleDemoLogin = async () => {
-        // Placeholder: Add logging for demo login attempts
+        // Logs in as a demo user with predefined credentials
         await dispatch(
             thunkLogin({
                 email: "demo@aa.io",
@@ -31,7 +33,7 @@ const InitialLandingPage = () => {
 
     return (
         <div className="landing-page">
-            {/* Header */}
+            {/* Header section containing the logo and action buttons */}
             <header className="landing-header">
                 <h1 className="landing-logo">Anchor</h1>
                 <div className="header-buttons">
@@ -53,7 +55,7 @@ const InitialLandingPage = () => {
                 </div>
             </header>
 
-            {/* Main Content */}
+            {/* Main content section with hero and feature grid */}
             <main className="main-content">
                 <div className="hero-section">
                     <h2 className="hero-title">
@@ -91,7 +93,7 @@ const InitialLandingPage = () => {
                             description: "Ease of use and responsiveness allows you to easily stay consistent",
                         },
                     ].map((featureDetails, featureIndex) => (
-                        // Map each feature object to a feature card
+                        // Render each feature as a card
                         <div key={featureIndex} className="feature-card feature-spacing">
                             <h3 className="feature-title">{featureDetails.title}</h3>
                             <p className="feature-description">{featureDetails.description}</p>
@@ -105,4 +107,5 @@ const InitialLandingPage = () => {
 
 // TODO: Add unit tests for this component to ensure proper functionality
 
+// Export the component for use in other parts of the application
 export default InitialLandingPage;
