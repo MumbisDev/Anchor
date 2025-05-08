@@ -20,6 +20,7 @@ const InitialLandingPage = () => {
 
     // TODO: Consider adding error handling for the demo login function
     const handleDemoLogin = async () => {
+        // Placeholder: Add logging for demo login attempts
         await dispatch(
             thunkLogin({
                 email: "demo@aa.io",
@@ -52,7 +53,7 @@ const InitialLandingPage = () => {
                 </div>
             </header>
 
-            {/* Rest of your component remains the same */}
+            {/* Main Content */}
             <main className="main-content">
                 <div className="hero-section">
                     <h2 className="hero-title">
@@ -70,7 +71,7 @@ const InitialLandingPage = () => {
                     </button>
                 </div>
 
-                {/* Add spacing between sections */}
+                {/* Placeholder: Add animations to hero section */}
                 
                 <div className="feature-grid">
                     {[
