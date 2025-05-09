@@ -1,6 +1,8 @@
 import React from 'react';
+// Importing necessary components from react-router-dom
 import { NavLink, Link } from 'react-router-dom';
 import ProfileButton from './ProfileButton';
+// Importing CSS for styling the navigation component
 import './Navigation.css';
 
 const Navigation = () => {
