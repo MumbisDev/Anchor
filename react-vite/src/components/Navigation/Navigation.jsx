@@ -5,6 +5,12 @@ import ProfileButton from './ProfileButton';
 // Importing CSS for styling the navigation component
 import './Navigation.css';
 
+// Set default props for ProfileButton to ensure fallback behavior
+ProfileButton.defaultProps = {
+    user: null, // Default user is null
+    onClick: () => {}, // Default onClick is a no-op
+};
+
 const Navigation = () => {
     return (
         <div className="navigation-wrapper">
