@@ -29,6 +29,7 @@ const Navigation = () => {
                             `nav-item ${isActive ? 'active' : ''}`
                         }
                         data-placeholder="Home Link"
+                        aria-label="Navigate to Habits"
                     >
                         HABITS {/* Link to habits page */}
                     </NavLink>
@@ -38,6 +39,7 @@ const Navigation = () => {
                             `nav-item ${isActive ? 'active' : ''}`
                         }
                         data-placeholder="Entries Link"
+                        aria-label="Navigate to Daily Entries"
                     >
                         DAILY ENTRIES {/* Link to daily entries page */}
                     </NavLink>
@@ -47,6 +49,7 @@ const Navigation = () => {
                             `nav-item ${isActive ? 'active' : ''}`
                         }
                         data-placeholder="Stats Link"
+                        aria-label="Navigate to Stats"
                     >
                         STATS {/* Link to stats page */}
                     </NavLink>
@@ -58,5 +61,6 @@ const Navigation = () => {
 
 // TODO: Consider making the navigation links dynamic based on user roles.
 // TODO: Add accessibility features like ARIA roles for better usability.
+// TODO: Implement a dark mode toggle for the navigation bar.
 
 export default Navigation;
