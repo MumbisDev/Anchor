@@ -26,7 +26,7 @@ const Navigation = () => {
                     <NavLink
                         to="/home"
                         className={({ isActive }) =>
-                            `nav-item ${isActive ? 'active' : ''}`
+                            `nav-item ${isActive ? 'active' : 'inactive'}`
                         }
                         data-placeholder="Home Link"
                         aria-label="Navigate to Habits"
@@ -36,7 +36,7 @@ const Navigation = () => {
                     <NavLink
                         to="/entries"
                         className={({ isActive }) =>
-                            `nav-item ${isActive ? 'active' : ''}`
+                            `nav-item ${isActive ? 'active' : 'inactive'}`
                         }
                         data-placeholder="Entries Link"
                         aria-label="Navigate to Daily Entries"
@@ -46,7 +46,7 @@ const Navigation = () => {
                     <NavLink
                         to="/stats"
                         className={({ isActive }) =>
-                            `nav-item ${isActive ? 'active' : ''}`
+                            `nav-item ${isActive ? 'active' : 'inactive'}`
                         }
                         data-placeholder="Stats Link"
                         aria-label="Navigate to Stats"
