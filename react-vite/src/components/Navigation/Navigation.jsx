@@ -12,9 +12,9 @@ const Navigation = () => {
             <header className="main-header">
                 {/* Logo and Profile Button */}
                 <Link to="/home">
-                    <h1>Anchor</h1>
+                    <h1>Anchor</h1> {/* Main logo text */}
                 </Link>
-                <ProfileButton />
+                <ProfileButton /> {/* Profile button for user actions */}
             </header>
 
             {/* Navigation Bar */}
@@ -28,7 +28,7 @@ const Navigation = () => {
                         }
                         data-placeholder="Home Link"
                     >
-                        HABITS
+                        HABITS {/* Link to habits page */}
                     </NavLink>
                     <NavLink
                         to="/entries"
@@ -37,7 +37,7 @@ const Navigation = () => {
                         }
                         data-placeholder="Entries Link"
                     >
-                        DAILY ENTRIES
+                        DAILY ENTRIES {/* Link to daily entries page */}
                     </NavLink>
                     <NavLink
                         to="/stats"
@@ -46,7 +46,7 @@ const Navigation = () => {
                         }
                         data-placeholder="Stats Link"
                     >
-                        STATS
+                        STATS {/* Link to stats page */}
                     </NavLink>
                 </div>
             </nav>
