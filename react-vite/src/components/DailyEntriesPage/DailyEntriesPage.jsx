@@ -14,8 +14,8 @@ const DailyEntriesPage = () => {
     const entries = useSelector(state => state.entries.entries);
     const stats = useSelector(state => state.stats.stats);
     const isLoading = useSelector(state => state.entries.isLoading);
-    const [selectedEntry, setSelectedEntry] = useState(null);
-    const [entryExistsForToday, setEntryExistsForToday] = useState(false);
+    const [isEntrySelected, setIsEntrySelected] = useState(null);
+    const [hasEntryForToday, setHasEntryForToday] = useState(false);
 
     useEffect(() => {
         // Fetch user entries when the component mounts
@@ -23,7 +23,7 @@ const DailyEntriesPage = () => {
     }, [dispatch]);
 
     useEffect(() => {
-        const checkEntryExistsForToday = () => {
+        const checkHasEntryForToday = () => {
             // Check if an entry exists for today's date
             const todayDate = new Date().toISOString().split('T')[0];
             const exists = entries.some(entry => {
@@ -31,10 +31,10 @@ const DailyEntriesPage = () => {
                 return entryDate === todayDate;
             });
 
-            setEntryExistsForToday(exists);
+            setHasEntryForToday(exists);
         };
 
-        checkEntryExistsForToday();
+        checkHasEntryForToday();
     }, [entries]);
 
     const handleDelete = async (entryId) => {
@@ -43,13 +43,13 @@ const DailyEntriesPage = () => {
             const result = await dispatch(deleteEntry(entryId));
             if (result?.success) {
                 // Update user stats after successful deletion
-                const newStats = {
+                const updatedStats = {
                     ...stats,
                     compound_meter: Math.max((stats?.compound_meter || 0) - 1.0, 0),
                 };
 
-                await dispatch(updateUserStats(newStats));
-                setSelectedEntry(null);
+                await dispatch(updateUserStats(updatedStats));
+                setIsEntrySelected(null);
             }
         } catch (error) {
             console.error('Error deleting entry:', error);
@@ -61,16 +61,16 @@ const DailyEntriesPage = () => {
     };
 
     const openEditEntryModal = () => {
-        if (selectedEntry) {
-            setModalContent(<EditEntryModal entry={selectedEntry} />);
+        if (isEntrySelected) {
+            setModalContent(<EditEntryModal entry={isEntrySelected} />);
         }
     };
 
     const openDeleteEntryModal = () => {
-        if (selectedEntry) {
+        if (isEntrySelected) {
             setModalContent(
                 <DeleteEntryModal 
-                    entry={selectedEntry} 
+                    entry={isEntrySelected} 
                     onDelete={handleDelete}
                 />
             );
@@ -103,7 +103,7 @@ const DailyEntriesPage = () => {
                         <button 
                             className="action-button"
                             onClick={openCreateEntryModal}
-                            disabled={entryExistsForToday}
+                            disabled={hasEntryForToday}
                         >
                             Create Entry
                         </button>
@@ -112,14 +112,14 @@ const DailyEntriesPage = () => {
                         <button 
                             className="action-button"
                             onClick={openEditEntryModal}
-                            disabled={!selectedEntry}
+                            disabled={!isEntrySelected}
                         >
                             Edit Entry
                         </button>
                         <button 
                             className="action-button"
                             onClick={openDeleteEntryModal}
-                            disabled={!selectedEntry}
+                            disabled={!isEntrySelected}
                         >
                             Delete Entry
                         </button>
@@ -132,8 +132,8 @@ const DailyEntriesPage = () => {
                         sortedEntries.map(dailyEntry => (
                             <div 
                                 key={dailyEntry.id} 
-                                className={`entry-card ${selectedEntry?.id === dailyEntry.id ? 'selected' : ''}`}
-                                onClick={() => setSelectedEntry(dailyEntry)}
+                                className={`entry-card ${isEntrySelected?.id === dailyEntry.id ? 'selected' : ''}`}
+                                onClick={() => setIsEntrySelected(dailyEntry)}
                             >
                                 <div className="entry-content">
                                     <div className="entry-date">
