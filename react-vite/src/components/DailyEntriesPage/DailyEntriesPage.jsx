@@ -26,10 +26,9 @@ const DailyEntriesPage = () => {
         const checkHasEntryForToday = () => {
             // Check if an entry exists for today's date
             const todayDate = new Date().toISOString().split('T')[0];
-            const exists = entries.some(entry => {
-                const entryDate = new Date(entry.created_at).toISOString().split('T')[0];
-                return entryDate === todayDate;
-            });
+            const exists = entries.some(entry => 
+                new Date(entry.created_at).toISOString().split('T')[0] === todayDate
+            );
 
             setHasEntryForToday(exists);
         };
@@ -78,14 +77,12 @@ const DailyEntriesPage = () => {
     };
 
     // Format date for display
-    const formatDate = (dateString) => {
-        const date = new Date(dateString);
-        return date.toLocaleDateString('en-US', {
+    const formatDate = (dateString) => 
+        new Date(dateString).toLocaleDateString('en-US', {
             day: '2-digit',
             month: 'short',
             year: 'numeric'
         }).toUpperCase();
-    };
 
     if (isLoading) return <div>Loading...</div>;
 
