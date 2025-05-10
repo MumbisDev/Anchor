@@ -30,6 +30,7 @@ const DailyEntriesPage = () => {
                 const entryDate = new Date(entry.created_at).toISOString().split('T')[0];
                 return entryDate === todayDate;
             });
+
             setEntryExistsForToday(exists);
         };
 
@@ -44,8 +45,9 @@ const DailyEntriesPage = () => {
                 // Update user stats after successful deletion
                 const newStats = {
                     ...stats,
-                    compound_meter: Math.max((stats?.compound_meter || 0) - 1.0, 0)
+                    compound_meter: Math.max((stats?.compound_meter || 0) - 1.0, 0),
                 };
+
                 await dispatch(updateUserStats(newStats));
                 setSelectedEntry(null);
             }
