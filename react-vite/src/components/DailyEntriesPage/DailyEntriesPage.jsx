@@ -18,11 +18,13 @@ const DailyEntriesPage = () => {
     const [entryExistsForToday, setEntryExistsForToday] = useState(false);
 
     useEffect(() => {
+        // Fetch user entries when the component mounts
         dispatch(getUserEntries());
     }, [dispatch]);
 
     useEffect(() => {
         const checkEntryExistsForToday = () => {
+            // Check if an entry exists for today's date
             const todayDate = new Date().toISOString().split('T')[0];
             const exists = entries.some(entry => {
                 const entryDate = new Date(entry.created_at).toISOString().split('T')[0];
@@ -36,8 +38,10 @@ const DailyEntriesPage = () => {
 
     const handleDelete = async (entryId) => {
         try {
+            // Attempt to delete the selected entry
             const result = await dispatch(deleteEntry(entryId));
             if (result?.success) {
+                // Update user stats after successful deletion
                 const newStats = {
                     ...stats,
                     compound_meter: Math.max((stats?.compound_meter || 0) - 1.0, 0)
