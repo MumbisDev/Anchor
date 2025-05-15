@@ -40,4 +40,8 @@ const DeleteConfirmationModal = ({ habit, onDelete }) => {
     );
 };
 
+DeleteConfirmationModal.defaultProps = {
+    onDelete: () => Promise.resolve(),
+};
+
 export default DeleteConfirmationModal;
