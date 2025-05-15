@@ -14,8 +14,8 @@ const DailyEntriesPage = () => {
     const entries = useSelector(state => state.entries.entries);
     const stats = useSelector(state => state.stats.stats);
     const isLoading = useSelector(state => state.entries.isLoading);
-    const [isEntrySelected, setIsEntrySelected] = useState(null);
-    const [hasEntryForToday, setHasEntryForToday] = useState(false);
+    const [selectedEntry, setSelectedEntry] = useState(null);
+    const [entryExistsForToday, setEntryExistsForToday] = useState(false);
 
     useEffect(() => {
         // Fetch user entries when the component mounts
@@ -23,17 +23,18 @@ const DailyEntriesPage = () => {
     }, [dispatch]);
 
     useEffect(() => {
-        const checkHasEntryForToday = () => {
+        const checkEntryExistsForToday = () => {
             // Check if an entry exists for today's date
             const todayDate = new Date().toISOString().split('T')[0];
-            const exists = entries.some(entry => 
-                new Date(entry.created_at).toISOString().split('T')[0] === todayDate
-            );
+            const exists = entries.some(entry => {
+                const entryDate = new Date(entry.created_at).toISOString().split('T')[0];
+                return entryDate === todayDate;
+            });
 
-            setHasEntryForToday(exists);
+            setEntryExistsForToday(exists);
         };
 
-        checkHasEntryForToday();
+        checkEntryExistsForToday();
     }, [entries]);
 
     const handleDelete = async (entryId) => {
@@ -42,13 +43,13 @@ const DailyEntriesPage = () => {
             const result = await dispatch(deleteEntry(entryId));
             if (result?.success) {
                 // Update user stats after successful deletion
-                const updatedStats = {
+                const newStats = {
                     ...stats,
                     compound_meter: Math.max((stats?.compound_meter || 0) - 1.0, 0),
                 };
 
-                await dispatch(updateUserStats(updatedStats));
-                setIsEntrySelected(null);
+                await dispatch(updateUserStats(newStats));
+                setSelectedEntry(null);
             }
         } catch (error) {
             console.error('Error deleting entry:', error);
@@ -60,16 +61,16 @@ const DailyEntriesPage = () => {
     };
 
     const openEditEntryModal = () => {
-        if (isEntrySelected) {
-            setModalContent(<EditEntryModal entry={isEntrySelected} />);
+        if (selectedEntry) {
+            setModalContent(<EditEntryModal entry={selectedEntry} />);
         }
     };
 
     const openDeleteEntryModal = () => {
-        if (isEntrySelected) {
+        if (selectedEntry) {
             setModalContent(
                 <DeleteEntryModal 
-                    entry={isEntrySelected} 
+                    entry={selectedEntry} 
                     onDelete={handleDelete}
                 />
             );
@@ -77,12 +78,14 @@ const DailyEntriesPage = () => {
     };
 
     // Format date for display
-    const formatDate = (dateString) => 
-        new Date(dateString).toLocaleDateString('en-US', {
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        return date.toLocaleDateString('en-US', {
             day: '2-digit',
             month: 'short',
             year: 'numeric'
         }).toUpperCase();
+    };
 
     if (isLoading) return <div>Loading...</div>;
 
@@ -100,7 +103,7 @@ const DailyEntriesPage = () => {
                         <button 
                             className="action-button"
                             onClick={openCreateEntryModal}
-                            disabled={hasEntryForToday}
+                            disabled={entryExistsForToday}
                         >
                             Create Entry
                         </button>
@@ -109,14 +112,14 @@ const DailyEntriesPage = () => {
                         <button 
                             className="action-button"
                             onClick={openEditEntryModal}
-                            disabled={!isEntrySelected}
+                            disabled={!selectedEntry}
                         >
                             Edit Entry
                         </button>
                         <button 
                             className="action-button"
                             onClick={openDeleteEntryModal}
-                            disabled={!isEntrySelected}
+                            disabled={!selectedEntry}
                         >
                             Delete Entry
                         </button>
@@ -129,8 +132,8 @@ const DailyEntriesPage = () => {
                         sortedEntries.map(dailyEntry => (
                             <div 
                                 key={dailyEntry.id} 
-                                className={`entry-card ${isEntrySelected?.id === dailyEntry.id ? 'selected' : ''}`}
-                                onClick={() => setIsEntrySelected(dailyEntry)}
+                                className={`entry-card ${selectedEntry?.id === dailyEntry.id ? 'selected' : ''}`}
+                                onClick={() => setSelectedEntry(dailyEntry)}
                             >
                                 <div className="entry-content">
                                     <div className="entry-date">
