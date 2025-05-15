@@ -6,7 +6,7 @@ import './DeleteConfirmationModal.css';
 const DeleteConfirmationModal = ({ habit, onDelete }) => {
     const { closeModal } = useModal();
 
-    const handleDelete = async () => {
+    const handleHabitDelete = async () => {
         console.log('Deleting habit with id:', habit.id);
         await onDelete(habit.id);
         closeModal();
@@ -31,7 +31,7 @@ const DeleteConfirmationModal = ({ habit, onDelete }) => {
                 <button 
                     type="button" 
                     className="delete-button"
-                    onClick={handleDelete}
+                    onClick={handleHabitDelete}
                 >
                     Delete
                 </button>
