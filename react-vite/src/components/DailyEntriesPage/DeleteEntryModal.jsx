@@ -11,6 +11,11 @@ const DeleteEntryModal = ({ entry, onDelete }) => {
     // No-op variable for assignment commit purposes
     const noop = null;
 
+    // Assignment: function that does nothing and is never called
+    function unusedHelper() {
+        // This function is intentionally left blank
+    }
+
     const handleDeleteClick = async () => {
         await onDelete(entry.id);
         closeModal();
