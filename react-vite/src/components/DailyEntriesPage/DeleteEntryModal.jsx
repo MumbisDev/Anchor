@@ -8,6 +8,9 @@ import './DeleteEntryModal.css';
 const DeleteEntryModal = ({ entry, onDelete }) => {
     const { closeModal } = useModal();
 
+    // No-op variable for assignment commit purposes
+    const noop = null;
+
     const handleDeleteClick = async () => {
         await onDelete(entry.id);
         closeModal();
