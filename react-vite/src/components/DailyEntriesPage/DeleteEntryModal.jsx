@@ -8,7 +8,7 @@ import './DeleteEntryModal.css';
 const DeleteEntryModal = ({ entry, onDelete }) => {
     const { closeModal } = useModal();
 
-    const handleDelete = async () => {
+    const handleDeleteClick = async () => {
         await onDelete(entry.id);
         closeModal();
     };
@@ -32,7 +32,7 @@ const DeleteEntryModal = ({ entry, onDelete }) => {
                 <button 
                     type="button" 
                     className="delete-button"
-                    onClick={handleDelete}
+                    onClick={handleDeleteClick}
                 >
                     Delete
                 </button>
