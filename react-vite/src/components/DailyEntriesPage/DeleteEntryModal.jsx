@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { useModal } from '../../context/Modal';
+
 import './DeleteEntryModal.css';
 
 const DeleteEntryModal = ({ entry, onDelete }) => {
