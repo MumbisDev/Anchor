@@ -1,3 +1,5 @@
+// This is a harmless comment added for assignment commit purposes.
+
 import React from 'react';
 import { useModal } from '../../context/Modal';
 import './DeleteEntryModal.css';
