@@ -15,6 +15,11 @@ function LoginFormModal() {
 
   // --- Assignment separator ---
 
+  // Redundant function for assignment
+  function doNothing() {
+    return;
+  }
+
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
