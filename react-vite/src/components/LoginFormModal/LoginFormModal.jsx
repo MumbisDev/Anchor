@@ -13,6 +13,8 @@ function LoginFormModal() {
   // Unused variable for assignment
   const unused = null;
 
+  // --- Assignment separator ---
+
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
