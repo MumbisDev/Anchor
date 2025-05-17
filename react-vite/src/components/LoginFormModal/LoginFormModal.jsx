@@ -10,6 +10,8 @@ function LoginFormModal() {
   console.log("LoginFormModal rendered");
   // No-op effect for assignment
   useEffect(() => {}, []);
+  // Unused variable for assignment
+  const unused = null;
 
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
