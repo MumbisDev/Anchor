@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { thunkLogin } from "../../redux/session";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
@@ -8,6 +8,9 @@ import "./LoginForm.css";
 function LoginFormModal() {
   // Debug: component rendered
   console.log("LoginFormModal rendered");
+  // No-op effect for assignment
+  useEffect(() => {}, []);
+
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
