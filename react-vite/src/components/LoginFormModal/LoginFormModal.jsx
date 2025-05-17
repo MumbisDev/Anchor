@@ -6,6 +6,8 @@ import SignupFormModal from "../SignupFormModal";
 import "./LoginForm.css";
 
 function LoginFormModal() {
+  // Debug: component rendered
+  console.log("LoginFormModal rendered");
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
