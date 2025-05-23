@@ -16,6 +16,7 @@ function SignupFormPage() {
   if (sessionUser) return <Navigate to="/" replace={true} />;
 
   const handleSubmit = async (e) => {
+    // This is a harmless comment for assignment purposes
     console.log("Signup form submitted"); // debug log
     e.preventDefault();
 
