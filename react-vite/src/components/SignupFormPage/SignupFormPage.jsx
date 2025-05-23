@@ -87,6 +87,7 @@ function SignupFormPage() {
         </label>
         {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
         <button type="submit">Sign Up</button>
+        {/* This is a harmless inline comment for assignment purposes */}
       </form>
     </>
   );
