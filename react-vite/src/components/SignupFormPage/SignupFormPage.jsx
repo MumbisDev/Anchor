@@ -43,6 +43,7 @@ function SignupFormPage() {
     }
   };
 
+  // Harmless comment before the return statement for assignment purposes
   return (
     <>
       <h1>Sign Up</h1>
