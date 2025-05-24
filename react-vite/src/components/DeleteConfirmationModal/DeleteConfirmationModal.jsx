@@ -4,6 +4,7 @@ import { useModal } from '../../context/Modal';
 import './DeleteConfirmationModal.css';
 
 const DeleteConfirmationModal = ({ habit, onDelete }) => {
+    console.log('DeleteConfirmationModal rendered');
     const { closeModal } = useModal();
 
     const handleDeleteClick = async () => {
