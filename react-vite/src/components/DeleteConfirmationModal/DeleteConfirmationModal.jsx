@@ -1,5 +1,7 @@
 // This component renders a confirmation modal for deleting a habit
 
+// TODO: Consider adding a loading state during deletion
+
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useModal } from '../../context/Modal';
