@@ -8,6 +8,7 @@ import './DeleteConfirmationModal.css';
 const DeleteConfirmationModal = ({ habit, onDelete }) => {
     console.log('DeleteConfirmationModal rendered');
     const { closeModal } = useModal();
+    // Destructured closeModal from useModal
 
     const handleDeleteClick = async () => {
         console.log('Deleting habit with id:', habit.id);
