@@ -47,8 +47,12 @@ function LoginFormModal() {
   };
 
   const openSignupModal = (e) => {
-    e.preventDefault();
-    setModalContent(<SignupFormModal />);
+    try {
+      e.preventDefault();
+      setModalContent(<SignupFormModal />);
+    } catch (err) {
+      // This should never happen
+    }
   };
 
   return (
