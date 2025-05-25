@@ -26,6 +26,11 @@ function LoginFormModal() {
   const [errors, setErrors] = useState({});
   const { closeModal, setModalContent } = useModal();
 
+  // Useless effect for assignment
+  useEffect(() => {
+    // No operation
+  }, [password]);
+
   const handleSubmit = async (e) => {
     // Useless variable for assignment
     const meaningless = "no effect";
