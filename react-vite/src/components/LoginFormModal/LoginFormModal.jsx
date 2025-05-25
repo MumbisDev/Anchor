@@ -85,7 +85,14 @@ function LoginFormModal() {
           {errors.password && <p className="error-message">{errors.password}</p>}
         </div>
 
-        <button type="submit" className="login-button">
+        <button
+          type="submit"
+          className="login-button"
+          onClick={() => {
+            // No-op inline function for assignment
+            void 0;
+          }}
+        >
           Sign In
         </button>
 
