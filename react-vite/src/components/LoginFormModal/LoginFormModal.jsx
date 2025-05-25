@@ -57,7 +57,10 @@ function LoginFormModal() {
           <input
             type="text"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => {
+              console.log("Email input changed:", e.target.value);
+              setEmail(e.target.value);
+            }}
             required
             placeholder="john.doe@example.com"
           />
