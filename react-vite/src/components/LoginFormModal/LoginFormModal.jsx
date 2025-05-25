@@ -27,6 +27,9 @@ function LoginFormModal() {
   const { closeModal, setModalContent } = useModal();
 
   const handleSubmit = async (e) => {
+    // Useless variable for assignment
+    const meaningless = "no effect";
+
     e.preventDefault();
 
     const serverResponse = await dispatch(
