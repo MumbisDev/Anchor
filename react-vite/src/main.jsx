@@ -13,6 +13,7 @@ const store = configureStore();
 
 // This is a useless comment for commit purposes.
 function Root() {
+  // Tracks if authentication has completed before rendering the app
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
