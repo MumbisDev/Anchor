@@ -10,6 +10,7 @@ import "./index.css";
 
 const store = configureStore();
 
+// This is a useless comment for commit purposes.
 function Root() {
   const [isLoaded, setIsLoaded] = useState(false);
 
