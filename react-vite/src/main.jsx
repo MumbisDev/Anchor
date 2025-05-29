@@ -22,6 +22,7 @@ function Root() {
       .then(() => setIsLoaded(true));
   }, []);
 
+  // Render the application only after authentication check
   return (
     <>
       {isLoaded && (
