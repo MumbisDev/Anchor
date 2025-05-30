@@ -20,7 +20,7 @@ function StatsPage() {
         dispatch(getUserStats());
     }, [dispatch]);
 
-    // Placeholder data for the weekly progress
+    // This is a placeholder array for weekly progress data
     const weeklyProgressData = [
         { day: 'Mon', value: 30 },
         { day: 'Tue', value: 45 },
