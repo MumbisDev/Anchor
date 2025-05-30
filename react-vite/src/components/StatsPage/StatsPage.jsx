@@ -4,6 +4,9 @@ import { getUserStats } from '../../redux/stats';
 
 import './StatsPage.css';
 
+// This import brings in the CSS styles for the StatsPage component
+// These styles define the layout, colors, and fonts used in the StatsPage
+
 // Added comments to clarify the purpose of the StatsPage component and its sections
 // This component displays user statistics, weekly progress, and habit performance
 // It is part of the StatsPage feature in the Anchor app
