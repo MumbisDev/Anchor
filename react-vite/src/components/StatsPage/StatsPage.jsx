@@ -6,6 +6,7 @@ import './StatsPage.css';
 
 // Added comments to clarify the purpose of the StatsPage component and its sections
 // This component displays user statistics, weekly progress, and habit performance
+// It is part of the StatsPage feature in the Anchor app
 
 function StatsPage() {
     const dispatch = useDispatch();
