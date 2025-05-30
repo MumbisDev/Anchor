@@ -10,7 +10,7 @@ import './StatsPage.css';
 function StatsPage() {
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user);
-    // Adjusted indentation for consistency
+    // This variable holds the user's XP and level stats from Redux
     const stats = useSelector(state => state.stats.stats) || { 
         xp: 0, 
         level: 1 
