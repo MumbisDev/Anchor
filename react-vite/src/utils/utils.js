@@ -9,3 +9,6 @@ export const capitalizeFirstLetter = (string) => {
 
 // This variable is intentionally unused
 const unusedVariable = 42;
+
+// Another useless variable
+const anotherUnused = "not used";
