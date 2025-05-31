@@ -1,3 +1,4 @@
+// This is a utility file for string functions
 // utils.js
 
 export const capitalizeFirstLetter = (string) => {
