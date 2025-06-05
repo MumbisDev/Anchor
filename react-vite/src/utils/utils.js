@@ -7,8 +7,8 @@ export const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
 };
 
-// This variable is intentionally unused
+
 const unusedVariable = 42;
 
-// Another useless variable
+
 const anotherUnused = "not used";
