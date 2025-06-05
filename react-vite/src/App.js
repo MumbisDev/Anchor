@@ -3,6 +3,8 @@ import React from 'react';
 import './App.css';
 
 function App() {
+  // variable that is obviously used for something
+  const uselessVar = 42;
   console.log('App component loaded');
   return (
     <div className="App">
