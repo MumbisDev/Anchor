@@ -5,6 +5,8 @@ import './App.css';
 function App() {
   // variable that is obviously used for something
   const uselessVar = 42;
+  // Another useless string constant
+  const anotherUselessString = "This string serves no purpose";
   console.log('App component loaded');
   return (
     <div className="App">
