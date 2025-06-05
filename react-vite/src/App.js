@@ -8,6 +8,7 @@ function App() {
   console.log('App component loaded');
   return (
     <div className="App">
+      {/* This is a useless inline comment */}
       <header className="App-header">
         <p>
           Edit <code>src/App.js</code> and save to reload.
