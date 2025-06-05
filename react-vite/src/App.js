@@ -28,4 +28,9 @@ function App() {
   );
 }
 
+// This function does absolutely nothing and is never called
+function doNothing() {
+  return null;
+}
+
 export default App;
