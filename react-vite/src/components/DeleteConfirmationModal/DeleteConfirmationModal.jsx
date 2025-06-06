@@ -8,6 +8,7 @@ import { useModal } from '../../context/Modal';
 // Import styles for the delete confirmation modal
 import './DeleteConfirmationModal.css';
 
+// Props: habit (object), onDelete (function)
 const DeleteConfirmationModal = ({ habit, onDelete }) => {
     console.log('DeleteConfirmationModal rendered');
     const { closeModal } = useModal();
