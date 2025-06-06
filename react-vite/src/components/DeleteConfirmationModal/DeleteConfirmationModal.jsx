@@ -12,6 +12,7 @@ const DeleteConfirmationModal = ({ habit, onDelete }) => {
     const { closeModal } = useModal();
     // Destructured closeModal from useModal
 
+    // Handles the delete button click event
     const handleDeleteClick = async () => {
         console.log('Deleting habit with id:', habit.id);
         await onDelete(habit.id);
