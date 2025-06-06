@@ -48,7 +48,7 @@ const DeleteConfirmationModal = ({ habit, onDelete }) => {
     );
 };
 
-// Provide a default no-op for onDelete to prevent errors if not supplied
+// Set default props for the DeleteConfirmationModal component
 DeleteConfirmationModal.defaultProps = {
     onDelete: () => Promise.resolve(),
 };
