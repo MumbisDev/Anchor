@@ -3,7 +3,7 @@
 // TODO: Consider adding a loading state during deletion
 
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux'; // Import useDispatch for potential Redux actions
 import { useModal } from '../../context/Modal';
 // Import styles for the delete confirmation modal
 import './DeleteConfirmationModal.css';
