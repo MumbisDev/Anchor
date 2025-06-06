@@ -5,6 +5,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useModal } from '../../context/Modal';
+// Import styles for the delete confirmation modal
 import './DeleteConfirmationModal.css';
 
 const DeleteConfirmationModal = ({ habit, onDelete }) => {
