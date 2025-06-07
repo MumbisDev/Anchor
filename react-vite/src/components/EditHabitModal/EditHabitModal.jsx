@@ -32,6 +32,7 @@ const EditHabitModal = ({ habit }) => {
         });
     };
 
+    // Handle form submission to update the habit
     const handleSubmit = async (e) => {
         e.preventDefault();
         
