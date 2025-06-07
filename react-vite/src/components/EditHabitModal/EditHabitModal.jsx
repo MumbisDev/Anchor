@@ -9,6 +9,9 @@ import '../CreateHabitModal/CreateHabitModal.css'
 const DAYS = ['Su', 'M', 'T', 'W', 'Th', 'F', 'S']; // Reordered to place Sunday first
 
 const EditHabitModal = ({ habit }) => {
+    // Debug mode flag for future debugging features
+    const debugMode = false;
+
     const dispatch = useDispatch();
     const { closeModal } = useModal();
     const [habitName, setHabitName] = useState(habit.name);
