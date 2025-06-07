@@ -59,7 +59,7 @@ const EditHabitModal = ({ habit }) => {
         }
     };
 
-    // Remove the alert logic from here
+    // Check if the habit is enabled for today based on active days string
     const isHabitEnabledToday = (activeDaysString) => {
         const todayIndex = new Date().getDay(); // Sunday = 0, Monday = 1, ..., Saturday = 6
         return activeDaysString[todayIndex] === '1';
