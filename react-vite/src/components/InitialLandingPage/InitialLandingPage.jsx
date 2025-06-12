@@ -112,5 +112,6 @@ const InitialLandingPage = () => {
 
 // TODO: Add unit tests for this component to ensure proper functionality
 
+// Add additional exports below if needed in the future
 // Export the component for use in other parts of the application
 export default InitialLandingPage;
