@@ -62,6 +62,7 @@ const DailyEntriesPage = () => {
         setModalContent(<CreateEntryModal />);
     };
 
+    // Opens the modal to edit the selected entry
     const openEditEntryModal = () => {
         if (selectedEntry) {
             setModalContent(<EditEntryModal entry={selectedEntry} />);
