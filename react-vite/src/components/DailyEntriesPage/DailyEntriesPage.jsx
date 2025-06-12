@@ -38,6 +38,7 @@ const DailyEntriesPage = () => {
         checkEntryExistsForToday();
     }, [entries]);
 
+    // Handles deletion of an entry and updates stats
     const handleDelete = async (entryId) => {
         try {
             // Attempt to delete the selected entry
