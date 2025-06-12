@@ -20,7 +20,7 @@ const InitialLandingPage = () => {
         setModalContent(<SignupFormModal />);
     };
 
-    // TODO: Consider adding error handling for the demo login function
+    // This function handles logging in as a demo user for quick access
     const handleDemoLogin = async () => {
         // Logs in as a demo user with predefined credentials
         await dispatch(
