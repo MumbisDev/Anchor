@@ -69,6 +69,7 @@ const DailyEntriesPage = () => {
         }
     };
 
+    // Opens the modal to confirm deletion of the selected entry
     const openDeleteEntryModal = () => {
         if (selectedEntry) {
             setModalContent(
