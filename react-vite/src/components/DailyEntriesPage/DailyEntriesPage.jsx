@@ -79,6 +79,7 @@ const DailyEntriesPage = () => {
     };
 
     // Format date for display
+    // Helper function to format entry date strings
     const formatDate = (dateString) => {
         const date = new Date(dateString);
         return date.toLocaleDateString('en-US', {
