@@ -7,6 +7,10 @@ import SignupFormModal from '../SignupFormModal';
 import './InitialLandingPage.css';
 
 const InitialLandingPage = () => {
+    // Track the current version of the landing page for debugging
+    const pageVersion = "v1.0.0";
+    console.log("InitialLandingPage version:", pageVersion);
+
     const dispatch = useDispatch();
     const { setModalContent } = useModal();
 
