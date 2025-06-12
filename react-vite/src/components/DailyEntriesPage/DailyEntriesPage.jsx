@@ -17,6 +17,7 @@ const DailyEntriesPage = () => {
     const [selectedEntry, setSelectedEntry] = useState(null);
     const [entryExistsForToday, setEntryExistsForToday] = useState(false);
 
+    // useEffect to fetch user entries on mount
     useEffect(() => {
         // Fetch user entries when the component mounts
         dispatch(getUserEntries());
