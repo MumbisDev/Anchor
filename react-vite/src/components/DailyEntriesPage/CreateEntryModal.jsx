@@ -12,6 +12,7 @@ const CreateEntryModal = () => {
     const { closeModal } = useModal();
 
     // State variables for form inputs and errors
+    // State for the main entry text input field
     const [entryText, setEntryText] = useState('Start your entry here...'); // Renamed from entryContent
     // State for the image URL input field
     const [imageURL, setImageURL] = useState('https://example.com/default-image.jpg'); // Renamed from imageLink
