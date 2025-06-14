@@ -14,6 +14,7 @@ const CreateEntryModal = () => {
     // State variables for form inputs and errors
     const [entryText, setEntryText] = useState('Start your entry here...'); // Renamed from entryContent
     const [imageURL, setImageURL] = useState('https://example.com/default-image.jpg'); // Renamed from imageLink
+    // State for tracking form validation errors
     const [errors, setErrors] = useState({}); // Error messages for form validation
     const [isSubmitting, setIsSubmitting] = useState(false); // Tracks if form is being submitted
 
