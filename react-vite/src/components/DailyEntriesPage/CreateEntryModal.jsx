@@ -27,6 +27,7 @@ const CreateEntryModal = () => {
         // TODO: Add more robust validation for entryText (e.g., character limits, profanity filter)
 
         // Validate entry content
+        // Ensure the entry text is not empty before submitting
         if (!entryText.trim()) { // Updated variable name
             setErrors({ entry: "Entry text is required" });
             setIsSubmitting(false); // Re-enable button
