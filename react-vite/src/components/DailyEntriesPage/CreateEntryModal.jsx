@@ -20,6 +20,9 @@ const CreateEntryModal = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        // Store trimmed entry text for validation
+        const trimmedEntry = entryText.trim();
+
         if (isSubmitting) return; // Prevent multiple submissions
 
         setIsSubmitting(true); // Disable button
@@ -28,7 +31,7 @@ const CreateEntryModal = () => {
 
         // Validate entry content
         // Ensure the entry text is not empty before submitting
-        if (!entryText.trim()) { // Updated variable name
+        if (!trimmedEntry) { // Updated variable name
             setErrors({ entry: "Entry text is required" });
             setIsSubmitting(false); // Re-enable button
             return;
