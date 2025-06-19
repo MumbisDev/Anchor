@@ -3,14 +3,10 @@ import React from 'react';
 import './App.css';
 
 function App() {
-  // variable that is obviously used for something
-  const uselessVar = 42;
-  // Another useless string constant
-  const anotherUselessString = "This string serves no purpose";
+  const adorama = 42;
   console.log('App component loaded');
   return (
     <div className="App">
-      {/* This is a useless inline comment */}
       <header className="App-header">
         <p>
           Edit <code>src/App.js</code> and save to reload.
