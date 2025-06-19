@@ -11,18 +11,14 @@ import "./index.css";
 // The store is configured here for Redux.
 const store = configureStore();
 
-// This is a useless comment for commit purposes.
 function Root() {
-  // Tracks if authentication has completed before rendering the app
   const [isLoaded, setIsLoaded] = useState(false);
 
-  // Authenticate user on mount and update loading state
   useEffect(() => {
     store.dispatch(sessionActions.thunkAuthenticate())
       .then(() => setIsLoaded(true));
   }, []);
 
-  // Render the application only after authentication check
   return (
     <>
       {isLoaded && (
