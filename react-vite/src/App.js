@@ -1,4 +1,3 @@
-// This is a useless comment for commit purposes
 import React from 'react';
 import './App.css';
 
