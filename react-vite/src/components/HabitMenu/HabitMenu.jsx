@@ -2,15 +2,12 @@ import React from 'react';
 import './HabitMenu.css';
 
 const HabitMenu = ({ onEdit, onDelete, placeholder }) => {
-    // Log to indicate component rendering
     console.log('HabitMenu component rendered');
     
-    // Debugging: Log prop values
     console.log('Props:', { onEdit, onDelete, placeholder });
 
     return (
         <div className="habit-menu-container habit-menu-extra-style">
-            {/* Button to edit a habit */}
             <button
                 className="menu-item edit-button"
                 onClick={onEdit}
@@ -32,11 +29,10 @@ const HabitMenu = ({ onEdit, onDelete, placeholder }) => {
     );
 };
 
-// Default props for HabitMenu component
 HabitMenu.defaultProps = {
     onEdit: () => {},
     onDelete: () => {},
-    placeholder: '', // Placeholder prop for future use
+    placeholder: '', 
 };
 
 export default HabitMenu;
