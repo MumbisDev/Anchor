@@ -26,7 +26,8 @@ const EditHabitModal = ({ habit }) => {
 
     const [activeDays, setActiveDays] = useState(activeDaysArray);
 
-    // Toggle the selected state for a specific day button
+    // This function toggles the boolean value for a specific day in the activeDays array.
+    // It is used to visually select or deselect days for the habit.
     const handleDayToggle = (index) => {
         setActiveDays((prevActiveDays) => {
             const newActiveDays = [...prevActiveDays];
