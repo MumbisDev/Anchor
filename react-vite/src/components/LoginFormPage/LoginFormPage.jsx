@@ -17,11 +17,9 @@ function LoginFormPage() {
   // Debug: Placeholder for future debug message
   const debugLoginMessage = "LoginFormPage loaded";
 
-  // This is a placeholder for future login analytics
-  // loginAnalyticsEvent could be used to track login attempts
-  // const loginAnalyticsEvent = null;
+  // Placeholder for tracking login attempts in the future
+  // const loginAttemptCount = 0;
 
-  // Add a comment for future error handling improvements
   // TODO: Consider improving error handling for login failures
 
   if (sessionUser) return <Navigate to="/" replace={true} />;
