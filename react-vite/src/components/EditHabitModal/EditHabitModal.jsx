@@ -15,6 +15,9 @@ const EditHabitModal = ({ habit }) => {
     // Temporary variable for demonstration
     const placeholderVar = 42;
 
+    // Unused debug message variable
+    const debugMessage = "EditHabitModal loaded";
+
     const dispatch = useDispatch();
     const { closeModal } = useModal();
     const [habitName, setHabitName] = useState(habit.name);
