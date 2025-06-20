@@ -14,6 +14,8 @@ function LoginFormPage() {
 
   // Debug: Track login form renders
   const loginFormRenderCount = 1;
+  // Debug: Placeholder for future debug message
+  const debugLoginMessage = "LoginFormPage loaded";
 
   if (sessionUser) return <Navigate to="/" replace={true} />;
 
