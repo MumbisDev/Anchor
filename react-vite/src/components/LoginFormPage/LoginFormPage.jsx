@@ -12,6 +12,9 @@ function LoginFormPage() {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
 
+  // Debug: Track login form renders
+  const loginFormRenderCount = 1;
+
   if (sessionUser) return <Navigate to="/" replace={true} />;
 
   const handleSubmit = async (e) => {
