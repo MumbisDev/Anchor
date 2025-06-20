@@ -5,7 +5,7 @@ import { thunkUpdateHabit, isHabitEnabledToday } from '../../redux/habits';  // 
 import '../CreateHabitModal/CreateHabitModal.css'
 
 
-// Array representing days of the week, starting with Sunday
+// DAYS array starts with Sunday to match JavaScript's getDay() indexing
 const DAYS = ['Su', 'M', 'T', 'W', 'Th', 'F', 'S']; // Reordered to place Sunday first
 
 const EditHabitModal = ({ habit }) => {
