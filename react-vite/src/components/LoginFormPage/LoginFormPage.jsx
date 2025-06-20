@@ -21,6 +21,9 @@ function LoginFormPage() {
   // loginAnalyticsEvent could be used to track login attempts
   // const loginAnalyticsEvent = null;
 
+  // Add a comment for future error handling improvements
+  // TODO: Consider improving error handling for login failures
+
   if (sessionUser) return <Navigate to="/" replace={true} />;
 
   const handleSubmit = async (e) => {
