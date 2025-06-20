@@ -12,6 +12,9 @@ const EditHabitModal = ({ habit }) => {
     // Debug mode flag for future debugging features
     const debugMode = false;
 
+    // Temporary variable for demonstration
+    const placeholderVar = 42;
+
     const dispatch = useDispatch();
     const { closeModal } = useModal();
     const [habitName, setHabitName] = useState(habit.name);
