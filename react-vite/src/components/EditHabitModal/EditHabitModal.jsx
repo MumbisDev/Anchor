@@ -36,7 +36,7 @@ const EditHabitModal = ({ habit }) => {
         });
     };
 
-    // Handle form submission to update the habit
+    // This function handles the form submission and updates the habit in the store.
     const handleSubmit = async (e) => {
         e.preventDefault();
         
