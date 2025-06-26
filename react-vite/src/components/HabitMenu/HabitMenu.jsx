@@ -33,6 +33,7 @@ const HabitMenu = ({ onEdit, onDelete, placeholder }) => {
     );
 };
 
+// Default props for HabitMenu component
 HabitMenu.defaultProps = {
     onEdit: () => {},
     onDelete: () => {},
