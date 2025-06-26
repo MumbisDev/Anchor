@@ -3,6 +3,7 @@ import './HabitMenu.css';
 
 // This component renders the menu for editing or deleting a habit.
 const HabitMenu = ({ onEdit, onDelete, placeholder }) => {
+    // Title for the habit menu section
     const menuTitle = "Habit Actions";
 
     console.log('HabitMenu component rendered');
