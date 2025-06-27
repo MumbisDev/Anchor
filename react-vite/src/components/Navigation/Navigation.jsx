@@ -72,4 +72,5 @@ const Navigation = () => {
 // TODO: Add accessibility features like ARIA roles for better usability.
 // TODO: Implement a dark mode toggle for the navigation bar.
 
+// Default export for Navigation component
 export default Navigation;
