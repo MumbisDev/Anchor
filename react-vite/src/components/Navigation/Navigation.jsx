@@ -68,6 +68,7 @@ const Navigation = () => {
     );
 };
 
+// Developer notes for future improvements
 // TODO: Consider making the navigation links dynamic based on user roles.
 // TODO: Add accessibility features like ARIA roles for better usability.
 // TODO: Implement a dark mode toggle for the navigation bar.
