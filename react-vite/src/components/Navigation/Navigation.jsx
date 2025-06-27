@@ -13,6 +13,8 @@ ProfileButton.defaultProps = {
 };
 
 const Navigation = () => {
+    // Temporary variable for demonstration
+    const navVersion = "v1.0";
     return (
         <div className="navigation-wrapper">
             {/* Wrapper for the entire navigation component */}
