@@ -1,5 +1,6 @@
 import { useModal } from '../../context/Modal';
 
+// Component for rendering a menu item that opens a modal
 function OpenModalMenuItem({
   modalComponent, // component to render inside the modal
   itemText, // text of the button that opens the modal
