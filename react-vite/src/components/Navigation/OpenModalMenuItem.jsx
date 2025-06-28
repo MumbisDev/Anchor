@@ -1,3 +1,4 @@
+// Import useModal context for modal management
 import { useModal } from '../../context/Modal';
 
 // Component for rendering a menu item that opens a modal
