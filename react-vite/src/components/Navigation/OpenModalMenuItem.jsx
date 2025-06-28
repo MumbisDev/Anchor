@@ -8,6 +8,10 @@ function OpenModalMenuItem({
 }) {
   const { setModalContent, setOnModalClose } = useModal();
 
+  // Track modal open state (currently unused)
+  const isModalOpen = false;
+
+  // Handles click event to open modal and trigger callbacks
   const onClick = () => {
     if (onModalClose) setOnModalClose(onModalClose);
     setModalContent(modalComponent);
