@@ -18,6 +18,7 @@ function OpenModalMenuItem({
     if (typeof onItemClick === "function") onItemClick();
   };
 
+  // Render the menu item that triggers the modal
   return (
     <li onClick={onClick}>{itemText}</li>
   );
