@@ -9,6 +9,7 @@ function ProfileButton() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [showMenu, setShowMenu] = useState(false);
+    // Get user from Redux store, fallback to default if not present
     const user = useSelector(state => state.session.user) || { username: 'User' };
     const dropdownRef = useRef(null); // Ref to detect clicks outside the dropdown menu
 
