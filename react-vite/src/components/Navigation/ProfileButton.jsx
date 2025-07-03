@@ -24,6 +24,7 @@ function ProfileButton() {
         navigate('/');
     };
 
+    // Closes the dropdown menu when clicking outside of it
     const handleClickOutside = (e) => {
         if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
             setShowMenu(false);
