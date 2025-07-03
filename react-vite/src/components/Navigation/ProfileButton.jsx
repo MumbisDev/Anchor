@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { thunkLogout } from '../../redux/session';
 
+// Renders the profile dropdown button in the navigation bar
 function ProfileButton() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
