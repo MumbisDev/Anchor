@@ -31,6 +31,7 @@ function ProfileButton() {
         }
     };
 
+    // Sets up and cleans up the event listener for outside clicks
     useEffect(() => {
         if (showMenu) {
             document.addEventListener('mousedown', handleClickOutside);
