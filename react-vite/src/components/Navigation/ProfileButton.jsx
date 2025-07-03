@@ -17,6 +17,7 @@ function ProfileButton() {
         navigate('/profile');
     };
 
+    // Handles user logout and redirects to home
     const logout = (e) => {
         e.preventDefault();
         dispatch(thunkLogout());
