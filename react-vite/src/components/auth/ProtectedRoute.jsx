@@ -12,6 +12,7 @@ const ProtectedRoute = () => {
         return <Navigate to="/" replace={true} />;
     }
 
+    // Render child routes if authenticated
     return <Outlet />;
 };
 
