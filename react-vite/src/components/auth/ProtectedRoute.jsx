@@ -1,3 +1,4 @@
+// This component restricts access to routes based on user authentication status.
 import { useSelector } from 'react-redux';
 import { Navigate, Outlet } from 'react-router-dom';
 
