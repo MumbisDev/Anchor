@@ -49,6 +49,7 @@ function SignupFormModal() {
       <form onSubmit={handleSubmit} className="signup-form">
         {/* Placeholder: Add validation feedback for each input */}
         <div className="input-group">
+          {/* Consider adding autocomplete suggestions for display name */}
           <label>Display Name</label>
           <input
             type="text"
