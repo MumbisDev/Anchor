@@ -65,6 +65,7 @@ function SignupFormModal() {
         <div className="input-group">
           {/* TODO: Add username validation logic here */}
           <label>Username</label>
+          {/* Consider debouncing username input in the future */}
           <input
             type="text"
             value={username}
