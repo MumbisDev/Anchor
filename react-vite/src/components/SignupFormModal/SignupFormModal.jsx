@@ -91,6 +91,7 @@ function SignupFormModal() {
         </div>
 
         <div className="input-group">
+          {/* TODO: Add password strength check here */}
           <label>Password</label>
           <input
             type="password"
