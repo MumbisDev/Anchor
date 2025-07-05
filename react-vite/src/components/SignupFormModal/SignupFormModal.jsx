@@ -63,6 +63,7 @@ function SignupFormModal() {
         </div>
 
         <div className="input-group">
+          {/* TODO: Add username validation logic here */}
           <label>Username</label>
           <input
             type="text"
