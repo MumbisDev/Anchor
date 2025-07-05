@@ -78,6 +78,7 @@ function SignupFormModal() {
         </div>
 
         <div className="input-group">
+          {/* TODO: Add email format check here */}
           <label>Email</label>
           <input
             type="email"
