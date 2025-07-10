@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+// Import action to fetch user statistics from Redux
 import { getUserStats } from '../../redux/stats';
 
 import './StatsPage.css';
