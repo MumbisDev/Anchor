@@ -13,6 +13,7 @@ import './StatsPage.css';
 
 function StatsPage() {
     const dispatch = useDispatch();
+    // Select the current user from Redux state
     const user = useSelector(state => state.session.user);
     // This variable holds the user's XP and level stats from Redux
     const stats = useSelector(state => state.stats.stats) || { 
