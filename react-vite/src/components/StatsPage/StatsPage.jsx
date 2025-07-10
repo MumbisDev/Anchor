@@ -27,7 +27,7 @@ function StatsPage() {
         dispatch(getUserStats());
     }, [dispatch]);
 
-    // This is a placeholder array for weekly progress data
+    // Static weekly progress data; replace with dynamic data as needed
     const weeklyProgressData = [
         { day: 'Mon', value: 30 },
         { day: 'Tue', value: 45 },
