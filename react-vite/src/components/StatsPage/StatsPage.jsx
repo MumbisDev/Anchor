@@ -45,6 +45,7 @@ function StatsPage() {
         { name: 'Reading', completion: 70 }
     ];
 
+    // Render the main statistics page UI
     return (
         <div className="stats-container">
             <div className="stats-content">
