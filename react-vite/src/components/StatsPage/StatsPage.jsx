@@ -12,6 +12,7 @@ import './StatsPage.css';
 // This component displays user statistics, weekly progress, and habit performance
 // It is part of the StatsPage feature in the Anchor app
 
+// Main component for displaying user statistics and progress
 function StatsPage() {
     const dispatch = useDispatch();
     // Select the current user from Redux state
