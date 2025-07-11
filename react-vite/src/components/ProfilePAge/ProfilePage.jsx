@@ -8,7 +8,7 @@ const ProfilePage = () => {
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user) || {};
     
-    // State for managing edit mode and form data
+    // State hooks for edit mode, form data, and error handling
     const [isEditing, setIsEditing] = useState(false);
     const [editData, setEditData] = useState({
         username: user.username || '',
