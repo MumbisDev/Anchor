@@ -29,7 +29,7 @@ const ProfilePage = () => {
         });
     };
 
-    // Updates the state with the new value from the input field
+    // Handles changes to input fields in the edit form
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setEditData(prev => ({
