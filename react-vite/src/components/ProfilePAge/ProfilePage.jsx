@@ -19,7 +19,7 @@ const ProfilePage = () => {
     });
     const [errors, setErrors] = useState({});
     
-    // Helper function to format dates into a readable string
+    // Helper function to format the user's join date for display
     const formatDate = (dateString) => {
         if (!dateString) return 'N/A';
         const date = new Date(dateString);
