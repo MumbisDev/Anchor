@@ -7,6 +7,9 @@ const ProfilePage = () => {
     // Redux hooks for dispatching actions and accessing state
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user) || {};
+
+    // Temporary version variable for ProfilePage
+    const profilePageVersion = 1;
     
     // State hooks for edit mode, form data, and error handling
     const [isEditing, setIsEditing] = useState(false);
