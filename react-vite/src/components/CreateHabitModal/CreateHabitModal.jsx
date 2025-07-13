@@ -14,6 +14,8 @@ const CreateHabitModal = () => {
     const [habitName, setHabitName] = useState('');
     const [activeDays, setActiveDays] = useState(Array(7).fill(false));
 
+    const modalTitle = "Create a new habit";
+
     // Toggles the selection state for a specific day button
     const handleDayToggle = (index) => {
         setActiveDays((prevActiveDays) => {
@@ -49,7 +51,7 @@ const CreateHabitModal = () => {
 
     return (
         <div className="create-habit-modal">
-            <h2>Create a new habit</h2>
+            <h2>{modalTitle}</h2>
             
             <form onSubmit={handleSubmit}>
                 <div className="input-group">
