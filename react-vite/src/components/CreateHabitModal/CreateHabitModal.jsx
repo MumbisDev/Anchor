@@ -40,6 +40,9 @@ const CreateHabitModal = () => {
             active_days: activeDaysString
         };
 
+        // Logging habitData for inspection before dispatch
+        // console.log('Habit data to be dispatched:', habitData);
+
         try {
             console.log('Submitting habit data:', habitData); // Debugging log
             await dispatch(createHabit(habitData));
