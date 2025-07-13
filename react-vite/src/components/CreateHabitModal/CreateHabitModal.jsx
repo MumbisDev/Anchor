@@ -14,6 +14,7 @@ const CreateHabitModal = () => {
     const [habitName, setHabitName] = useState('');
     const [activeDays, setActiveDays] = useState(Array(7).fill(false));
 
+    // Toggles the selection state for a specific day button
     const handleDayToggle = (index) => {
         setActiveDays((prevActiveDays) => {
             const newActiveDays = [...prevActiveDays];
