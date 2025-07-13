@@ -4,6 +4,8 @@ import { useModal } from '../../context/Modal';
 import { createHabit } from '../../redux/habits';
 import './CreateHabitModal.css';
 
+
+// Array representing the days of the week for habit selection
 const DAYS = ['M', 'T', 'W', 'Th', 'F', 'S', 'Su'];
 
 const CreateHabitModal = () => {
