@@ -23,6 +23,7 @@ const CreateHabitModal = () => {
         });
     };
 
+    // Handles form submission for creating a new habit
     const handleSubmit = async (e) => {
         e.preventDefault();
         
