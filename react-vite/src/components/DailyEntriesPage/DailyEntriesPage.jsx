@@ -1,3 +1,4 @@
+// DailyEntriesPage component displays and manages daily user entries.
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useModal } from '../../context/Modal';
