@@ -23,6 +23,9 @@ const DailyEntriesPage = () => {
     // Track number of entries for display/debug
     const entryCount = entries.length;
 
+    // Example: log entry count on every render (for development)
+    // console.log('Entry count:', entryCount);
+
     // useEffect to fetch user entries on mount
     useEffect(() => {
         // Fetch user entries when the component mounts
