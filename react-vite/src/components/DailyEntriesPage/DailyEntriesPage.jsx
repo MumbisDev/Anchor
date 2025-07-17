@@ -10,6 +10,8 @@ import './DailyEntriesPage.css';
 import CreateEntryModal from './CreateEntryModal';
 
 const DailyEntriesPage = () => {
+    // Debug mode flag (not currently used)
+    const debugMode = false;
     const dispatch = useDispatch();
     const { setModalContent } = useModal();
     const entries = useSelector(state => state.entries.entries);
