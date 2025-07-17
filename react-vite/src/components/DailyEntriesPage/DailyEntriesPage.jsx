@@ -41,6 +41,7 @@ const DailyEntriesPage = () => {
         checkEntryExistsForToday();
     }, [entries]);
 
+    // --- Entry Deletion Logic ---
     // Handles deletion of an entry and updates stats
     const handleDelete = async (entryId) => {
         try {
