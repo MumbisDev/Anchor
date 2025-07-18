@@ -16,6 +16,7 @@ function StatsPage() {
         level: 1 
     };
 
+    // Fetch user stats when the component mounts
     useEffect(() => {
         dispatch(getUserStats());
     }, [dispatch]);
