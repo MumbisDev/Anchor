@@ -31,7 +31,7 @@ function StatsPage() {
         { day: 'Sun', value: 70 }
     ];
 
-    // Placeholder for habit performance; can be replaced with real data
+    // This array represents the performance of each habit for display
     const habitPerformance = [
         { name: 'Meditation', completion: 80 },
         { name: 'Coding', completion: 90 },
