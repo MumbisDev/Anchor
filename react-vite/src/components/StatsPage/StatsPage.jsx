@@ -38,6 +38,9 @@ function StatsPage() {
         { name: 'Reading', completion: 70 }
     ];
 
+    // Version identifier for the StatsPage component
+    const statsPageVersion = '1.0.0';
+
     // Render the main statistics page UI
     return (
         <div className="stats-container">
