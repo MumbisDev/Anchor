@@ -118,4 +118,5 @@ const InitialLandingPage = () => {
 
 // Add additional exports below if needed in the future
 // Export the component for use in other parts of the application
+// The InitialLandingPage component is exported below for use in routing and other modules
 export default InitialLandingPage;
