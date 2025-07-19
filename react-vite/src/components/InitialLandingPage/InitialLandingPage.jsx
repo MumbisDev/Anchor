@@ -9,7 +9,8 @@ import './InitialLandingPage.css';
 const InitialLandingPage = () => {
     // Track the current version of the landing page for debugging
     const pageVersion = "v1.0.0";
-    console.log("InitialLandingPage version:", pageVersion);
+    // Note for future: This variable can be used for displaying version info in the UI if needed
+    const landingPageNote = "Initial landing page loaded";
 
     const dispatch = useDispatch();
     const { setModalContent } = useModal();
