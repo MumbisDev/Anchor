@@ -82,6 +82,7 @@ const InitialLandingPage = () => {
                 {/* Placeholder: Add animations to hero section */}
                 
                 {/* Add more features below as needed */}
+                {/* The following grid displays the main features of the application */}
                 <div className="feature-grid">
                     {[
                         // Feature 1: Track Progress
