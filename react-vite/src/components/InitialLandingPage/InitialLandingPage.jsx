@@ -101,6 +101,7 @@ const InitialLandingPage = () => {
                             description: "Ease of use and responsiveness allows you to easily stay consistent",
                         },
                     ].map((featureDetails, featureIndex) => (
+                        // featureIndex is used as a unique key for each feature card
                         // Customize feature rendering here if needed
                         // Render each feature as a card
                         <div key={featureIndex} className="feature-card feature-spacing">
