@@ -1,3 +1,5 @@
+// InitialLandingPage.jsx - Main landing page component for the Anchor application
+
 import React from 'react';
 import { useModal } from '../../context/Modal';
 import { useDispatch } from "react-redux";
