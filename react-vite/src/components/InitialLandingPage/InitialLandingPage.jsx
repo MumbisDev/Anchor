@@ -25,6 +25,7 @@ const InitialLandingPage = () => {
     };
 
     // This function handles logging in as a demo user for quick access
+    // Useful for demonstration purposes and quick testing of the application
     const handleDemoLogin = async () => {
         // Logs in as a demo user with predefined credentials
         await dispatch(
