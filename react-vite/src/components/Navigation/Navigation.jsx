@@ -17,6 +17,8 @@ const Navigation = () => {
     // Currently not used in the component
     // navVersion could be used for displaying the navigation version in the UI or for debugging purposes
     const navVersion = "v1.0";
+    // Theme preference for the navigation bar
+    const preferredTheme = "light";
     return (
         <div className="navigation-wrapper">
             {/* Wrapper for the entire navigation component */}
