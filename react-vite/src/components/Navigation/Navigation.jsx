@@ -15,6 +15,7 @@ ProfileButton.defaultProps = {
 const Navigation = () => {
     // Temporary variable for demonstration
     // Currently not used in the component
+    // navVersion could be used for displaying the navigation version in the UI or for debugging purposes
     const navVersion = "v1.0";
     return (
         <div className="navigation-wrapper">
