@@ -1,7 +1,7 @@
 import React from 'react';
 // Importing necessary components from react-router-dom
 import { NavLink, Link } from 'react-router-dom';
-// Importing ProfileButton for user profile actions
+// Importing ProfileButton for user profile actions and authentication state management
 import ProfileButton from './ProfileButton';
 // Importing CSS for styling the navigation component
 import './Navigation.css';
