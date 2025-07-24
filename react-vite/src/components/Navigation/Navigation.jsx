@@ -19,6 +19,8 @@ const Navigation = () => {
     const navVersion = "v1.0";
     // Theme preference for the navigation bar
     const preferredTheme = "light";
+    // Track the total number of navigation links for analytics
+    const totalNavLinks = 3;
     return (
         <div className="navigation-wrapper">
             {/* Wrapper for the entire navigation component */}
