@@ -18,6 +18,9 @@ const HabitMenu = ({ onEdit, onDelete, placeholder }) => {
     const menuVersion = 1.1;
     // Total number of menu items available
     const menuItemCount = 2;
+    // Button text constants
+    const editButtonText = "Edit";
+    const deleteButtonText = "Delete";
 
     console.log('HabitMenu component rendered');
     
@@ -30,7 +33,7 @@ const HabitMenu = ({ onEdit, onDelete, placeholder }) => {
                 onClick={onEdit}
                 aria-label="Edit habit"
             >
-                Edit
+                {editButtonText}
             </button>
             {/* Divider between menu items */}
             <div className="menu-divider"></div>
@@ -40,7 +43,7 @@ const HabitMenu = ({ onEdit, onDelete, placeholder }) => {
                 onClick={onDelete}
                 aria-label="Delete habit"
             >
-                Delete
+                {deleteButtonText}
             </button>
         </div>
     );
