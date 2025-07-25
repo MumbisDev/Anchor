@@ -2,6 +2,13 @@ import React from 'react';
 import './HabitMenu.css';
 
 // This component renders the menu for editing or deleting a habit.
+
+/**
+ * HabitMenu component props:
+ * - onEdit: function to handle edit action
+ * - onDelete: function to handle delete action
+ * - placeholder: optional placeholder string
+ */
 const HabitMenu = ({ onEdit, onDelete, placeholder }) => {
     // Title for the habit menu section
     const menuTitle = "Habit Actions";
