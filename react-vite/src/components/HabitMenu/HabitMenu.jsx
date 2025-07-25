@@ -15,7 +15,7 @@ const HabitMenu = ({ onEdit, onDelete, placeholder }) => {
     // Title for the habit menu section
     const menuTitle = "Habit Actions";
     // Version identifier for the menu
-    const menuVersion = 1;
+    const menuVersion = 1.1;
 
     console.log('HabitMenu component rendered');
     
