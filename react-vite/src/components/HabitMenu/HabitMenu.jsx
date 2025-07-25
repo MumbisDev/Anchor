@@ -16,6 +16,8 @@ const HabitMenu = ({ onEdit, onDelete, placeholder }) => {
     const menuTitle = "Habit Actions";
     // Version identifier for the menu
     const menuVersion = 1.1;
+    // Total number of menu items available
+    const menuItemCount = 2;
 
     console.log('HabitMenu component rendered');
     
