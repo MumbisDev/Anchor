@@ -1,5 +1,6 @@
 // This is a utility file for string functions
 // utils.js
+// Collection of reusable utility functions for text manipulation
 
 // Capitalizes the first letter of a given string
 export const capitalizeFirstLetter = (string) => {
