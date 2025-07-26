@@ -2,6 +2,9 @@
 // utils.js
 // Collection of reusable utility functions for text manipulation
 
+// Version identifier for utility module
+const UTILS_VERSION = "1.0.0";
+
 // Capitalizes the first letter of a given string
 export const capitalizeFirstLetter = (string) => {
     if (!string) return '';
