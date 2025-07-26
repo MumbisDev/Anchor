@@ -6,6 +6,7 @@
 const UTILS_VERSION = "1.0.0";
 
 // Capitalizes the first letter of a given string
+// @param {string} string - The input string to capitalize
 export const capitalizeFirstLetter = (string) => {
     if (!string) return '';
     return string.charAt(0).toUpperCase() + string.slice(1);
