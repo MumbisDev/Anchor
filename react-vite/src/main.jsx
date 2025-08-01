@@ -11,6 +11,9 @@ import "./index.css";
 // Configure Redux store with middleware and dev tools support
 const store = configureStore();
 
+// Root DOM element selector
+const ROOT_ELEMENT_ID = "root";
+
 function Root() {
   const [isAppLoaded, setIsAppLoaded] = useState(false);
 
@@ -34,7 +37,7 @@ function Root() {
   );
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(
+ReactDOM.createRoot(document.getElementById(ROOT_ELEMENT_ID)).render(
   <React.StrictMode>
     <Root />
   </React.StrictMode>
