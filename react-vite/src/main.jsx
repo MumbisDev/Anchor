@@ -15,6 +15,7 @@ function Root() {
   const [isAppLoaded, setIsAppLoaded] = useState(false);
 
   useEffect(() => {
+    // Initialize user authentication state on app startup
     store.dispatch(sessionActions.thunkAuthenticate())
       .then(() => setIsAppLoaded(true));
   }, []);
