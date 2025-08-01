@@ -16,6 +16,9 @@ function StatsPage() {
         level: 1 
     };
 
+    // Maximum progress value for weekly graph calculations
+    const maxProgressValue = 100;
+
     // Fetch user stats when the component mounts
     useEffect(() => {
         dispatch(getUserStats());
