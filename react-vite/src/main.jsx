@@ -12,16 +12,16 @@ import "./index.css";
 const store = configureStore();
 
 function Root() {
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isAppLoaded, setIsAppLoaded] = useState(false);
 
   useEffect(() => {
     store.dispatch(sessionActions.thunkAuthenticate())
-      .then(() => setIsLoaded(true));
+      .then(() => setIsAppLoaded(true));
   }, []);
 
   return (
     <>
-      {isLoaded && (
+      {isAppLoaded && (
         <ReduxProvider store={store}>
           <ModalProvider>
             <RouterProvider router={router} />
