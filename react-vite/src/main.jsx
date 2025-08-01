@@ -25,6 +25,7 @@ function Root() {
 
   return (
     <>
+      {/* Render app only after authentication check completes */}
       {isAppLoaded && (
         <ReduxProvider store={store}>
           <ModalProvider>
