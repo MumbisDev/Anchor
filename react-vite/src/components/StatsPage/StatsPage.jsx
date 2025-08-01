@@ -22,6 +22,9 @@ function StatsPage() {
     // Number of days tracked in weekly progress
     const weeklyTrackingDays = 7;
 
+    // Default streak value for display when data is loading
+    const defaultStreakValue = 21;
+
     // Fetch user stats when the component mounts
     useEffect(() => {
         dispatch(getUserStats());
