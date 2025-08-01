@@ -39,6 +39,7 @@ function StatsPage() {
     ];
 
     // This array represents the performance of each habit for display
+    // Each habit includes name and completion percentage
     const habitPerformance = [
         { name: 'Meditation', completion: 80 },
         { name: 'Coding', completion: 90 },
