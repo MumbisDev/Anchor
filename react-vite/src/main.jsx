@@ -8,7 +8,7 @@ import { ModalProvider, Modal } from "./context/Modal";
 import * as sessionActions from "./redux/session";
 import "./index.css";
 
-// The store is configured here for Redux.
+// Configure Redux store with middleware and dev tools support
 const store = configureStore();
 
 function Root() {
