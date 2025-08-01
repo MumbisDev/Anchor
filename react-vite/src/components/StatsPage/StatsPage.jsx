@@ -19,6 +19,9 @@ function StatsPage() {
     // Maximum progress value for weekly graph calculations
     const maxProgressValue = 100;
 
+    // Number of days tracked in weekly progress
+    const weeklyTrackingDays = 7;
+
     // Fetch user stats when the component mounts
     useEffect(() => {
         dispatch(getUserStats());
