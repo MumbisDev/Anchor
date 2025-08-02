@@ -18,14 +18,14 @@ const AVATAR_SIZE = 60;
  * Integrates with Redux for state management
  */
 const ProfilePage = () => {
-    // Redux hooks for dispatching actions and accessing state
+    // ===== REDUX STATE MANAGEMENT =====
     const dispatch = useDispatch();
     const currentUser = useSelector(state => state.session.user) || {};
 
     // Component version for tracking updates
     const componentVersion = 1;
     
-    // State hooks for edit mode, form data, and error handling
+    // ===== LOCAL STATE MANAGEMENT =====
     const [isEditing, setIsEditing] = useState(false);
     const [formData, setFormData] = useState({
         username: currentUser.username || '',
@@ -33,6 +33,7 @@ const ProfilePage = () => {
     });
     const [validationErrors, setValidationErrors] = useState({});
     
+    // ===== UTILITY HELPER FUNCTIONS =====
     // Helper function to format the user's join date for display
     const formatDate = (dateString) => {
         if (!dateString) return 'N/A';
@@ -56,6 +57,7 @@ const ProfilePage = () => {
                formData.email !== (currentUser.email || '');
     };
 
+    // ===== EVENT HANDLERS =====
     // Handles changes to input fields in the edit form
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -92,6 +94,7 @@ const ProfilePage = () => {
         alert("Feature coming soon");
     };
 
+    // ===== COMPONENT RENDER =====
     return (
         <div className="profile-container">
             <main className="main-content">
