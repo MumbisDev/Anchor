@@ -3,6 +3,15 @@ import { useSelector, useDispatch } from 'react-redux';
 import { thunkUpdateUser } from '../../redux/session';
 import './ProfilePage.css';
 
+// Configuration constants
+const DEFAULT_USER_DISPLAY = 'User';
+const DEFAULT_USERNAME_FALLBACK = 'user';
+const DATE_FORMAT_OPTIONS = {
+    month: 'long',
+    year: 'numeric'
+};
+const AVATAR_SIZE = 60;
+
 /**
  * ProfilePage Component
  * Displays user profile information with edit capabilities
@@ -28,10 +37,7 @@ const ProfilePage = () => {
     const formatDate = (dateString) => {
         if (!dateString) return 'N/A';
         const date = new Date(dateString);
-        return date.toLocaleDateString('en-US', {
-            month: 'long',
-            year: 'numeric'
-        });
+        return date.toLocaleDateString('en-US', DATE_FORMAT_OPTIONS);
     };
 
     // Handles changes to input fields in the edit form
@@ -80,8 +86,8 @@ const ProfilePage = () => {
                         <div className="profile-avatar">
                             <div className="avatar-circle">
                                 <svg 
-                                    width="60" 
-                                    height="60" 
+                                    width={AVATAR_SIZE} 
+                                    height={AVATAR_SIZE} 
                                     viewBox="0 0 24 24" 
                                     fill="none" 
                                     stroke="#e0e0e0" 
@@ -95,8 +101,8 @@ const ProfilePage = () => {
                             </div>
                         </div>
                         <div className="profile-names">
-                            <h1>{currentUser.username || 'User'}</h1>
-                            <span className="username">@{(currentUser.username || 'user').toLowerCase()}</span>
+                            <h1>{currentUser.username || DEFAULT_USER_DISPLAY}</h1>
+                            <span className="username">@{(currentUser.username || DEFAULT_USERNAME_FALLBACK).toLowerCase()}</span>
                         </div>
                     </div>
                     {/* Edit and Cancel buttons */}
