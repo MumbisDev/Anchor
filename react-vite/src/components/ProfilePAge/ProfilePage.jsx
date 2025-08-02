@@ -40,6 +40,22 @@ const ProfilePage = () => {
         return date.toLocaleDateString('en-US', DATE_FORMAT_OPTIONS);
     };
 
+    // Helper function to get display username with fallback
+    const getDisplayUsername = (username) => {
+        return username || DEFAULT_USER_DISPLAY;
+    };
+
+    // Helper function to get username handle with fallback
+    const getUsernameHandle = (username) => {
+        return `@${(username || DEFAULT_USERNAME_FALLBACK).toLowerCase()}`;
+    };
+
+    // Helper function to check if form has unsaved changes
+    const hasUnsavedChanges = () => {
+        return formData.username !== (currentUser.username || '') || 
+               formData.email !== (currentUser.email || '');
+    };
+
     // Handles changes to input fields in the edit form
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -101,8 +117,8 @@ const ProfilePage = () => {
                             </div>
                         </div>
                         <div className="profile-names">
-                            <h1>{currentUser.username || DEFAULT_USER_DISPLAY}</h1>
-                            <span className="username">@{(currentUser.username || DEFAULT_USERNAME_FALLBACK).toLowerCase()}</span>
+                            <h1>{getDisplayUsername(currentUser.username)}</h1>
+                            <span className="username">{getUsernameHandle(currentUser.username)}</span>
                         </div>
                     </div>
                     {/* Edit and Cancel buttons */}
