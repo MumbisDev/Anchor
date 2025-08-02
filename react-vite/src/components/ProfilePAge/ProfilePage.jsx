@@ -3,12 +3,17 @@ import { useSelector, useDispatch } from 'react-redux';
 import { thunkUpdateUser } from '../../redux/session';
 import './ProfilePage.css';
 
+/**
+ * ProfilePage Component
+ * Displays user profile information with edit capabilities
+ * Integrates with Redux for state management
+ */
 const ProfilePage = () => {
     // Redux hooks for dispatching actions and accessing state
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user) || {};
 
-    // Temporary version variable for ProfilePage
+    // Component version for tracking updates
     const profilePageVersion = 1;
     
     // State hooks for edit mode, form data, and error handling
