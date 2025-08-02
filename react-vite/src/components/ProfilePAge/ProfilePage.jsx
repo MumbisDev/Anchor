@@ -11,18 +11,18 @@ import './ProfilePage.css';
 const ProfilePage = () => {
     // Redux hooks for dispatching actions and accessing state
     const dispatch = useDispatch();
-    const user = useSelector(state => state.session.user) || {};
+    const currentUser = useSelector(state => state.session.user) || {};
 
     // Component version for tracking updates
-    const profilePageVersion = 1;
+    const componentVersion = 1;
     
     // State hooks for edit mode, form data, and error handling
     const [isEditing, setIsEditing] = useState(false);
-    const [editData, setEditData] = useState({
-        username: user.username || '',
-        email: user.email || ''
+    const [formData, setFormData] = useState({
+        username: currentUser.username || '',
+        email: currentUser.email || ''
     });
-    const [errors, setErrors] = useState({});
+    const [validationErrors, setValidationErrors] = useState({});
     
     // Helper function to format the user's join date for display
     const formatDate = (dateString) => {
@@ -37,7 +37,7 @@ const ProfilePage = () => {
     // Handles changes to input fields in the edit form
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        setEditData(prev => ({
+        setFormData(prev => ({
             ...prev,
             [name]: value
         }));
@@ -46,23 +46,23 @@ const ProfilePage = () => {
     // Handles form submission for saving profile changes
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await dispatch(thunkUpdateUser(user.id, editData));
+        const response = await dispatch(thunkUpdateUser(currentUser.id, formData));
         if (response === null) {
             setIsEditing(false);
-            setErrors({});
+            setValidationErrors({});
         } else {
-            setErrors(response.errors || {});
+            setValidationErrors(response.errors || {});
         }
     };
 
     // Resets the form and exits edit mode without saving changes
     const handleCancel = () => {
         setIsEditing(false);
-        setEditData({
-            username: user.username || '',
-            email: user.email || ''
+        setFormData({
+            username: currentUser.username || '',
+            email: currentUser.email || ''
         });
-        setErrors({});
+        setValidationErrors({});
     };
 
     // Placeholder for future feature interactions
@@ -95,8 +95,8 @@ const ProfilePage = () => {
                             </div>
                         </div>
                         <div className="profile-names">
-                            <h1>{user.username || 'User'}</h1>
-                            <span className="username">@{(user.username || 'user').toLowerCase()}</span>
+                            <h1>{currentUser.username || 'User'}</h1>
+                            <span className="username">@{(currentUser.username || 'user').toLowerCase()}</span>
                         </div>
                     </div>
                     {/* Edit and Cancel buttons */}
@@ -126,14 +126,14 @@ const ProfilePage = () => {
                                     <input
                                         type="email"
                                         name="email"
-                                        value={editData.email}
+                                        value={formData.email}
                                         onChange={handleInputChange}
                                         className="setting-input"
                                     />
-                                    {errors.email && <span className="error-message">{errors.email}</span>}
+                                    {validationErrors.email && <span className="error-message">{validationErrors.email}</span>}
                                 </div>
                             ) : (
-                                <span className="setting-value">{user.email || 'N/A'}</span>
+                                <span className="setting-value">{currentUser.email || 'N/A'}</span>
                             )}
                         </div>
                         <div className="setting-item">
@@ -143,19 +143,19 @@ const ProfilePage = () => {
                                     <input
                                         type="text"
                                         name="username"
-                                        value={editData.username}
+                                        value={formData.username}
                                         onChange={handleInputChange}
                                         className="setting-input"
                                     />
-                                    {errors.username && <span className="error-message">{errors.username}</span>}
+                                    {validationErrors.username && <span className="error-message">{validationErrors.username}</span>}
                                 </div>
                             ) : (
-                                <span className="setting-value">{user.username || 'N/A'}</span>
+                                <span className="setting-value">{currentUser.username || 'N/A'}</span>
                             )}
                         </div>
                         <div className="setting-item">
                             <span className="setting-label">Member Since</span>
-                            <span className="setting-value">{formatDate(user.created_at)}</span>
+                            <span className="setting-value">{formatDate(currentUser.created_at)}</span>
                         </div>
                     </div>
                 </div>
