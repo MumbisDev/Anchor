@@ -36,7 +36,7 @@ const CreateEntryModal = () => {
         // Validate entry content
         // Ensure the entry text is not empty before submitting
         if (!sanitizedEntryText) { // Updated variable name
-            setErrors({ entry: "Entry text is required" });
+            setErrors({ entry: "Please enter your daily accomplishments" });
             setIsSubmitting(false); // Re-enable button
             return;
         }
