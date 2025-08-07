@@ -24,7 +24,7 @@ const CreateEntryModal = () => {
         e.preventDefault();
 
         // Store trimmed entry text for validation
-        const trimmedEntry = entryText.trim();
+        const sanitizedEntryText = entryText.trim();
 
         if (isSubmitting) return; // Prevent multiple submissions
 
@@ -35,7 +35,7 @@ const CreateEntryModal = () => {
 
         // Validate entry content
         // Ensure the entry text is not empty before submitting
-        if (!trimmedEntry) { // Updated variable name
+        if (!sanitizedEntryText) { // Updated variable name
             setErrors({ entry: "Entry text is required" });
             setIsSubmitting(false); // Re-enable button
             return;
