@@ -31,6 +31,7 @@ const CreateEntryModal = () => {
         setIsSubmitting(true); // Disable button
 
         // TODO: Add more robust validation for entryText (e.g., character limits, profanity filter)
+        // TODO: Validate image URL format and accessibility before submission
 
         // Validate entry content
         // Ensure the entry text is not empty before submitting
