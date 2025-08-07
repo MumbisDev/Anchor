@@ -45,7 +45,7 @@ const CreateEntryModal = () => {
         const entryData = {
             improvement_note: entryText, // Updated variable name
             image_url: imageURL || null, // Updated variable name
-            compound_meter_increment: 1.0 // Increment value for compound meter
+            compound_meter_increment: 1.0 // Standard increment per entry submission
         };
 
         try {
