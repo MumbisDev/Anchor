@@ -14,6 +14,7 @@ function SignupFormModal() {
   const [displayName, setDisplayName] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
   const { closeModal, setModalContent } = useModal();
 
@@ -102,6 +103,19 @@ function SignupFormModal() {
           />
           {errors.password && (
             <p className="error-message">{errors.password}</p>
+          )}
+        </div>
+
+        <div className="input-group">
+          <label>Confirm Password</label>
+          <input
+            type="password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            required
+          />
+          {errors.confirmPassword && (
+            <p className="error-message">{errors.confirmPassword}</p>
           )}
         </div>
 
