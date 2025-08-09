@@ -15,7 +15,9 @@ function SignupFormModal() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [errors, setErrors] = useState({});
+  const [errors, setErrors
+    
+  ] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const { closeModal, setModalContent } = useModal();
 
@@ -66,21 +68,23 @@ function SignupFormModal() {
 
   return (
     <div className="signup-modal">
-      {/* Placeholder: Consider adding a tooltip for the form title */}
-      <h1>Create account</h1>
-      <form onSubmit={handleSubmit} className="signup-form">
-        {/* Placeholder: Add validation feedback for each input */}
+      {/* Enhanced accessibility with semantic form structure */}
+      <h1 id="signup-form-title">Create account</h1>
+      <form onSubmit={handleSubmit} className="signup-form" aria-labelledby="signup-form-title">
+        {/* Form fields with enhanced accessibility attributes */}
         <div className="input-group">
-          <label>Display Name</label>
+          <label htmlFor="display-name-input">Display Name</label>
           <input
+            id="display-name-input"
             type="text"
             value={displayName}
             onChange={(e) => setDisplayName(e.target.value)}
             required
             placeholder="John Doe"
+            aria-describedby={errors.display_name ? "display-name-error" : undefined}
           />
           {errors.display_name && (
-            <p className="error-message">{errors.display_name}</p>
+            <p id="display-name-error" className="error-message">{errors.display_name}</p>
           )}
         </div>
 
