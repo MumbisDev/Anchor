@@ -16,10 +16,12 @@ function SignupFormModal() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
   const { closeModal, setModalContent } = useModal();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     // Placeholder: Add logging for debugging server responses
     const serverResponse = await dispatch(
       thunkSignup({
@@ -35,6 +37,7 @@ function SignupFormModal() {
     } else {
       closeModal();
     }
+    setIsLoading(false);
   };
 
   const openLoginModal = (e) => {
@@ -119,8 +122,8 @@ function SignupFormModal() {
           )}
         </div>
 
-        <button type="submit" className="signup-button">
-          Create Account
+        <button type="submit" className="signup-button" disabled={isLoading}>
+          {isLoading ? "Creating Account..." : "Create Account"}
         </button>
 
         <div className="divider">or</div>
