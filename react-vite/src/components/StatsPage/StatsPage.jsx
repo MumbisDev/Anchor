@@ -30,7 +30,12 @@ function StatsPage() {
     // Default streak display value during data loading state
     const defaultStreakDisplayValue = 21;
 
-    // Fetch user stats when the component mounts
+    // Performance tracking thresholds for habit completion analysis
+    const excellentPerformanceThreshold = 85;
+    const goodPerformanceThreshold = 70;
+    const averagePerformanceThreshold = 50;
+
+    // Initialize component data by fetching user statistics from API
     useEffect(() => {
         dispatch(getUserStats());
     }, [dispatch]);
