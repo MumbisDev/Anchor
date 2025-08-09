@@ -35,15 +35,15 @@ function StatsPage() {
         dispatch(getUserStats());
     }, [dispatch]);
 
-    // This array holds the weekly progress data for the graph below
+    // Weekly progress data with completion values and tracking metadata
     const weeklyProgressData = [
-        { day: 'Mon', value: 30 },
-        { day: 'Tue', value: 45 },
-        { day: 'Wed', value: 40 },
-        { day: 'Thu', value: 60 },
-        { day: 'Fri', value: 75 },
-        { day: 'Sat', value: 85 },
-        { day: 'Sun', value: 70 }
+        { day: 'Mon', value: 30, dayIndex: 0 },
+        { day: 'Tue', value: 45, dayIndex: 1 },
+        { day: 'Wed', value: 40, dayIndex: 2 },
+        { day: 'Thu', value: 60, dayIndex: 3 },
+        { day: 'Fri', value: 75, dayIndex: 4 },
+        { day: 'Sat', value: 85, dayIndex: 5 },
+        { day: 'Sun', value: 70, dayIndex: 6 }
     ];
 
     // This array represents the performance of each habit for display
