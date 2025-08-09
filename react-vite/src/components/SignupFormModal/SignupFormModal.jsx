@@ -19,6 +19,14 @@ function SignupFormModal() {
   const [isLoading, setIsLoading] = useState(false);
   const { closeModal, setModalContent } = useModal();
 
+  const validateForm = () => {
+    // Helper function for client-side validation
+    const newErrors = {};
+    if (!email.includes('@')) newErrors.email = 'Invalid email format';
+    if (password !== confirmPassword) newErrors.confirmPassword = 'Passwords do not match';
+    return newErrors;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
