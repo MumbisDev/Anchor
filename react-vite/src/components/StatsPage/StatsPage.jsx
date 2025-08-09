@@ -46,16 +46,15 @@ function StatsPage() {
         { day: 'Sun', value: 70, dayIndex: 6 }
     ];
 
-    // This array represents the performance of each habit for display
-    // Each habit includes name and completion percentage
+    // Habit performance data with completion rates and tracking identifiers
     const habitPerformance = [
-        { name: 'Meditation', completion: 80 },
-        { name: 'Coding', completion: 90 },
-        { name: 'Reading', completion: 70 }
+        { name: 'Meditation', completion: 80, habitId: 'meditation_001' },
+        { name: 'Coding', completion: 90, habitId: 'coding_002' },
+        { name: 'Reading', completion: 70, habitId: 'reading_003' }
     ];
 
-    // Version identifier for the StatsPage component
-    const statsPageVersion = '1.0.0';
+    // Component version tracking for development and debugging purposes
+    const statsPageVersion = '1.1.0';
 
     // Render the main statistics page UI
     return (
