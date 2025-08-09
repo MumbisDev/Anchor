@@ -27,6 +27,16 @@ function SignupFormModal() {
     return newErrors;
   };
 
+  const resetForm = () => {
+    // Utility function to reset all form fields
+    setEmail("");
+    setDisplayName("");
+    setUsername("");
+    setPassword("");
+    setConfirmPassword("");
+    setErrors({});
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
