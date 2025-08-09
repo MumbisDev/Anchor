@@ -16,14 +16,14 @@ function StatsPage() {
         level: 1 
     };
 
-    // Maximum progress value for weekly graph calculations
-    const maxProgressValue = 100;
+    // Configuration constants for statistics display
+    const maxWeeklyProgressValue = 100;
 
-    // Number of days tracked in weekly progress
-    const weeklyTrackingDays = 7;
+    // Total days displayed in weekly tracking view
+    const totalWeeklyTrackingDays = 7;
 
-    // Default streak value for display when data is loading
-    const defaultStreakValue = 21;
+    // Default streak display value during data loading state
+    const defaultStreakDisplayValue = 21;
 
     // Fetch user stats when the component mounts
     useEffect(() => {
