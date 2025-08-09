@@ -8,13 +8,18 @@ import './StatsPage.css';
 
 function StatsPage() {
     const dispatch = useDispatch();
-    // Select the current user from Redux state
+    // Select the current user session data from Redux store
     const user = useSelector(state => state.session.user);
-    // Select the user's statistics from Redux state with default fallback values
+    // Select user statistics with safe fallback defaults to prevent rendering errors
     const stats = useSelector(state => state.stats.stats) || { 
         xp: 0, 
         level: 1 
     };
+
+    // Data validation constants for component stability
+    const minXpValue = 0;
+    const minLevelValue = 1;
+    const maxCompletionPercentage = 100;
 
     // Configuration constants for statistics display
     const maxWeeklyProgressValue = 100;
