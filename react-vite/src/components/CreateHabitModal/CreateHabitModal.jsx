@@ -5,7 +5,7 @@ import { createHabit } from '../../redux/habits';
 import './CreateHabitModal.css';
 
 
-// Array representing the days of the week for habit selection
+// Days of the week used for toggling habit activity (Monday to Sunday)
 const DAYS = ['M', 'T', 'W', 'Th', 'F', 'S', 'Su'];
 
 const CreateHabitModal = () => {
@@ -14,6 +14,7 @@ const CreateHabitModal = () => {
     const [habitName, setHabitName] = useState('');
     const [activeDays, setActiveDays] = useState(Array(7).fill(false));
 
+    // Title displayed at the top of the modal
     const modalTitle = "Create a new habit";
 
     // Toggles the selection state for a specific day button
