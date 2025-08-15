@@ -54,6 +54,7 @@ const CreateHabitModal = () => {
         }
     };
 
+    // Render the modal UI for creating a new habit
     return (
         <div className="create-habit-modal">
             <h2>{modalTitle}</h2>
