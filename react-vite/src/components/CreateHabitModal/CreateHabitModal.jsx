@@ -34,6 +34,7 @@ const CreateHabitModal = () => {
         const activeDaysString = activeDays.map(day => day ? '1' : '0').join('');
         const selectedDaysCount = activeDays.filter(Boolean).length;
         
+        // Object containing all habit data to be sent to the backend
         const habitData = {
             name: habitName,
             target_frequency: selectedDaysCount || 7,
