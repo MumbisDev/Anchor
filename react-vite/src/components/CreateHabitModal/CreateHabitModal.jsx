@@ -17,7 +17,7 @@ const CreateHabitModal = () => {
     // Title displayed at the top of the modal
     const modalTitle = "Create a new habit";
 
-    // Toggles the selection state for a specific day button
+    // Function to toggle the active state of a day button
     const handleDayToggle = (index) => {
         setActiveDays((prevActiveDays) => {
             const newActiveDays = [...prevActiveDays];
