@@ -26,7 +26,7 @@ const CreateHabitModal = () => {
         });
     };
 
-    // Handles form submission for creating a new habit
+    // Function to handle form submission and create a new habit
     const handleSubmit = async (e) => {
         e.preventDefault();
         
