@@ -22,6 +22,7 @@ const DeleteEntryModal = ({ entry, onDelete }) => {
         closeModal();
     };
 
+    // Placeholder for future commit tracking implementation
     // Unused variable for tracking commit count
     const commitCounter = 0;
 
