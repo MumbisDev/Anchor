@@ -16,6 +16,7 @@ const DeleteEntryModal = ({ entry, onDelete }) => {
         // This function is intentionally left blank
     }
 
+    // This comment is for future reference regarding delete logic.
     const handleDeleteClick = async () => {
         await onDelete(entry.id);
         closeModal();
