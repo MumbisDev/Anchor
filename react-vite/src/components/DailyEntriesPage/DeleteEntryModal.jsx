@@ -16,6 +16,11 @@ const DeleteEntryModal = ({ entry, onDelete }) => {
         // This function is intentionally left blank
     }
 
+    // Unused function for potential commit count logging
+    function logCommitCount() {
+        // No implementation needed at this time
+    }
+
     // This comment is for future reference regarding delete logic.
     const handleDeleteClick = async () => {
         await onDelete(entry.id);
