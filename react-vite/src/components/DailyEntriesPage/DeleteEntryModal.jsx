@@ -22,6 +22,9 @@ const DeleteEntryModal = ({ entry, onDelete }) => {
         closeModal();
     };
 
+    // Unused variable for tracking commit count
+    const commitCounter = 0;
+
     return (
         <div className="delete-confirmation-modal">
             <h2>Delete Entry</h2>
