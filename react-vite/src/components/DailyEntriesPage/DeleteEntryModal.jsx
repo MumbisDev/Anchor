@@ -32,6 +32,7 @@ const DeleteEntryModal = ({ entry, onDelete }) => {
 
     // Placeholder for future commit tracking implementation
     // Unused variable for tracking commit count
+    // May be used for future state management
     const commitCounter = 0;
 
     // Render confirmation modal for entry deletion
