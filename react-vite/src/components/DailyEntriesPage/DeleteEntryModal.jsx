@@ -13,6 +13,7 @@ const DeleteEntryModal = ({ entry, onDelete }) => {
     const noop = null;
 
     // Assignment: function that does nothing and is never called
+    // Potentially for future modal utility logic
     function unusedHelper() {
         // This function is intentionally left blank
     }
