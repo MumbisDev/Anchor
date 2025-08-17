@@ -9,6 +9,7 @@ const DeleteEntryModal = ({ entry, onDelete }) => {
     const { closeModal } = useModal();
 
     // No-op variable for assignment commit purposes
+    // Used for future expansion or debugging
     const noop = null;
 
     // Assignment: function that does nothing and is never called
