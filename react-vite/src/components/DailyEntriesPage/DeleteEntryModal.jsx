@@ -5,6 +5,7 @@ import { useModal } from '../../context/Modal';
 
 import './DeleteEntryModal.css';
 
+// Component for handling entry deletion confirmation modal
 const DeleteEntryModal = ({ entry, onDelete }) => {
     const { closeModal } = useModal();
 
