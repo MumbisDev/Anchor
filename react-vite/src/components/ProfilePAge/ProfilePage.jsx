@@ -6,6 +6,7 @@ import { thunkUpdateUser } from '../../redux/session';
 import './ProfilePage.css';
 
 // Configuration constants
+// Default display name for users without a username
 const DEFAULT_USER_DISPLAY = 'User';
 const DEFAULT_USERNAME_FALLBACK = 'user';
 const DATE_FORMAT_OPTIONS = {
