@@ -1,3 +1,5 @@
+// File: src/components/ProfilePAge/ProfilePage.jsx
+
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { thunkUpdateUser } from '../../redux/session';
