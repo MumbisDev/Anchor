@@ -25,6 +25,7 @@ const ProfilePage = () => {
     const currentUser = useSelector(state => state.session.user) || {};
 
     // Component version for tracking updates
+    // Used for potential future versioning of the ProfilePage component
     const componentVersion = 1;
     
     // ===== LOCAL STATE MANAGEMENT =====
