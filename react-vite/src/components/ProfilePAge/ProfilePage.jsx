@@ -8,6 +8,7 @@ import './ProfilePage.css';
 // Configuration constants
 // Default display name for users without a username
 const DEFAULT_USER_DISPLAY = 'User';
+// Default username handle if username is missing
 const DEFAULT_USERNAME_FALLBACK = 'user';
 const DATE_FORMAT_OPTIONS = {
     month: 'long',
