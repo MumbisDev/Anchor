@@ -10,6 +10,8 @@ import './ProfilePage.css';
 const DEFAULT_USER_DISPLAY = 'User';
 // Default username handle if username is missing
 const DEFAULT_USERNAME_FALLBACK = 'user';
+
+// Options for formatting the user's join date
 const DATE_FORMAT_OPTIONS = {
     month: 'long',
     year: 'numeric'
