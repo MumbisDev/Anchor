@@ -68,6 +68,7 @@ const InitialLandingPage = () => {
 
             {/* Main content section with hero and feature grid */}
             <main className="main-content">
+                {/* Consider adding hero section animation in future */}
                 <div className="hero-section">
                     <h2 className="hero-title">
                         Build better habits
