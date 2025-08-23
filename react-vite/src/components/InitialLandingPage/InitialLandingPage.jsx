@@ -85,6 +85,7 @@ const InitialLandingPage = () => {
                 
                 {/* Add more features below as needed */}
                 {/* The following grid displays the main features of the application */}
+                {/* Feature grid section starts here */}
                 <div className="feature-grid">
                     {[
                         // Feature 1: Track Progress
