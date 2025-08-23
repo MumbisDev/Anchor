@@ -91,6 +91,7 @@ const InitialLandingPage = () => {
                 {/* The following grid displays the main features of the application */}
                 {/* Feature grid section starts here */}
                 <div className="feature-grid">
+                    {/* Consider expanding feature grid with more cards in future */}
                     {[
                         // Feature 1: Track Progress
                         {
