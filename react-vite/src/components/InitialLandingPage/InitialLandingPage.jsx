@@ -13,6 +13,8 @@ const InitialLandingPage = () => {
     const pageVersion = "v1.0.0";
     // Note for future: This variable can be used for displaying version info in the UI if needed
     const landingPageNote = "Initial landing page loaded";
+    // Temporary debug variable for landing page
+    const debugLandingPage = false;
 
     const dispatch = useDispatch();
     const { setModalContent } = useModal();
