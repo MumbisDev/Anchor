@@ -47,6 +47,7 @@ const InitialLandingPage = () => {
             <header className="landing-header">
                 <h1 className="landing-logo">Anchor</h1>
                 <div className="header-buttons">
+                    {/* Consider updating demo button styling in future */}
                     {/* TODO: Add ARIA labels for better accessibility */}
                     <button 
                         onClick={handleDemoLogin}
