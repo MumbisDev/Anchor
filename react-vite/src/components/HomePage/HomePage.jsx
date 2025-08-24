@@ -27,7 +27,7 @@ const ProgressBar = ({ value, total, text }) => {
     );
 };
 
-// CurrentDate Component
+// CurrentDate displays the current date and time
 const CurrentDate = () => {
     const [currentTime, setCurrentTime] = useState(new Date());
 
