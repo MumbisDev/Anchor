@@ -137,6 +137,7 @@ const HabitItem = ({ habit, onMenuClick, activeMenu, onComplete, isButtonDisable
     );
 };
 
+// HomePage is the main dashboard for habits and stats
 const HomePage = () => {
     const dispatch = useDispatch();
     const { setModalContent } = useModal();
