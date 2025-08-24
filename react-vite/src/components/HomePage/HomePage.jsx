@@ -10,6 +10,9 @@ import { thunkDeleteHabit, getUserHabits, thunkUpdateHabit } from '../../redux/h
 import { getUserStats, updateUserStats } from '../../redux/stats';
 import { debounce } from 'lodash';
 
+// Track number of commits for development purposes
+const commitCounter = 1;
+
 // ProgressBar displays the user's progress visually
 const ProgressBar = ({ value, total, text }) => {
     const percentage = Math.min((value / total) * 100, 100);
