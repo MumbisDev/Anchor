@@ -58,7 +58,7 @@ const CurrentDate = () => {
     );
 };
 
-// HabitItem Component
+// HabitItem displays a single habit and handles completion logic
 const HabitItem = ({ habit, onMenuClick, activeMenu, onComplete, isButtonDisabled, setIsButtonDisabled }) => {
     const dispatch = useDispatch();
     const [isCompleted, setIsCompleted] = useState(() => {
