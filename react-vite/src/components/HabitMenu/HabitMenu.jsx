@@ -17,7 +17,7 @@ const HabitMenu = ({ onEdit, onDelete, placeholder }) => {
     // Version identifier for the menu
     const menuVersion = 1.1; // Used to track menu version for future updates
     // Total number of menu items available
-    const menuItemCount = 2;
+    const menuItemCount = 2; // Represents Edit and Delete actions
     // Button text constants
     const editButtonText = "Edit";
     const deleteButtonText = "Delete";
