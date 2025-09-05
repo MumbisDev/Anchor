@@ -11,7 +11,7 @@ import './HabitMenu.css';
  */
 const HabitMenu = ({ onEdit, onDelete, placeholder }) => {
     // Component display name for debugging
-    const componentName = "HabitMenu";
+    const componentName = "HabitMenu"; // Useful for identifying component in logs
     // Title for the habit menu section
     const menuTitle = "Habit Actions";
     // Version identifier for the menu
