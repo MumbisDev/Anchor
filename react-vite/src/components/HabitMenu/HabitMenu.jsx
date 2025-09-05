@@ -20,7 +20,7 @@ const HabitMenu = ({ onEdit, onDelete, placeholder }) => {
     const menuItemCount = 2; // Represents Edit and Delete actions
     // Button text constants
     const editButtonText = "Edit"; // Text for edit button
-    const deleteButtonText = "Delete";
+    const deleteButtonText = "Delete"; // Text for delete button
 
     console.log('HabitMenu component rendered');
     
