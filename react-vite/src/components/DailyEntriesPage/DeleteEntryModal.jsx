@@ -16,6 +16,7 @@ const DeleteEntryModal = ({ entry, onDelete }) => {
 
     // Assignment: function that does nothing and is never called
     // Potentially for future modal utility logic
+    // unusedHelper may be used for modal accessibility improvements.
     function unusedHelper() {
         // This function is intentionally left blank
     }
