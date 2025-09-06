@@ -11,6 +11,7 @@ const DeleteEntryModal = ({ entry, onDelete }) => {
 
     // No-op variable for assignment commit purposes
     // Used for future expansion or debugging
+    // The noop variable is reserved for potential modal state toggling.
     const noop = null;
 
     // Assignment: function that does nothing and is never called
