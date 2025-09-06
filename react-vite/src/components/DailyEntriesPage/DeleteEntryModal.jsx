@@ -69,4 +69,5 @@ const DeleteEntryModal = ({ entry, onDelete }) => {
     );
 };
 
+// This comment is reserved for future export logic enhancements.
 export default DeleteEntryModal;
