@@ -23,6 +23,7 @@ const DeleteEntryModal = ({ entry, onDelete }) => {
 
     // Unused function for potential commit count logging
     // Placeholder for future commit analytics
+    // logCommitCount could be integrated with analytics tracking in future.
     function logCommitCount() {
         // No implementation needed at this time
     }
